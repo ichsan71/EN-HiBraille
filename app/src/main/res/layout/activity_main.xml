@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="@color/colorBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".main.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/geser_untuk_memilih_menu"
+        android:text="@string/petunjuk_halaman_utama"
         android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/white"/>
 
@@ -53,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -61,7 +62,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/main_textview_level_belajar_hijaiyah"
@@ -73,7 +75,7 @@
                             android:layout_centerHorizontal="true"/>
 
                         <TextView
-                            android:id="@+id/campusinfo_textview_faculty"
+                            android:id="@+id/main_textview_menu_belajar_hijaiyah"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/main_textview_level_belajar_hijaiyah"
@@ -82,7 +84,7 @@
                             android:gravity="center"
                             android:text="@string/belajar_braille_hijaiyah"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -92,7 +94,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -100,7 +102,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/main_textview_level_belajar_tanda_baca"
@@ -121,7 +124,7 @@
                             android:gravity="center"
                             android:text="@string/belajar_braille_tanda_baca"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </RelativeLayout>
 
                 </android.support.v7.widget.CardView>
@@ -140,7 +143,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -148,7 +151,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/main_textview_level_belajar_penggabungan"
@@ -167,9 +171,9 @@
                             android:layout_marginTop="8dp"
                             android:fontFamily="sans-serif-medium"
                             android:gravity="center"
-                            android:text="@string/belajar_penggabungan"
+                            android:text="@string/belajar_braille_penggabungan"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -179,7 +183,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -187,6 +191,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         android:layout_gravity="center">
 
                         <TextView
@@ -208,7 +213,7 @@
                             android:gravity="center"
                             android:text="@string/latihan_braille_hijaiyah"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             tools:ignore="NotSibling" />
                     </RelativeLayout>
 
@@ -228,7 +233,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -236,7 +241,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/main_textview_level_latihan_tanda_baca"
@@ -257,7 +263,7 @@
                             android:gravity="center"
                             android:text="@string/latihan_braille_tanda_baca"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -267,7 +273,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
-                    app:cardCornerRadius="3dp"
+                    app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true">
@@ -275,7 +281,8 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/main_textview_level_latihan_penggabungan"
@@ -296,7 +303,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="@string/latihan_penggabungan_braille_hijaiyah_dengan_tanda_baca"
                             android:textColor="@android:color/white"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </RelativeLayout>
 
                 </android.support.v7.widget.CardView>

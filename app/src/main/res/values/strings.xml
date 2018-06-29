@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">Belajar Braille</string>
-    <string name="latihan_penggabungan_braille_hijaiyah_dengan_tanda_baca">Latihan Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
-    <string name="menu_6">6</string>
-    <string name="latihan_braille_tanda_baca">Latihan Braille \n Tanda Baca</string>
     <string name="menu_5">5</string>
     <string name="menu_4">4</string>
-    <string name="latihan_braille_hijaiyah">Latihan Braille \n Hijaiyah</string>
     <string name="menu_3">3</string>
     <string name="menu_2">2</string>
-    <string name="belajar_braille_tanda_baca">Belajar Braille \n Tanda Baca</string>
-    <string name="belajar_penggabungan">Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
-    <string name="belajar_braille_hijaiyah">Belajar Braille \n Hijaiyah</string>
     <string name="menu_1">1</string>
-    <string name="geser_untuk_memilih_menu">Geser untuk memilih menu.</string>
+    <string name="menu_6">6</string>
+    <string name="latihan_penggabungan_braille_hijaiyah_dengan_tanda_baca">Latihan Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
+    <string name="latihan_braille_tanda_baca">Latihan Braille \n Tanda Baca</string>
+    <string name="latihan_braille_hijaiyah">Latihan Braille \n Hijaiyah</string>
+    <string name="belajar_braille_tanda_baca">Belajar Braille \n Tanda Baca</string>
+    <string name="belajar_braille_penggabungan">Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
+    <string name="belajar_braille_hijaiyah">Belajar Braille \n Hijaiyah</string>
+    <string name="petunjuk_halaman_utama">Geser untuk memilih menu.</string>
+    <string name="petunjuk_belajar_hijaiyah">Geser untuk memilih simbol hijaiyah.</string>
+    <string name="keterangan_nomor_titik_pembentuk_simbol">Keterangan nomor titik pembentuk simbol</string>
+    <string name="petunjuk_belajar_penggabungan">Geser untuk memilih simbol.</string>
+    <string name="petunjuk_belajar_tanda_baca">Geser untuk memilih simbol tanda baca.</string>
 </resources>
