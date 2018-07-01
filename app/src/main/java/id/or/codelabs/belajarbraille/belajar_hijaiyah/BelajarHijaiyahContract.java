@@ -13,10 +13,8 @@ import id.or.codelabs.belajarbraille.data.HijaiyahModel;
 public interface BelajarHijaiyahContract {
     interface View extends BaseView{
         void showHijaiyahData(List<HijaiyahModel> hijaiyahDataSet);
-        void showHijaiyahDetailView();
     }
     interface Presenter extends BasePresenter{
         void loadHijaiyahData();
-        void openHijaiyahDetail();
     }
 }

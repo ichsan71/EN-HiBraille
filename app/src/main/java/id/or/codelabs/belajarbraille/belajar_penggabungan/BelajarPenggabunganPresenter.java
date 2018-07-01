@@ -26,18 +26,24 @@ public class BelajarPenggabunganPresenter implements BelajarPenggabunganContract
 
     @Override
     public void loadPenggabunganData() {
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif,"Fathah",
-                "Titik braille nomor 2"));
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.kasroh,"Kasroh",
-                "Titik braille nomor 1, dan 5"));
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.dhomah,"Dhomah",
-                "Titik braille nomor 1, 3, dan 6"));
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.fathah_tanwin,"Fathah Tanwin",
-                "Titik braille nomor 2 dan 3"));
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.kasroh_tanwin,"Kasroh Tanwin",
-                "Titik braille nomor 3, dan 5"));
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.tasydid,"Tasydid",
-                "Titik braille nomor 6"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_fathah,"Fathah",
+                "Titik braille nomor 1 diikuti dengan titik braille nomor 2"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_fathah,"Fathah",
+                "Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 2"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_fathah,"Fathah",
+                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 2"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_kasroh,"Fathah",
+                "Titik braille nomor 1 diikuti dengan titik braille nomor 1, dan 5"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_kasroh,"Fathah",
+                "Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, dan 5"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_kasroh,"Fathah",
+                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, dan 5"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_dhomah,"Fathah",
+                "Titik braille nomor 1 diikuti dengan titik braille nomor 1, 3, dan 6"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_dhomah,"Fathah",
+                "Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, 3, dan 6"));
+        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_dhomah,"Fathah",
+                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, 3, dan 6"));
         belajarPenggabunganView.showPenggabunganData(penggabunganDataSet);
     }
 

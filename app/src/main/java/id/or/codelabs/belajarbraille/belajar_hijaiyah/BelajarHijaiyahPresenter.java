@@ -26,25 +26,28 @@ public class BelajarHijaiyahPresenter implements BelajarHijaiyahContract.Present
 
     @Override
     public void loadHijaiyahData() {
+        List<Integer> listBrailleDots = new ArrayList<>();
+        listBrailleDots.add(1);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.alif,"Alif",
-                "Titik braille nomor 1"));
+                "Titik braille nomor 1", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.ba,"Ba",
-                "Titik braille nomor 1, dan 2"));
+                "Titik braille nomor 1, dan 2", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.ta,"Ta",
-                "Titik braille nomor 2, 3, 4, dan 5"));
+                "Titik braille nomor 2, 3, 4, dan 5", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.tsa,"Tsa",
-                "Titik braille nomor 1, 4, 5, dan 6"));
+                "Titik braille nomor 1, 4, 5, dan 6", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.jim,"Jim",
-                "Titik braille nomor 2, 4, dan 5"));
+                "Titik braille nomor 2, 4, dan 5", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.ha,"Ha",
-                "Titik braille nomor 1, 5, dan 6"));
+                "Titik braille nomor 1, 5, dan 6", listBrailleDots));
         hijaiyahDataSet.add(new HijaiyahModel(R.drawable.kha,"Kha",
-                "Titik braille nomor 1, 3, 4, dan 6"));
+                "Titik braille nomor 1, 3, 4, dan 6", listBrailleDots));
         belajarHijaiyahView.showHijaiyahData(hijaiyahDataSet);
     }
 
-    @Override
-    public void openHijaiyahDetail() {
-        belajarHijaiyahView.showHijaiyahDetailView();
-    }
 }

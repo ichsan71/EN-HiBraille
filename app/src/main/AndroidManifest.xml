@@ -11,19 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.MainActivity">
+        <activity
+            android:name=".main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".belajar_hijaiyah.BelajarHijaiyahActivity" />
-        <activity android:name=".belajar_penggabungan.BelajarPenggabunganActivity" />
-        <activity android:name=".belajar_tandabaca.BelajarTandaBacaActivity" />
-        <activity android:name=".latihan_hijaiyah.LatihanHijaiyah_Activity" />
-        <activity android:name=".latihan_penggabungan.LatihanPenggabungan_Activity" />
-        <activity android:name=".latihan_tandabaca.LatihanTandaBaca_Activity"></activity>
+        <activity
+            android:name=".belajar_hijaiyah.BelajarHijaiyahActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".belajar_penggabungan.BelajarPenggabunganActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".belajar_tandabaca.BelajarTandaBacaActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".latihan_hijaiyah.LatihanHijaiyah_Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".latihan_penggabungan.LatihanPenggabungan_Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".latihan_tandabaca.LatihanTandaBaca_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".hijaiyah_detail.HijaiyahDetailActivity"
+            android:parentActivityName=".belajar_hijaiyah.BelajarHijaiyahActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

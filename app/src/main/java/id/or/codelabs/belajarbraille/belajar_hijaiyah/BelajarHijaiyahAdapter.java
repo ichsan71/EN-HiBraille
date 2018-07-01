@@ -67,7 +67,7 @@ public class BelajarHijaiyahAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         @Override
         public void onClick(View view) {
-            hijaiyahListener.onHijaiyahClick((hijaiyahDataSet.get(getAdapterPosition()).getNameHijaiyah()));
+            hijaiyahListener.onHijaiyahClick(hijaiyahDataSet.get(getAdapterPosition()));
         }
 
     }
@@ -77,6 +77,6 @@ public class BelajarHijaiyahAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         notifyDataSetChanged();
     }
     public interface HijaiyahListener{
-        void onHijaiyahClick(String extra);
+        void onHijaiyahClick(HijaiyahModel hijaiyahModel);
     }
 }
