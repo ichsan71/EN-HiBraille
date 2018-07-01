@@ -26,23 +26,60 @@ public class BelajarTandaBacaPresenter implements BelajarTandaBacaContract.Prese
 
     @Override
     public void loadTandaBacaData() {
+        List<Integer> listBrailleDots = new ArrayList<>();
+        listBrailleDots.add(0);
+        listBrailleDots.add(1);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
+        listBrailleDots.add(0);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.fathah,"Fathah",
-                "Titik braille nomor 2"));
+                "Titik braille nomor 2", listBrailleDots));
+        List<Integer> listBrailleDots2 = new ArrayList<>();
+        listBrailleDots2.add(1);
+        listBrailleDots2.add(0);
+        listBrailleDots2.add(0);
+        listBrailleDots2.add(0);
+        listBrailleDots2.add(1);
+        listBrailleDots2.add(0);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.kasroh,"Kasroh",
-                "Titik braille nomor 1, dan 5"));
+                "Titik braille nomor 1, dan 5", listBrailleDots2));
+        List<Integer> listBrailleDots3 = new ArrayList<>();
+        listBrailleDots3.add(1);
+        listBrailleDots3.add(0);
+        listBrailleDots3.add(1);
+        listBrailleDots3.add(0);
+        listBrailleDots3.add(0);
+        listBrailleDots3.add(1);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.dhomah,"Dhomah",
-                "Titik braille nomor 1, 3, dan 6"));
+                "Titik braille nomor 1, 3, dan 6", listBrailleDots3));
+        List<Integer> listBrailleDots4 = new ArrayList<>();
+        listBrailleDots4.add(0);
+        listBrailleDots4.add(1);
+        listBrailleDots4.add(1);
+        listBrailleDots4.add(0);
+        listBrailleDots4.add(0);
+        listBrailleDots4.add(0);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.fathah_tanwin,"Fathah Tanwin",
-                "Titik braille nomor 2 dan 3"));
+                "Titik braille nomor 2 dan 3", listBrailleDots4));
+        List<Integer> listBrailleDots5 = new ArrayList<>();
+        listBrailleDots5.add(0);
+        listBrailleDots5.add(0);
+        listBrailleDots5.add(1);
+        listBrailleDots5.add(0);
+        listBrailleDots5.add(1);
+        listBrailleDots5.add(0);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.kasroh_tanwin,"Kasroh Tanwin",
-                "Titik braille nomor 3, dan 5"));
+                "Titik braille nomor 3, dan 5", listBrailleDots5));
+        List<Integer> listBrailleDots6 = new ArrayList<>();
+        listBrailleDots6.add(0);
+        listBrailleDots6.add(0);
+        listBrailleDots6.add(0);
+        listBrailleDots6.add(0);
+        listBrailleDots6.add(0);
+        listBrailleDots6.add(1);
         tandaBacaDataSet.add(new TandaBacaModel(R.drawable.tasydid,"Tasydid",
-                "Titik braille nomor 6"));
+                "Titik braille nomor 6", listBrailleDots6));
         belajarTandaBacaView.showTandaBacaData(tandaBacaDataSet);
-    }
-
-    @Override
-    public void openTandaBacaDetail() {
-        belajarTandaBacaView.showTandaBacaDetailView();
     }
 }

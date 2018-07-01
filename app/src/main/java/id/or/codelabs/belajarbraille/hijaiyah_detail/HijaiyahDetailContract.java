@@ -12,5 +12,4 @@ public interface HijaiyahDetailContract {
     interface Presenter extends BasePresenter {
         void loadHijaiyahDetail(HijaiyahModel hijaiyahModel);
     }
-
 }

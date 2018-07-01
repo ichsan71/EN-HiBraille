@@ -13,10 +13,8 @@ import id.or.codelabs.belajarbraille.data.TandaBacaModel;
 public interface BelajarTandaBacaContract {
     interface View extends BaseView {
         void showTandaBacaData(List<TandaBacaModel> tandaBacaDataSet);
-        void showTandaBacaDetailView();
     }
     interface Presenter extends BasePresenter {
         void loadTandaBacaData();
-        void openTandaBacaDetail();
     }
 }

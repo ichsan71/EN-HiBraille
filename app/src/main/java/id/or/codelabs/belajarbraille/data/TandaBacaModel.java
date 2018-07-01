@@ -1,14 +1,19 @@
 package id.or.codelabs.belajarbraille.data;
 
+import java.util.List;
+
 public class TandaBacaModel {
     private int imageTandaBaca;
     private String nameTandaBaca;
     private String brailleDotsTandaBaca;
+    private List<Integer> listBrailleDots;
 
-    public TandaBacaModel(int imageTandaBaca, String nameTandaBaca, String brailleDotsTandaBaca) {
+    public TandaBacaModel(int imageTandaBaca, String nameTandaBaca, String brailleDotsTandaBaca,
+                          List<Integer> listBrailleDots) {
         this.imageTandaBaca = imageTandaBaca;
         this.nameTandaBaca = nameTandaBaca;
         this.brailleDotsTandaBaca = brailleDotsTandaBaca;
+        this.listBrailleDots = listBrailleDots;
     }
 
     public int getImageTandaBaca() {
@@ -33,5 +38,13 @@ public class TandaBacaModel {
 
     public void setBrailleDotsTandaBaca(String brailleDotsTandaBaca) {
         this.brailleDotsTandaBaca = brailleDotsTandaBaca;
+    }
+
+    public List<Integer> getListBrailleDots() {
+        return listBrailleDots;
+    }
+
+    public void setListBrailleDots(List<Integer> listBrailleDots) {
+        this.listBrailleDots = listBrailleDots;
     }
 }

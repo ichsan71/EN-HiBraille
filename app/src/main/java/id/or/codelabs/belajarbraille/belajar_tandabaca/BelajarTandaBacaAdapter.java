@@ -67,7 +67,7 @@ public class BelajarTandaBacaAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void onClick(View view) {
-            tandaBacaListener.onTandaBacaClick((tandaBacaDataSet.get(getAdapterPosition()).getNameTandaBaca()));
+            tandaBacaListener.onTandaBacaClick((tandaBacaDataSet.get(getAdapterPosition())));
         }
 
     }
@@ -77,6 +77,6 @@ public class BelajarTandaBacaAdapter extends RecyclerView.Adapter<RecyclerView.V
         notifyDataSetChanged();
     }
     public interface TandaBacaListener{
-        void onTandaBacaClick(String extra);
+        void onTandaBacaClick(TandaBacaModel tandaBacaModel);
     }
 }
