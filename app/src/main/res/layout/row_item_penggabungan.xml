@@ -36,10 +36,24 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/belajarpenggabungan_textview_cara_baca_simbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/belajarpenggabungan_textview_nama_simbol"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:text="@string/cara_baca"
+            android:textColor="@android:color/white"/>
+
+
+        <TextView
             android:id="@+id/belajarpenggabungan_textview_keterangan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/belajarpenggabungan_textview_nama_simbol"
+            android:layout_below="@id/belajarpenggabungan_textview_cara_baca_simbol"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"

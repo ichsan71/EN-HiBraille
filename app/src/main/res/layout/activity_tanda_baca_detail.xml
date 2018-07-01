@@ -30,7 +30,7 @@
                 android:id="@+id/tandabacadetail_imageview_tandabaca"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/alif"
+                android:src="@drawable/fathah"
                 android:layout_gravity="center_horizontal"/>
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:text="@string/belajar_braille_hijaiyah"
+                android:text="@string/belajar_braille_tanda_baca"
                 android:textColor="@android:color/white"/>
 
             <TextView
@@ -60,7 +60,7 @@
     <LinearLayout
         android:id="@+id/tandabacadetail_linearlayout_keterangan_braille"
         android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_height="188dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:orientation="vertical">
@@ -216,7 +216,7 @@
         android:id="@+id/tandabacadetail_button_tombol_cari_hukum_bacaan"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_google"
         android:background="@android:color/white"
         android:text="@string/cari_hukum_bacaan_simbol"

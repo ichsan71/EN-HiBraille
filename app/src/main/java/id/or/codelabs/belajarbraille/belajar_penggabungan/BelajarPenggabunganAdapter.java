@@ -42,6 +42,7 @@ public class BelajarPenggabunganAdapter extends RecyclerView.Adapter<RecyclerVie
         ((ViewHolderItem) holder).imagePenggabungan.setImageDrawable(context.getResources()
                 .getDrawable(model.getImagePenggabungan()));
         ((ViewHolderItem) holder).namePenggabungan.setText(model.getNamePenggabungan());
+        ((ViewHolderItem) holder).spellPenggabungan.setText(model.getSpellPenggabungan());
         ((ViewHolderItem) holder).brailleDotsPenggabungan.setText(model.getBrailleDotsPenggabungan());
     }
 
@@ -54,12 +55,14 @@ public class BelajarPenggabunganAdapter extends RecyclerView.Adapter<RecyclerVie
 
         ImageView imagePenggabungan;
         TextView namePenggabungan;
+        TextView spellPenggabungan;
         TextView brailleDotsPenggabungan;
 
         public ViewHolderItem(View itemView) {
             super(itemView);
             imagePenggabungan = itemView.findViewById(R.id.belajarpenggabungan_imageview_penggabungan);
             namePenggabungan = itemView.findViewById(R.id.belajarpenggabungan_textview_nama_simbol);
+            spellPenggabungan = itemView.findViewById(R.id.belajarpenggabungan_textview_cara_baca_simbol);
             brailleDotsPenggabungan = itemView.findViewById(R.id.belajarpenggabungan_textview_keterangan);
             itemView.setOnClickListener(this);
 
@@ -67,7 +70,7 @@ public class BelajarPenggabunganAdapter extends RecyclerView.Adapter<RecyclerVie
 
         @Override
         public void onClick(View view) {
-            penggabunganListener.onPenggabunganClick((penggabunganDataSet.get(getAdapterPosition()).getNamePenggabungan()));
+            penggabunganListener.onPenggabunganClick((penggabunganDataSet.get(getAdapterPosition())));
         }
 
     }
@@ -77,6 +80,6 @@ public class BelajarPenggabunganAdapter extends RecyclerView.Adapter<RecyclerVie
         notifyDataSetChanged();
     }
     public interface PenggabunganListener{
-        void onPenggabunganClick(String extra);
+        void onPenggabunganClick(PenggabunganModel penggabunganModel);
     }
 }

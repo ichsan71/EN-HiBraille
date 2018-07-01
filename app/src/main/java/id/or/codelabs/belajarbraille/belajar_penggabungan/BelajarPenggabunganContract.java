@@ -13,10 +13,8 @@ import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 public interface BelajarPenggabunganContract {
     interface View extends BaseView {
         void showPenggabunganData(List<PenggabunganModel> penggabunganDataSet);
-        void showPenggabunganDetailView();
     }
     interface Presenter extends BasePresenter {
         void loadPenggabunganData();
-        void openPenggabunganDetail();
     }
 }

@@ -19,5 +19,7 @@
     <string name="petunjuk_belajar_tanda_baca">Geser untuk memilih simbol tanda baca.</string>
     <string name="petunjuk_detail_hijaiyah">Geser untuk menelusuri titik-titik pembentuk simbol hijaiyah ini.</string>
     <string name="petunjuk_detail_tanda_baca">Geser untuk menelusuri titik-titik pembentuk simbol tanda baca ini.</string>
+    <string name="petunjuk_detail_penggabungan">Geser untuk menelusuri titik-titik pembentuk simbol ini.</string>
     <string name="cari_hukum_bacaan_simbol">CARI HUKUM BACAAN SIMBOL</string>
+    <string name="cara_baca">cara baca</string>
 </resources>

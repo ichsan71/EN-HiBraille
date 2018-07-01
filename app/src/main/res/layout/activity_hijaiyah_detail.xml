@@ -60,7 +60,7 @@
     <LinearLayout
         android:id="@+id/hijaiyahdetail_linearlayout_keterangan_braille"
         android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_height="188dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:orientation="vertical">
@@ -216,7 +216,7 @@
         android:id="@+id/hijaiyahdetail_button_tombol_cari_hukum_bacaan"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_google"
         android:background="@android:color/white"
         android:text="@string/cari_hukum_bacaan_simbol"

@@ -41,7 +41,6 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
         presenter = new TandaBacaDetailPresenter(this);
         if (getIntent() != null && getIntent().getStringExtra("tanda-baca") != null) {
             presenter.loadTandaBacaDetail(new Gson().fromJson(getIntent().getStringExtra("tanda-baca"), TandaBacaModel.class));
-            //Toast.makeText(getApplicationContext(), getIntent().getStringExtra("tanda-baca"), Toast.LENGTH_SHORT).show();
         }
     }
 

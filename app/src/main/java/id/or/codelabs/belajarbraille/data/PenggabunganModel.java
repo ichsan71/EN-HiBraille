@@ -1,14 +1,24 @@
 package id.or.codelabs.belajarbraille.data;
 
+import java.util.List;
+
 public class PenggabunganModel {
     private int imagePenggabungan;
     private String namePenggabungan;
+    private String spellPenggabungan;
     private String brailleDotsPenggabungan;
+    private List<Integer> listBrailleDotsHijaiyah;
+    private List<Integer> listBrailleDotsTandaBaca;
 
-    public PenggabunganModel(int imagePenggabungan, String namePenggabungan, String brailleDotsPenggabungan) {
+    public PenggabunganModel(int imagePenggabungan, String namePenggabungan,
+                             String spellPenggabungan, String brailleDotsPenggabungan,
+                             List<Integer> listBrailleDotsHijaiyah, List<Integer> listBrailleDotsTandaBaca) {
         this.imagePenggabungan = imagePenggabungan;
         this.namePenggabungan = namePenggabungan;
+        this.spellPenggabungan = spellPenggabungan;
         this.brailleDotsPenggabungan = brailleDotsPenggabungan;
+        this.listBrailleDotsHijaiyah = listBrailleDotsHijaiyah;
+        this.listBrailleDotsTandaBaca = listBrailleDotsTandaBaca;
     }
 
     public int getImagePenggabungan() {
@@ -33,5 +43,29 @@ public class PenggabunganModel {
 
     public void setBrailleDotsPenggabungan(String brailleDotsPenggabungan) {
         this.brailleDotsPenggabungan = brailleDotsPenggabungan;
+    }
+
+    public List<Integer> getListBrailleDotsHijaiyah() {
+        return listBrailleDotsHijaiyah;
+    }
+
+    public void setListBrailleDotsHijaiyah(List<Integer> listBrailleDotsHijaiyah) {
+        this.listBrailleDotsHijaiyah = listBrailleDotsHijaiyah;
+    }
+
+    public List<Integer> getListBrailleDotsTandaBaca() {
+        return listBrailleDotsTandaBaca;
+    }
+
+    public void setListBrailleDotsTandaBaca(List<Integer> listBrailleDotsTandaBaca) {
+        this.listBrailleDotsTandaBaca = listBrailleDotsTandaBaca;
+    }
+
+    public String getSpellPenggabungan() {
+        return spellPenggabungan;
+    }
+
+    public void setSpellPenggabungan(String spellPenggabungan) {
+        this.spellPenggabungan = spellPenggabungan;
     }
 }

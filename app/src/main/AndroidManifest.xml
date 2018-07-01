@@ -43,7 +43,8 @@
             android:name=".hijaiyah_detail.HijaiyahDetailActivity"
             android:parentActivityName=".belajar_hijaiyah.BelajarHijaiyahActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".tandabaca_detail.TandaBacaDetailActivity"></activity>
+        <activity android:name=".tandabaca_detail.TandaBacaDetailActivity" />
+        <activity android:name=".penggabungan_detail.PenggabunganDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -41,7 +41,6 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         presenter = new HijaiyahDetailPresenter(this);
         if (getIntent() != null && getIntent().getStringExtra("hijaiyah") != null) {
             presenter.loadHijaiyahDetail(new Gson().fromJson(getIntent().getStringExtra("hijaiyah"), HijaiyahModel.class));
-            //Toast.makeText(getApplicationContext(), getIntent().getStringExtra("hijaiyah"), Toast.LENGTH_SHORT).show();
         }
     }
 
