@@ -1,7 +1,9 @@
 package id.or.codelabs.belajarbraille.tandabaca_detail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.data.TandaBacaModel;
@@ -81,6 +86,21 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
         }
         imageTandaBaca.setImageResource(tandaBacaModel.getImageTandaBaca());
         nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
+        buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = "hukum bacaan " + tandaBacaModel.getNameTandaBaca();
+                String escapedQuery = null;
+                try {
+                    escapedQuery = URLEncoder.encode(query, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                Uri uri = Uri.parse("http://www.google.com/#q=" + escapedQuery);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
