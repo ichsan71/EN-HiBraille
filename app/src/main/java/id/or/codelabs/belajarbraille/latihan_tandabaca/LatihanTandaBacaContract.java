@@ -1,4 +1,4 @@
-package id.or.codelabs.belajarbraille.latihan_hijaiyah;
+package id.or.codelabs.belajarbraille.latihan_tandabaca;
 
 import id.or.codelabs.belajarbraille.BasePresenter;
 import id.or.codelabs.belajarbraille.BaseView;
@@ -7,7 +7,7 @@ import id.or.codelabs.belajarbraille.BaseView;
  * Created by FitriFebriana on 5/23/2018.
  */
 
-public interface LatihanHijaiyah_Contract {
+public interface LatihanTandaBacaContract {
     interface View extends BaseView {
 
     }

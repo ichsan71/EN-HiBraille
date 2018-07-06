@@ -4,11 +4,11 @@
 
     <item android:id="@+id/action_setting"
         android:title="Atur warna latar"
-        android:icon="@drawable/ic_settings_white_24dp"
+        android:icon="@drawable/ic_settings"
         app:showAsAction="always" />
     <item android:id="@+id/action_search"
         android:title="Cari"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:icon="@drawable/ic_search"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView" />
 </menu>

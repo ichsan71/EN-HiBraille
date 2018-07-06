@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id.or.codelabs.belajarbraille.latihan_tandabaca.LatihanTandaBaca_Activity">
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@android:color/black"
+    tools:context=".latihan_tandabaca.LatihanTandaBacaActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/latihantandabaca_framelayout_soal"
+        android:layout_width="280dp"
+        android:layout_height="280dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_background"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/latihantandabaca_imageview_tanda_baca"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/fathah"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/latihantandabaca_textview_nama_simbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:text="@string/latihan_braille_tanda_baca"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:text="@string/soal_latihan"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/latihantandabaca_framelayout_pesan_suara"
+        android:layout_marginTop="16dp"
+        android:layout_width="88dp"
+        android:layout_height="88dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/active_braille_dot"/>
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_voice_command"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/latihantandabaca_button_simbol_lain"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/colorAccent"
+        android:text="@string/latihan_simbol_tanda_baca_lain"
+        android:textColorHint="@color/colorPrimaryDark" />
+</LinearLayout>

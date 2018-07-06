@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import id.or.codelabs.belajarbraille.R;
 
-public class LatihanTandaBaca_Activity extends AppCompatActivity {
+public class LatihanTandaBacaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

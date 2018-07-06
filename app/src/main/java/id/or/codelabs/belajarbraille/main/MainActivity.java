@@ -13,9 +13,9 @@ import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.belajar_hijaiyah.BelajarHijaiyahActivity;
 import id.or.codelabs.belajarbraille.belajar_penggabungan.BelajarPenggabunganActivity;
 import id.or.codelabs.belajarbraille.belajar_tandabaca.BelajarTandaBacaActivity;
-import id.or.codelabs.belajarbraille.latihan_hijaiyah.LatihanHijaiyah_Activity;
-import id.or.codelabs.belajarbraille.latihan_penggabungan.LatihanPenggabungan_Activity;
-import id.or.codelabs.belajarbraille.latihan_tandabaca.LatihanTandaBaca_Activity;
+import id.or.codelabs.belajarbraille.latihan_hijaiyah.LatihanHijaiyahActivity;
+import id.or.codelabs.belajarbraille.latihan_penggabungan.LatihanPenggabunganActivity;
+import id.or.codelabs.belajarbraille.latihan_tandabaca.LatihanTandaBacaActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, View.OnClickListener{
 
@@ -111,19 +111,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void showLatihanHijaiyahView() {
-        Intent intent = new Intent(MainActivity.this, LatihanHijaiyah_Activity.class);
+        Intent intent = new Intent(MainActivity.this, LatihanHijaiyahActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showLatihanTandaBacaView() {
-        Intent intent = new Intent(MainActivity.this, LatihanTandaBaca_Activity.class);
+        Intent intent = new Intent(MainActivity.this, LatihanTandaBacaActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showLatihanPenggabunganView() {
-        Intent intent = new Intent(MainActivity.this, LatihanPenggabungan_Activity.class);
+        Intent intent = new Intent(MainActivity.this, LatihanPenggabunganActivity.class);
         startActivity(intent);
     }
 }

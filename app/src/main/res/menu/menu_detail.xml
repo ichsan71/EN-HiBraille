@@ -4,6 +4,6 @@
 
     <item android:id="@+id/action_setting"
         android:title="Atur warna latar"
-        android:icon="@drawable/ic_settings_white_24dp"
+        android:icon="@drawable/ic_settings"
         app:showAsAction="always" />
 </menu>

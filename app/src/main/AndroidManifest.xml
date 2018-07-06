@@ -31,20 +31,20 @@
             android:name=".belajar_tandabaca.BelajarTandaBacaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_hijaiyah.LatihanHijaiyah_Activity"
+            android:name=".latihan_hijaiyah.LatihanHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_penggabungan.LatihanPenggabungan_Activity"
+            android:name=".latihan_penggabungan.LatihanPenggabunganActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_tandabaca.LatihanTandaBaca_Activity"
+            android:name=".latihan_tandabaca.LatihanTandaBacaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".hijaiyah_detail.HijaiyahDetailActivity"
             android:parentActivityName=".belajar_hijaiyah.BelajarHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".tandabaca_detail.TandaBacaDetailActivity" />
-        <activity android:name=".penggabungan_detail.PenggabunganDetailActivity"></activity>
+        <activity android:name=".penggabungan_detail.PenggabunganDetailActivity"/>
     </application>
 
 </manifest>

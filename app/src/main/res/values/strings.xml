@@ -22,4 +22,9 @@
     <string name="petunjuk_detail_penggabungan">Geser untuk menelusuri titik-titik pembentuk simbol ini.</string>
     <string name="cari_hukum_bacaan_simbol">CARI HUKUM BACAAN SIMBOL</string>
     <string name="cara_baca">cara baca</string>
+    <string name="soal_latihan">Titik braille nomor berapa saja kah yang membentuk simbol tersebut?
+        Aktifkan tombol pesan suara untuk menjawab.</string>
+    <string name="latihan_simbol_hijaiyah_lain">LATIHAN SIMBOL HIJAIYAH LAIN</string>
+    <string name="latihan_simbol_tanda_baca_lain">LATIHAN SIMBOL TANDA BACA LAIN</string>
+    <string name="latihan_simbol_gabungan_lain">LATIHAN SIMBOL GABUNGAN LAIN</string>
 </resources>
