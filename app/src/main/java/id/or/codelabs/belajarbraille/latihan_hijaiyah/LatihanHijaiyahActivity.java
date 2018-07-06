@@ -1,5 +1,6 @@
 package id.or.codelabs.belajarbraille.latihan_hijaiyah;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,8 +50,8 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.latihanhijaiyah_framelayout_pesan_suara:
-                speak();
+            case R.id.latihanhijaiyah_button_pesan_suara:
+                showInputVoiceDialog();
                 break;
             case R.id.latihanhijaiyah_button_simbol_lain:
                 skipToNext();
@@ -58,47 +59,51 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
         }
     }
 
+    private void showInputVoiceDialog() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-ID");
+        try {
+            startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(), "Your device is not supported!",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void skipToNext() {
 
     }
 
-    private void speak() {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        // Specify the calling package to identify your application
-        intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getClass()
-                .getPackage().getName());
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        //Start the Voice recognizer activity for the result.
-        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == VOICE_RECOGNITION_REQUEST_CODE)
-            //If Voice recognition is successful then it returns RESULT_OK
-            if (resultCode == RESULT_OK) {
-                ArrayList<String> textMatchList = data
-                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                int countRightAnswer = 0;
-                if (!textMatchList.isEmpty()) {
-                    // If first Match contains the 'search' word
-                    // Then start web search.
-                    for (int i = 0; i <= textMatchList.size() - 1; i++) {
-                        for (int j = 0; j <= listRightAnswer.size() - 1; j++) {
-                            if (textMatchList.get(i).contains(listRightAnswer.get(j))) {
-                                countRightAnswer++;
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case VOICE_RECOGNITION_REQUEST_CODE: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    Toast.makeText(getApplicationContext(), result.get(0), Toast.LENGTH_SHORT).show();
+                    int countRightAnswer = 0;
+                    if (!result.isEmpty()) {
+                        for (int i = 0; i <= result.size() - 1; i++) {
+                            for (int j = 0; j <= listRightAnswer.size() - 1; j++) {
+                                if (result.get(i).contains(listRightAnswer.get(j))) {
+                                    countRightAnswer++;
+                                }
                             }
                         }
+                        if (countRightAnswer == listRightAnswer.size()) {
+                            //show dialog
+                            Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
+                            countActivity++;
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
+                        }
                     }
-                    if (countRightAnswer == listRightAnswer.size()){
-                        //show dialog
-                        Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
-                        countActivity++;
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
-                    }
-                    //Result code for various error.
                 } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR) {
                     showToastMessage("Audio Error");
                 } else if (resultCode == RecognizerIntent.RESULT_CLIENT_ERROR) {
@@ -110,8 +115,10 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
                 } else if (resultCode == RecognizerIntent.RESULT_SERVER_ERROR) {
                     showToastMessage("Server Error");
                 }
-                super.onActivityResult(requestCode, resultCode, data);
+                break;
             }
+
+        }
     }
 
     private void showToastMessage(String message) {
