@@ -2,21 +2,27 @@ package id.or.codelabs.belajarbraille.latihan_hijaiyah;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.data.HijaiyahModel;
 
 
-public class LatihanHijaiyahActivity extends AppCompatActivity implements View.OnClickListener, LatihanHijaiyahContract.View{
+public class LatihanHijaiyahActivity extends AppCompatActivity implements LatihanHijaiyahContract.View{
 
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private List<String> listRightAnswer = new ArrayList<>();
@@ -24,6 +30,8 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
     private LatihanHijaiyahContract.Presenter presenter;
     private ImageView imageHijaiyah;
     private TextView nameHijaiyah;
+    private ImageButton buttonSpeechRecognizer;
+    private List<HijaiyahModel> listHijaiyah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,13 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
 
         presenter = new LatihanHijaiyahPresenter(this);
         presenter.start();
+
+        buttonSpeechRecognizer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInputVoiceDialog();
+            }
+        });
     }
 
     private void setupToolbar() {
@@ -45,29 +60,18 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
     private void initView() {
         imageHijaiyah = findViewById(R.id.latihanhijaiyah_imageview_hijaiyah);
         nameHijaiyah = findViewById(R.id.latihanhijaiyah_textview_nama_simbol);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.latihanhijaiyah_button_pesan_suara:
-                showInputVoiceDialog();
-                break;
-            case R.id.latihanhijaiyah_button_simbol_lain:
-                skipToNext();
-                break;
-        }
+        buttonSpeechRecognizer = findViewById(R.id.latihanhijaiyah_button_pesan_suara);
     }
 
     private void showInputVoiceDialog() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-ID");
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ID");
         try {
             startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
         } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(), "Your device is not supported!",
+            Toast.makeText(getApplicationContext(), "Perangkatmu tidak mendukung fitur ini.",
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -92,28 +96,64 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
                         for (int i = 0; i <= result.size() - 1; i++) {
                             for (int j = 0; j <= listRightAnswer.size() - 1; j++) {
                                 if (result.get(i).contains(listRightAnswer.get(j))) {
+                                    Log.e("hasil", result.get(i));
                                     countRightAnswer++;
                                 }
                             }
                         }
+                        Log.e("jumlah count", String.valueOf(countRightAnswer));
+                        Log.e("jumlah list", String.valueOf(listRightAnswer.size()));
                         if (countRightAnswer == listRightAnswer.size()) {
-                            //show dialog
-                            Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
-                            countActivity++;
+                            //Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                            builder.setTitle("Selamat!");
+                            builder.setMessage("Jawabanmu benar. Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                            builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    countActivity++;
+                                    listRightAnswer.clear();
+                                    addRightAnswer();
+                                }
+                            });
+                            // create and show the alert dialog
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                            builder.setTitle("Selamat!");
+                            builder.setMessage("Jawabanmu benar. Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                            builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    countActivity++;
+                                    listRightAnswer.clear();
+                                    addRightAnswer();
+                                    finish();
+                                }
+                            });
+                            builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    finish();
+                                }
+                            });
+                            // create and show the alert dialog
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         }
                     }
                 } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR) {
-                    showToastMessage("Audio Error");
+                    showToastMessage("Error audio.");
                 } else if (resultCode == RecognizerIntent.RESULT_CLIENT_ERROR) {
-                    showToastMessage("Client Error");
+                    showToastMessage("Error client.");
                 } else if (resultCode == RecognizerIntent.RESULT_NETWORK_ERROR) {
-                    showToastMessage("Network Error");
+                    showToastMessage("Periksa koneksi internet perangkatmu.");
                 } else if (resultCode == RecognizerIntent.RESULT_NO_MATCH) {
-                    showToastMessage("No Match");
+                    showToastMessage("Tidak ditemukan jawaban.");
                 } else if (resultCode == RecognizerIntent.RESULT_SERVER_ERROR) {
-                    showToastMessage("Server Error");
+                    showToastMessage("Error server.");
                 }
                 break;
             }
@@ -128,25 +168,32 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements View.O
     @Override
     public void showHijaiyahData(List<HijaiyahModel> hijaiyahDataSet) {
         //Get right answer
-        if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(0) == 1){
+        listHijaiyah = hijaiyahDataSet;
+        addRightAnswer();
+    }
+
+    private void addRightAnswer() {
+        if(listHijaiyah.get(countActivity).getListBrailleDots().get(0) == 1){
             listRightAnswer.add("satu");
-        }if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(1) == 1){
+        }if(listHijaiyah.get(countActivity).getListBrailleDots().get(1) == 1){
             listRightAnswer.add("dua");
-        }if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(2) == 1){
+        }if(listHijaiyah.get(countActivity).getListBrailleDots().get(2) == 1){
             listRightAnswer.add("tiga");
-        }if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(3) == 1){
+        }if(listHijaiyah.get(countActivity).getListBrailleDots().get(3) == 1){
             listRightAnswer.add("empat");
-        }if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(4) == 1){
+        }if(listHijaiyah.get(countActivity).getListBrailleDots().get(4) == 1){
             listRightAnswer.add("lima");
-        }if(hijaiyahDataSet.get(countActivity).getListBrailleDots().get(5) == 1){
+        }if(listHijaiyah.get(countActivity).getListBrailleDots().get(5) == 1){
             listRightAnswer.add("enam");
         }
-        imageHijaiyah.setImageResource(hijaiyahDataSet.get(countActivity).getImageHijaiyah());
-        nameHijaiyah.setText(hijaiyahDataSet.get(countActivity).getNameHijaiyah());
+        imageHijaiyah.setImageResource(listHijaiyah.get(countActivity).getImageHijaiyah());
+        nameHijaiyah.setText(listHijaiyah.get(countActivity).getNameHijaiyah());
     }
 
     @Override
     public Context getContext() {
         return LatihanHijaiyahActivity.this;
     }
+
+
 }
