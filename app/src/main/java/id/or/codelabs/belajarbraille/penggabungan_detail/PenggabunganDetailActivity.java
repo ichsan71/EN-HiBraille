@@ -84,7 +84,7 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
     }
 
     @Override
-    public void showPenggabunganDetail(PenggabunganModel penggabunganModel) {
+    public void showPenggabunganDetail(final PenggabunganModel penggabunganModel) {
         if(penggabunganModel.getListBrailleDotsHijaiyah().get(0) == 1){
             brailleDotHijaiyah1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(1) == 1){

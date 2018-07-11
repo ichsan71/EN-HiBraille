@@ -70,7 +70,7 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
     }
 
     @Override
-    public void showTandaBacaDetail(TandaBacaModel tandaBacaModel) {
+    public void showTandaBacaDetail(final TandaBacaModel tandaBacaModel) {
         if(tandaBacaModel.getListBrailleDots().get(0) == 1){
             brailleDot1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
         }if(tandaBacaModel.getListBrailleDots().get(1) == 1){

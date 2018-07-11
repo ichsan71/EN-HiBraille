@@ -70,7 +70,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
     }
 
     @Override
-    public void showHijaiyahDetail(HijaiyahModel hijaiyahModel) {
+    public void showHijaiyahDetail(final HijaiyahModel hijaiyahModel) {
         if(hijaiyahModel.getListBrailleDots().get(0) == 1){
             brailleDot1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
         }if(hijaiyahModel.getListBrailleDots().get(1) == 1){

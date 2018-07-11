@@ -69,7 +69,7 @@
         android:id="@+id/latihanhijaiyah_button_simbol_lain"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
         android:background="@color/colorAccent"
         android:text="@string/latihan_simbol_hijaiyah_lain"
         android:textColorHint="@color/colorPrimaryDark" />

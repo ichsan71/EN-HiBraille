@@ -9,7 +9,10 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +35,7 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
     private TextView nameHijaiyah;
     private ImageButton buttonSpeechRecognizer;
     private List<HijaiyahModel> listHijaiyah;
+    private Button buttonNextSymbol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,13 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
                 showInputVoiceDialog();
             }
         });
+
+        buttonNextSymbol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeSymbol();
+            }
+        });
     }
 
     private void setupToolbar() {
@@ -61,6 +72,7 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
         imageHijaiyah = findViewById(R.id.latihanhijaiyah_imageview_hijaiyah);
         nameHijaiyah = findViewById(R.id.latihanhijaiyah_textview_nama_simbol);
         buttonSpeechRecognizer = findViewById(R.id.latihanhijaiyah_button_pesan_suara);
+        buttonNextSymbol = findViewById(R.id.latihanhijaiyah_button_simbol_lain);
     }
 
     private void showInputVoiceDialog() {
@@ -74,10 +86,6 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
             Toast.makeText(getApplicationContext(), "Perangkatmu tidak mendukung fitur ini.",
                     Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void skipToNext() {
-
     }
 
     @Override
@@ -111,9 +119,7 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
                             builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    countActivity++;
-                                    listRightAnswer.clear();
-                                    addRightAnswer();
+                                    changeSymbol();
                                 }
                             });
                             // create and show the alert dialog
@@ -161,6 +167,12 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
         }
     }
 
+    private void changeSymbol() {
+        countActivity++;
+        listRightAnswer.clear();
+        addRightAnswer();
+    }
+
     private void showToastMessage(String message) {
         Toast.makeText(LatihanHijaiyahActivity.this, message, Toast.LENGTH_LONG).show();
     }
@@ -195,5 +207,18 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
         return LatihanHijaiyahActivity.this;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
 }

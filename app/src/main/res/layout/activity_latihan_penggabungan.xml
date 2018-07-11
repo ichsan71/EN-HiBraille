@@ -11,8 +11,8 @@
 
     <FrameLayout
         android:id="@+id/latihanpenggabungan_framelayout_soal"
-        android:layout_width="280dp"
-        android:layout_height="280dp">
+        android:layout_width="270dp"
+        android:layout_height="270dp">
 
         <View
             android:layout_width="match_parent"
@@ -40,14 +40,14 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:text="@string/latihan_penggabungan_braille_hijaiyah_dengan_tanda_baca"
+                android:text="@string/belajar_braille_penggabungan"
                 android:textColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
+                android:paddingRight="24dp"
+                android:paddingLeft="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
@@ -57,29 +57,19 @@
         </LinearLayout>
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/latihanpenggabungan_framelayout_pesan_suara"
-        android:layout_marginTop="16dp"
-        android:layout_width="88dp"
-        android:layout_height="88dp">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/active_braille_dot"/>
-
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:src="@drawable/ic_voice_command"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+    <ImageButton
+        android:id="@+id/latihanpenggabungan_button_pesan_suara"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_voice_command"
+        android:background="@drawable/active_braille_dot"/>
 
     <Button
         android:id="@+id/latihanpenggabungan_button_simbol_lain"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="64dp"
         android:background="@color/colorAccent"
         android:text="@string/latihan_simbol_gabungan_lain"
         android:textColorHint="@color/colorPrimaryDark" />
