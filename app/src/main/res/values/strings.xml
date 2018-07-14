@@ -27,4 +27,5 @@
     <string name="latihan_simbol_hijaiyah_lain">LATIHAN SIMBOL HIJAIYAH LAIN</string>
     <string name="latihan_simbol_tanda_baca_lain">LATIHAN SIMBOL TANDA BACA LAIN</string>
     <string name="latihan_simbol_gabungan_lain">LATIHAN SIMBOL GABUNGAN LAIN</string>
+    <string name="search_description">Cari simbol..</string>
 </resources>
