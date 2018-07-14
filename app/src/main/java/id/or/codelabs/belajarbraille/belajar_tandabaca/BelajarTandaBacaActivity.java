@@ -3,13 +3,17 @@ package id.or.codelabs.belajarbraille.belajar_tandabaca;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.gson.Gson;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +28,8 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
     private List<Object> tandaBacaDataSet = new ArrayList<>();
     private RecyclerView recyclerViewTandaBaca;
     private BelajarTandaBacaAdapter belajarTandaBacaAdapter;
+    private Toolbar toolbar;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +42,49 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
 
         presenter = new BelajarTandaBacaPresenter(this);
         presenter.start();
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                callSearch(query);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                callSearch(newText);
+
+                return true;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
+    }
+
+    private void callSearch(String newText) {
     }
 
     private void initView() {
+        searchView = findViewById(R.id.search_view_tanda_baca);
         recyclerViewTandaBaca = findViewById(R.id.belajartandabaca_recyclerview);
     }
 
     private void setupToolbar() {
-        this.setTitle("Braille Tanda Baca");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_belajar_tanda_baca);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Braille Tanda Baca");
     }
 
     private void setupRecyclerView() {
@@ -76,6 +116,11 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        searchView.setVoiceSearch(true);
+        searchView.setHint("Cari simbol tanda baca..");
+
         return true;
     }
 
@@ -85,5 +130,30 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
         Intent intent = new Intent(BelajarTandaBacaActivity.this, TandaBacaDetailActivity.class);
         intent.putExtra("tanda-baca", data);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (matches != null && matches.size() > 0) {
+                String searchWrd = matches.get(0);
+                if (!TextUtils.isEmpty(searchWrd)) {
+                    searchView.setQuery(searchWrd, false);
+                }
+            }
+
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

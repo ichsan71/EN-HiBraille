@@ -3,13 +3,17 @@ package id.or.codelabs.belajarbraille.belajar_penggabungan;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.gson.Gson;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,8 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
     private List<Object> penggabunganDataSet = new ArrayList<>();
     private RecyclerView recyclerViewPenggabungan;
     private BelajarPenggabunganAdapter belajarPenggabunganAdapter;
+    private Toolbar toolbar;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +43,49 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
 
         presenter = new BelajarPenggabunganPresenter(this);
         presenter.start();
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                callSearch(query);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                callSearch(newText);
+
+                return true;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
+    }
+
+    private void callSearch(String newText) {
     }
 
     private void initView() {
+        searchView = findViewById(R.id.search_view_penggabungan);
         recyclerViewPenggabungan = findViewById(R.id.belajarpenggabungan_recyclerview);
     }
 
     private void setupToolbar() {
-        this.setTitle("Braille Gabungan");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_belajar_penggabungan);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Braille Gabungan");
     }
 
     private void setupRecyclerView() {
@@ -77,6 +117,11 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        searchView.setVoiceSearch(true);
+        searchView.setHint("Cari simbol gabungan..");
+
         return true;
     }
 
@@ -86,5 +131,30 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
         Intent intent = new Intent(BelajarPenggabunganActivity.this, PenggabunganDetailActivity.class);
         intent.putExtra("penggabungan", data);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (matches != null && matches.size() > 0) {
+                String searchWrd = matches.get(0);
+                if (!TextUtils.isEmpty(searchWrd)) {
+                    searchView.setQuery(searchWrd, false);
+                }
+            }
+
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

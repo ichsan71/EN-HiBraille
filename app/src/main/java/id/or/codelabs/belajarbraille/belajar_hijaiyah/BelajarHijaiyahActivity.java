@@ -3,13 +3,17 @@ package id.or.codelabs.belajarbraille.belajar_hijaiyah;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.gson.Gson;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,8 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
     private List<Object> hijaiyahDataSet = new ArrayList<>();
     private RecyclerView recyclerViewHijaiyah;
     private BelajarHijaiyahAdapter belajarHijaiyahAdapter;
+    private Toolbar toolbar;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +42,48 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
 
         presenter = new BelajarHijaiyahPresenter(this);
         presenter.start();
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                callSearch(query);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                callSearch(newText);
+
+                return true;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
+    }
+
+    private void callSearch(String newText) {
     }
 
     private void setupToolbar() {
-        this.setTitle("Braille Hijaiyah");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_belajar_hijaiyah);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Braille Hijaiyah");
     }
 
     private void initView() {
+        searchView = findViewById(R.id.search_view_hijaiyah);
         recyclerViewHijaiyah = findViewById(R.id.belajarhijaiyah_recyclerview);
     }
 
@@ -76,7 +116,28 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        searchView.setVoiceSearch(true);
+        searchView.setHint("Cari simbol hijaiyah..");
+
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (matches != null && matches.size() > 0) {
+                String searchWrd = matches.get(0);
+                if (!TextUtils.isEmpty(searchWrd)) {
+                    searchView.setQuery(searchWrd, false);
+                }
+            }
+
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -85,5 +146,14 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
         Intent intent = new Intent(BelajarHijaiyahActivity.this, HijaiyahDetailActivity.class);
         intent.putExtra("hijaiyah", data);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
