@@ -37,7 +37,7 @@
                 android:id="@+id/latihanpenggabungan_imageview_penggabungan"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/alif"
+                android:src="@drawable/alif_fathah"
                 android:layout_gravity="center_horizontal"/>
 
             <TextView
@@ -49,6 +49,18 @@
                 android:textSize="16sp"
                 android:text="@string/belajar_braille_penggabungan"
                 android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/latihanpenggabungan_textview_cara_baca_simbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:text="@string/keterangan_nomor_titik_pembentuk_simbol"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"

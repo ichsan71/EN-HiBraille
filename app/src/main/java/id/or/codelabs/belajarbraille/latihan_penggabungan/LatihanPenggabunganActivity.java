@@ -32,6 +32,7 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
     private LatihanPenggabunganContract.Presenter presenter;
     private ImageView imagePenggabungan;
     private TextView namePenggabungan;
+    private TextView spellPenggabungan;
     private ImageButton buttonSpeechRecognizer;
     private List<PenggabunganModel> listPenggabungan;
     private Button buttonNextSymbol;
@@ -85,6 +86,7 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
     private void initView() {
         imagePenggabungan = findViewById(R.id.latihanpenggabungan_imageview_penggabungan);
         namePenggabungan = findViewById(R.id.latihanpenggabungan_textview_nama_simbol);
+        spellPenggabungan = findViewById(R.id.latihanpenggabungan_textview_cara_baca_simbol);
         buttonSpeechRecognizer = findViewById(R.id.latihanpenggabungan_button_pesan_suara);
         buttonNextSymbol = findViewById(R.id.latihanpenggabungan_button_simbol_lain);
     }
@@ -184,10 +186,23 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
             listRightAnswer.add("lima");
         }if(listPenggabungan.get(countActivity).getListBrailleDotsHijaiyah().get(5) == 1){
             listRightAnswer.add("enam");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(0) == 1){
+            listRightAnswer.add("satu");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(1) == 1){
+            listRightAnswer.add("dua");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(2) == 1){
+            listRightAnswer.add("tiga");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(3) == 1){
+            listRightAnswer.add("empat");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(4) == 1){
+            listRightAnswer.add("lima");
+        }if(listPenggabungan.get(countActivity).getListBrailleDotsTandaBaca().get(5) == 1){
+            listRightAnswer.add("enam");
         }
 
         imagePenggabungan.setImageResource(listPenggabungan.get(countActivity).getImagePenggabungan());
         namePenggabungan.setText(listPenggabungan.get(countActivity).getNamePenggabungan());
+        spellPenggabungan.setText(listPenggabungan.get(countActivity).getSpellPenggabungan());
     }
 
     private void showToastMessage(String message) {
