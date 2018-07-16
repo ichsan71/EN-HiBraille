@@ -128,21 +128,18 @@ public class LatihanTandaBacaActivity extends AppCompatActivity implements Latih
                         } else {
                             //Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                            builder.setTitle("Selamat!");
-                            builder.setMessage("Jawabanmu benar. Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                            builder.setTitle("Sayang Sekali,");
+                            builder.setMessage("Jawabanmu belum benar. Silahkan coba lagi.");
                             builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    countActivity++;
-                                    listRightAnswer.clear();
-                                    addRightAnswer();
-                                    finish();
+                                    changeSymbol();
                                 }
                             });
                             builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    finish();
+                                    dialogInterface.dismiss();
                                 }
                             });
                             // create and show the alert dialog
