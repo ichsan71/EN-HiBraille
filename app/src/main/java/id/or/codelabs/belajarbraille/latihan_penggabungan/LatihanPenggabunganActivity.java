@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,7 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
     private ImageButton buttonSpeechRecognizer;
     private List<PenggabunganModel> listPenggabungan;
     private Button buttonNextSymbol;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,9 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
     }
 
     private void setupToolbar() {
-        this.setTitle("Latihan Braille Penggabungan");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_latihan_penggabungan);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Latihan Braille Gabungan");
     }
 
     private void initView() {

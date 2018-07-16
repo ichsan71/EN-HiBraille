@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,7 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
     private View brailleDot4;
     private View brailleDot5;
     private View brailleDot6;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +52,9 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
     }
 
     private void initView() {
-        this.setTitle("Detail Braille");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_tanda_baca_detail);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Detail Braille");
     }
 
     private void setupAppbar() {

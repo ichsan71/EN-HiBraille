@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +37,7 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
     private ImageButton buttonSpeechRecognizer;
     private List<HijaiyahModel> listHijaiyah;
     private Button buttonNextSymbol;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,9 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
     }
 
     private void setupToolbar() {
-        this.setTitle("Latihan Braille Hijaiyah");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_latihan_hijaiyah);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Latihan Braille Hijaiyah");
     }
 
     private void initView() {

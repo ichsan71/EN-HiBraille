@@ -3,16 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@android:color/black"
     tools:context=".hijaiyah_detail.HijaiyahDetailActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_hijaiyah_detail"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/MyActionBarTheme"/>
+
     <FrameLayout
         android:id="@+id/hijaiyahdetail_framelayout_simbol"
         android:layout_width="230dp"
-        android:layout_height="230dp">
+        android:layout_height="230dp"
+        android:layout_marginTop="16dp">
 
         <View
             android:layout_width="match_parent"

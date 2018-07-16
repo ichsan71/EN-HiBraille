@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +34,7 @@ public class LatihanTandaBacaActivity extends AppCompatActivity implements Latih
     private ImageButton buttonSpeechRecognizer;
     private List<TandaBacaModel> listTandaBaca;
     private Button buttonNextSymbol;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +63,9 @@ public class LatihanTandaBacaActivity extends AppCompatActivity implements Latih
     }
 
     private void setupToolbar() {
-        this.setTitle("Latihan Braille TandaBaca");
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = findViewById(R.id.toolbar_latihan_tanda_baca);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Latihan Braille Tanda Baca");
     }
 
     private void initView() {
