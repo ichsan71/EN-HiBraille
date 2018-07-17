@@ -46,9 +46,8 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                callSearch(query);
 
-                return true;
+                return false;
             }
 
             @Override
@@ -74,6 +73,7 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
     }
 
     private void callSearch(String newText) {
+        belajarHijaiyahAdapter.getFilter().filter(newText);
     }
 
     private void setupToolbar() {

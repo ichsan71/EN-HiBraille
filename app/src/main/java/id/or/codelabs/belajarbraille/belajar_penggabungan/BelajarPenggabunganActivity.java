@@ -47,9 +47,8 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                callSearch(query);
 
-                return true;
+                return false;
             }
 
             @Override
@@ -75,6 +74,7 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
     }
 
     private void callSearch(String newText) {
+        belajarPenggabunganAdapter.getFilter().filter(newText);
     }
 
     private void initView() {

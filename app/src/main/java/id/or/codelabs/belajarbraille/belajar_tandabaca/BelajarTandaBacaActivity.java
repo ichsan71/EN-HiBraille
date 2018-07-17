@@ -46,9 +46,8 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                callSearch(query);
 
-                return true;
+                return false;
             }
 
             @Override
@@ -74,6 +73,7 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
     }
 
     private void callSearch(String newText) {
+        belajarTandaBacaAdapter.getFilter().filter(newText);
     }
 
     private void initView() {
