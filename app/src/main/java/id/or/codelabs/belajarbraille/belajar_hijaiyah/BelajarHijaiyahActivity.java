@@ -80,6 +80,7 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
         toolbar = findViewById(R.id.toolbar_belajar_hijaiyah);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Hijaiyah");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {
@@ -105,12 +106,9 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

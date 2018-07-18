@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -69,6 +68,7 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
         toolbar = findViewById(R.id.toolbar_latihan_hijaiyah);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Hijaiyah");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {
@@ -208,12 +208,9 @@ public class LatihanHijaiyahActivity extends AppCompatActivity implements Latiha
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

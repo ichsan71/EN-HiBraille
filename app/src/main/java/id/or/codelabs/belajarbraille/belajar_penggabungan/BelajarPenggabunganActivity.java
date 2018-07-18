@@ -86,6 +86,7 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
         toolbar = findViewById(R.id.toolbar_belajar_penggabungan);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Gabungan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupRecyclerView() {
@@ -106,12 +107,9 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

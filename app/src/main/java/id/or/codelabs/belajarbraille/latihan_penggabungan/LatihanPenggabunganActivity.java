@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 
@@ -81,6 +81,7 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
         toolbar = findViewById(R.id.toolbar_latihan_penggabungan);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Gabungan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {
@@ -222,12 +223,9 @@ public class LatihanPenggabunganActivity extends AppCompatActivity implements La
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -61,7 +60,7 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
     private void setupAppbar() {
         toolbar = findViewById(R.id.toolbar_penggabungan_detail);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail Braille");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {
@@ -117,6 +116,7 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
         imagePenggabungan.setImageResource(penggabunganModel.getImagePenggabungan());
         namePenggabungan.setText(penggabunganModel.getNamePenggabungan());
         spellPenggabungan.setText(penggabunganModel.getSpellPenggabungan());
+        getSupportActionBar().setTitle("Detail Braille " + penggabunganModel.getNamePenggabungan());
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,12 +140,9 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

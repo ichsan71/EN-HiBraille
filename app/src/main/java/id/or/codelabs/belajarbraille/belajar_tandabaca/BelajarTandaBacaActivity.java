@@ -85,6 +85,7 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
         toolbar = findViewById(R.id.toolbar_belajar_tanda_baca);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Tanda Baca");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupRecyclerView() {
@@ -105,12 +106,9 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override

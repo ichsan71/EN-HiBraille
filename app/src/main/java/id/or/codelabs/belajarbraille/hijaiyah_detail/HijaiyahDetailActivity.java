@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,7 +53,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
     private void setupAppbar() {
         toolbar = findViewById(R.id.toolbar_hijaiyah_detail);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail Braille");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {
@@ -89,6 +88,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         }
         imageHijaiyah.setImageResource(hijaiyahModel.getImageHijaiyah());
         nameHijaiyah.setText(hijaiyahModel.getNameHijaiyah());
+        getSupportActionBar().setTitle("Detail Braille " + hijaiyahModel.getNameHijaiyah());
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,12 +112,9 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override
