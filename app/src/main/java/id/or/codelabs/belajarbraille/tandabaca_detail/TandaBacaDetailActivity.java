@@ -75,16 +75,22 @@ public class TandaBacaDetailActivity extends AppCompatActivity implements TandaB
     public void showTandaBacaDetail(final TandaBacaModel tandaBacaModel) {
         if(tandaBacaModel.getListBrailleDots().get(0) == 1){
             brailleDot1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot1.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }if(tandaBacaModel.getListBrailleDots().get(1) == 1){
             brailleDot2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot2.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }if(tandaBacaModel.getListBrailleDots().get(2) == 1){
             brailleDot3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot3.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }if(tandaBacaModel.getListBrailleDots().get(3) == 1){
             brailleDot4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot4.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }if(tandaBacaModel.getListBrailleDots().get(4) == 1){
             brailleDot5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot5.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }if(tandaBacaModel.getListBrailleDots().get(5) == 1){
             brailleDot6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDot6.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
         }
         imageTandaBaca.setImageResource(tandaBacaModel.getImageTandaBaca());
         nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());

@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -29,6 +30,8 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
     private TextView namePenggabungan;
     private TextView spellPenggabungan;
     private Button buttonCariHukumBacaan;
+    private LinearLayout layoutBrailleDotHijaiyah;
+    private LinearLayout layoutBrailleDotTandaBaca;
     private View brailleDotHijaiyah1;
     private View brailleDotHijaiyah2;
     private View brailleDotHijaiyah3;
@@ -67,6 +70,8 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
         imagePenggabungan = findViewById(R.id.penggabungandetail_imageview_penggabungan);
         namePenggabungan = findViewById(R.id.penggabungandetail_textview_nama_simbol);
         spellPenggabungan = findViewById(R.id.penggabungandetail_textview_cara_baca_simbol);
+        layoutBrailleDotHijaiyah = findViewById(R.id.penggabungandetail_linearlayout_titik_braille_hijaiyah);
+        layoutBrailleDotTandaBaca = findViewById(R.id.penggabungandetail_linearlayout_titik_braille_tanda_baca);
         buttonCariHukumBacaan = findViewById(R.id.penggabungandetail_button_tombol_cari_hukum_bacaan);
         brailleDotHijaiyah1 = findViewById(R.id.penggabungandetail_titik_braille_hijaiyah_1);
         brailleDotHijaiyah2 = findViewById(R.id.penggabungandetail_titik_braille_hijaiyah_2);
@@ -89,33 +94,47 @@ public class PenggabunganDetailActivity extends AppCompatActivity implements Pen
     public void showPenggabunganDetail(final PenggabunganModel penggabunganModel) {
         if(penggabunganModel.getListBrailleDotsHijaiyah().get(0) == 1){
             brailleDotHijaiyah1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah1.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(1) == 1){
             brailleDotHijaiyah2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah2.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(2) == 1){
             brailleDotHijaiyah3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah3.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(3) == 1){
             brailleDotHijaiyah4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah4.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(4) == 1){
             brailleDotHijaiyah5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah5.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }if(penggabunganModel.getListBrailleDotsHijaiyah().get(5) == 1){
             brailleDotHijaiyah6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotHijaiyah6.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
         }
         if(penggabunganModel.getListBrailleDotsTandaBaca().get(0) == 1){
             brailleDotTandaBaca1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca1.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }if(penggabunganModel.getListBrailleDotsTandaBaca().get(1) == 1){
             brailleDotTandaBaca2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca2.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }if(penggabunganModel.getListBrailleDotsTandaBaca().get(2) == 1){
             brailleDotTandaBaca3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca3.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }if(penggabunganModel.getListBrailleDotsTandaBaca().get(3) == 1){
             brailleDotTandaBaca4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca4.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }if(penggabunganModel.getListBrailleDotsTandaBaca().get(4) == 1){
             brailleDotTandaBaca5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca5.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }if(penggabunganModel.getListBrailleDotsTandaBaca().get(5) == 1){
             brailleDotTandaBaca6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
+            brailleDotTandaBaca6.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
         }
         imagePenggabungan.setImageResource(penggabunganModel.getImagePenggabungan());
         namePenggabungan.setText(penggabunganModel.getNamePenggabungan());
         spellPenggabungan.setText(penggabunganModel.getSpellPenggabungan());
+        layoutBrailleDotHijaiyah.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameHijaiyah());
+        layoutBrailleDotTandaBaca.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameTandaBaca());
         getSupportActionBar().setTitle("Detail Braille " + penggabunganModel.getNamePenggabungan());
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
