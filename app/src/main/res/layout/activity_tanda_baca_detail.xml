@@ -19,7 +19,8 @@
         android:id="@+id/tandabacadetail_framelayout_simbol"
         android:layout_width="230dp"
         android:layout_height="230dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:focusable="true">
 
         <View
             android:layout_width="match_parent"
@@ -70,7 +71,8 @@
         android:layout_height="188dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +82,8 @@
 
             <FrameLayout
                 android:layout_width="48dp"
-                android:layout_height="48dp">
+                android:layout_height="48dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_1"
@@ -101,7 +104,8 @@
             <FrameLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="16dp">
+                android:layout_marginLeft="16dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_4"
@@ -129,7 +133,8 @@
 
             <FrameLayout
                 android:layout_width="48dp"
-                android:layout_height="48dp">
+                android:layout_height="48dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_2"
@@ -150,7 +155,8 @@
             <FrameLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="16dp">
+                android:layout_marginLeft="16dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_5"
@@ -178,7 +184,8 @@
 
             <FrameLayout
                 android:layout_width="48dp"
-                android:layout_height="48dp">
+                android:layout_height="48dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_3"
@@ -199,7 +206,8 @@
             <FrameLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="16dp">
+                android:layout_marginLeft="16dp"
+                android:focusable="true">
 
                 <View
                     android:id="@+id/tandabacadetail_titik_braille_6"

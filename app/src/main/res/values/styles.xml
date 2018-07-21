@@ -10,6 +10,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="GoogleTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00B89F</item>
+        <item name="colorPrimaryDark">#006371</item>
+        <item name="colorAccent">#00DD71</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="MyActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">#FFFFFF</item>
     </style>

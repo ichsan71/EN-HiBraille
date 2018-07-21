@@ -70,6 +70,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/ic_voice_command"
+        android:contentDescription="Pesan Suara"
         android:background="@drawable/active_braille_dot"/>
 
     <Button

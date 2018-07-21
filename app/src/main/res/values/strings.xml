@@ -28,4 +28,12 @@
     <string name="latihan_simbol_tanda_baca_lain">LATIHAN SIMBOL TANDA BACA LAIN</string>
     <string name="latihan_simbol_gabungan_lain">LATIHAN SIMBOL GABUNGAN LAIN</string>
     <string name="search_description">Cari simbol..</string>
+
+    <string-array name="themes">
+        <item>Tema Default</item>
+        <item>Tema Google</item>
+    </string-array>
+
+    <string name="prefs_theme_key">theme</string>
+
 </resources>

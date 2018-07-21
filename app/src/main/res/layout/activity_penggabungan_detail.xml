@@ -19,7 +19,8 @@
         android:id="@+id/penggabungandetail_framelayout_simbol"
         android:layout_width="240dp"
         android:layout_height="240dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:focusable="true">
 
         <View
             android:layout_width="match_parent"
@@ -82,14 +83,16 @@
         android:layout_height="188dp"
         android:gravity="center"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="136dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:background="@color/colorPrimaryDark"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,7 +102,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_1"
@@ -120,7 +124,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_4"
@@ -148,7 +153,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_2"
@@ -169,7 +175,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_5"
@@ -197,7 +204,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_3"
@@ -218,7 +226,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_hijaiyah_6"
@@ -244,7 +253,8 @@
             android:gravity="center"
             android:layout_marginLeft="16dp"
             android:background="@color/colorPrimaryDark"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -254,7 +264,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_1"
@@ -275,7 +286,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_4"
@@ -303,7 +315,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_2"
@@ -324,7 +337,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_5"
@@ -352,7 +366,8 @@
 
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_3"
@@ -373,7 +388,8 @@
                 <FrameLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
 
                     <View
                         android:id="@+id/penggabungandetail_titik_braille_tandabaca_6"

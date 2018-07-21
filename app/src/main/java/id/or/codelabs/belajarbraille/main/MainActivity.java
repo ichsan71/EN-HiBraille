@@ -3,20 +3,18 @@ package id.or.codelabs.belajarbraille.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
-
-import java.util.ArrayList;
-
 import id.or.codelabs.belajarbraille.R;
+import id.or.codelabs.belajarbraille.ThemeSwitcherDialog;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.belajar_hijaiyah.BelajarHijaiyahActivity;
 import id.or.codelabs.belajarbraille.belajar_penggabungan.BelajarPenggabunganActivity;
 import id.or.codelabs.belajarbraille.belajar_tandabaca.BelajarTandaBacaActivity;
@@ -33,44 +31,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private CardView cvLatihanHijaiyah;
     private CardView cvLatihanTandaBaca;
     private CardView cvLatihanPenggabungan;
-    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        if(Utility.getTheme(MainActivity.this) == null || Utility.getTheme(MainActivity.this) == "Tema Default"){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         initView();
         setupToolbar();
-
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                callSearch(query);
-
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                callSearch(newText);
-
-                return true;
-            }
-        });
-
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                //Do some magic
-
-            }
-
-            @Override
-            public void onSearchViewClosed() {
-                //Do some magic
-            }
-        });
 
         cvBelajarHijaiyah.setOnClickListener(this);
         cvBelajarTandaBaca.setOnClickListener(this);
@@ -78,9 +53,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         cvLatihanHijaiyah.setOnClickListener(this);
         cvLatihanTandaBaca.setOnClickListener(this);
         cvLatihanPenggabungan.setOnClickListener(this);
-    }
-
-    private void callSearch(String query) {
     }
 
     private void setupToolbar() {
@@ -91,18 +63,26 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        searchView.setVoiceSearch(true);
-        searchView.setHint("Cari simbol..");
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
 
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_setting:
+                FragmentActivity activity = (FragmentActivity)(getContext());
+                FragmentManager fm = activity.getSupportFragmentManager();
+                ThemeSwitcherDialog alertDialog = new ThemeSwitcherDialog();
+                alertDialog.show(fm, "fragment_alert");
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void initView() {
-        searchView = findViewById(R.id.search_view);
         cvBelajarHijaiyah = findViewById(R.id.main_cardview_belajar_hijaiyah);
         cvBelajarTandaBaca = findViewById(R.id.main_cardview_belajar_tanda_baca);
         cvBelajarPenggabungan = findViewById(R.id.main_cardview_belajar_penggabungan);
@@ -133,22 +113,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 showLatihanPenggabunganView();
                 break;
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
-            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            if (matches != null && matches.size() > 0) {
-                String searchWrd = matches.get(0);
-                if (!TextUtils.isEmpty(searchWrd)) {
-                    searchView.setQuery(searchWrd, false);
-                }
-            }
-
-            return;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -190,26 +154,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void showLatihanPenggabunganView() {
         Intent intent = new Intent(MainActivity.this, LatihanPenggabunganActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_search:
-                break;
-            case R.id.action_setting:
-                break;
-        }
-
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else {
-            super.onBackPressed();
-        }
     }
 }
