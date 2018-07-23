@@ -17,29 +17,43 @@
         android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/learnhijaiyah_imageview_hijaiyah"
+            android:id="@+id/learnbraillemerge_imageview_braille_merge"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_centerHorizontal="true"
-            android:scaleType="centerCrop" />
+            android:scaleType="fitCenter" />
 
         <TextView
-            android:id="@+id/learnhijaiyah_textview_symbol_name"
+            android:id="@+id/learnbraillemerge_textview_symbol_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/learnhijaiyah_imageview_hijaiyah"
+            android:layout_below="@id/learnbraillemerge_imageview_braille_merge"
             android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="@string/learn_hijaiyah_braille"
+            android:text="@string/learn_braille_merge"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/learnhijaiyah_textview_braille_dots"
+            android:id="@+id/learnbraillemerge_textview_symbol_spell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/learnbraillemerge_textview_symbol_name"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:text="@string/cara_baca"
+            android:textColor="@android:color/white"/>
+
+
+        <TextView
+            android:id="@+id/learnbraillemerge_textview_braille_dots"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/learnhijaiyah_textview_symbol_name"
+            android:layout_below="@id/learnbraillemerge_textview_symbol_spell"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"

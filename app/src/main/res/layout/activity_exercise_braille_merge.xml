@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@android:color/black"
+    tools:context=".exercise_braillemerge.ExerciseBrailleMergeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_latihan_penggabungan"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/MyActionBarTheme"/>
+
+    <FrameLayout
+        android:id="@+id/latihanpenggabungan_framelayout_soal"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="16dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_background"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/latihanpenggabungan_imageview_penggabungan"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/alif_fathah"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/latihanpenggabungan_textview_nama_simbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:text="@string/learn_braille_merge"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/latihanpenggabungan_textview_cara_baca_simbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:text="@string/braille_dots"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="24dp"
+                android:paddingLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:text="@string/soal_latihan"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/latihanpenggabungan_button_pesan_suara"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_voice_command"
+        android:background="@drawable/active_braille_dot"
+        android:contentDescription="Pesan Suara"/>
+
+    <Button
+        android:id="@+id/latihanpenggabungan_button_simbol_lain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/colorAccent"
+        android:text="@string/latihan_simbol_gabungan_lain"
+        android:textColorHint="@color/colorPrimaryDark" />
+</LinearLayout>

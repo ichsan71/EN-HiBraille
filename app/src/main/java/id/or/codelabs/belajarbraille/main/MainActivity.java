@@ -1,5 +1,6 @@
 package id.or.codelabs.belajarbraille.main;
 
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,16 +12,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityManager;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.ThemeSwitcherDialog;
 import id.or.codelabs.belajarbraille.Utility;
-import id.or.codelabs.belajarbraille.belajar_hijaiyah.BelajarHijaiyahActivity;
-import id.or.codelabs.belajarbraille.belajar_penggabungan.BelajarPenggabunganActivity;
-import id.or.codelabs.belajarbraille.belajar_tandabaca.BelajarTandaBacaActivity;
-import id.or.codelabs.belajarbraille.latihan_hijaiyah.LatihanHijaiyahActivity;
-import id.or.codelabs.belajarbraille.latihan_penggabungan.LatihanPenggabunganActivity;
-import id.or.codelabs.belajarbraille.latihan_tandabaca.LatihanTandaBacaActivity;
+import id.or.codelabs.belajarbraille.learn_hijaiyah.LearnHijaiyahActivity;
+import id.or.codelabs.belajarbraille.learn_braillemerge.LearnBrailleMergeActivity;
+import id.or.codelabs.belajarbraille.learn_punctuation.LearnPunctuationActivity;
+import id.or.codelabs.belajarbraille.exercise_hijaiyah.ExerciseHijaiyahActivity;
+import id.or.codelabs.belajarbraille.exercise_braillemerge.ExerciseBrailleMergeActivity;
+import id.or.codelabs.belajarbraille.exercise_punctuation.ExercisePunctuationActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, View.OnClickListener{
 
@@ -31,11 +34,23 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private CardView cvLatihanHijaiyah;
     private CardView cvLatihanTandaBaca;
     private CardView cvLatihanPenggabungan;
+    private Service service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AccessibilityManager manager = (AccessibilityManager) MainActivity.this
+                .getSystemService(Context.ACCESSIBILITY_SERVICE);
+        if (manager.isEnabled()) {
+            AccessibilityEvent e = AccessibilityEvent.obtain();
+            e.setEventType(AccessibilityEvent.TYPE_ANNOUNCEMENT);
+            e.setClassName(getClass().getName());
+            e.setPackageName(MainActivity.this.getPackageName());
+            e.getText().add("Bismillaahirrohmaanirrohiim.");
+            manager.sendAccessibilityEvent(e);
+        }
 
         if(Utility.getTheme(MainActivity.this) == null ||
                 Utility.getTheme(MainActivity.this) == "Tema Default"){
@@ -83,33 +98,33 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void initView() {
-        cvBelajarHijaiyah = findViewById(R.id.main_cardview_belajar_hijaiyah);
-        cvBelajarTandaBaca = findViewById(R.id.main_cardview_belajar_tanda_baca);
-        cvBelajarPenggabungan = findViewById(R.id.main_cardview_belajar_penggabungan);
-        cvLatihanHijaiyah = findViewById(R.id.main_cardview_latihan_hijaiyah);
-        cvLatihanTandaBaca = findViewById(R.id.main_cardview_latihan_tanda_baca);
-        cvLatihanPenggabungan = findViewById(R.id.main_cardview_latihan_penggabungan);
+        cvBelajarHijaiyah = findViewById(R.id.main_cardview_learn_hijaiyah);
+        cvBelajarTandaBaca = findViewById(R.id.main_cardview_learn_punctuation);
+        cvBelajarPenggabungan = findViewById(R.id.main_cardview_learn_braille_merge);
+        cvLatihanHijaiyah = findViewById(R.id.main_cardview_exercise_hijaiyah);
+        cvLatihanTandaBaca = findViewById(R.id.main_cardview_exercise_punctuation);
+        cvLatihanPenggabungan = findViewById(R.id.main_cardview_exercise_braille_merge);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.main_cardview_belajar_hijaiyah:
+            case R.id.main_cardview_learn_hijaiyah:
                 showBelajarHijaiyahView();
                 break;
-            case R.id.main_cardview_belajar_tanda_baca:
+            case R.id.main_cardview_learn_punctuation:
                 showBelajarTandaBacaView();
                 break;
-            case R.id.main_cardview_belajar_penggabungan:
+            case R.id.main_cardview_learn_braille_merge:
                 showBelajarPenggabunganView();
                 break;
-            case R.id.main_cardview_latihan_hijaiyah:
+            case R.id.main_cardview_exercise_hijaiyah:
                 showLatihanHijaiyahView();
                 break;
-            case R.id.main_cardview_latihan_tanda_baca:
+            case R.id.main_cardview_exercise_punctuation:
                 showLatihanTandaBacaView();
                 break;
-            case R.id.main_cardview_latihan_penggabungan:
+            case R.id.main_cardview_exercise_braille_merge:
                 showLatihanPenggabunganView();
                 break;
         }
@@ -122,37 +137,53 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void showBelajarHijaiyahView() {
-        Intent intent = new Intent(MainActivity.this, BelajarHijaiyahActivity.class);
+        Intent intent = new Intent(MainActivity.this, LearnHijaiyahActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showBelajarTandaBacaView() {
-        Intent intent = new Intent(MainActivity.this, BelajarTandaBacaActivity.class);
+        Intent intent = new Intent(MainActivity.this, LearnPunctuationActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showBelajarPenggabunganView() {
-        Intent intent = new Intent(MainActivity.this, BelajarPenggabunganActivity.class);
+        Intent intent = new Intent(MainActivity.this, LearnBrailleMergeActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showLatihanHijaiyahView() {
-        Intent intent = new Intent(MainActivity.this, LatihanHijaiyahActivity.class);
+        Intent intent = new Intent(MainActivity.this, ExerciseHijaiyahActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showLatihanTandaBacaView() {
-        Intent intent = new Intent(MainActivity.this, LatihanTandaBacaActivity.class);
+        Intent intent = new Intent(MainActivity.this, ExercisePunctuationActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void showLatihanPenggabunganView() {
-        Intent intent = new Intent(MainActivity.this, LatihanPenggabunganActivity.class);
+        Intent intent = new Intent(MainActivity.this, ExerciseBrailleMergeActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AccessibilityManager manager = (AccessibilityManager) MainActivity.this
+                .getSystemService(Context.ACCESSIBILITY_SERVICE);
+        if (manager.isEnabled()) {
+            AccessibilityEvent e = AccessibilityEvent.obtain();
+            e.setEventType(AccessibilityEvent.TYPE_ANNOUNCEMENT);
+            e.setClassName(getClass().getName());
+            e.setPackageName(MainActivity.this.getPackageName());
+            e.getText().add("Alhamdulillaahirobbilaalamiin.");
+            manager.sendAccessibilityEvent(e);
+        }
+
+        super.onBackPressed();
     }
 }

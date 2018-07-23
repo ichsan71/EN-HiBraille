@@ -24,34 +24,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".belajar_hijaiyah.BelajarHijaiyahActivity"
+            android:name=".learn_hijaiyah.LearnHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".belajar_penggabungan.BelajarPenggabunganActivity"
+            android:name=".learn_braillemerge.LearnBrailleMergeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".belajar_tandabaca.BelajarTandaBacaActivity"
+            android:name=".learn_punctuation.LearnPunctuationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_hijaiyah.LatihanHijaiyahActivity"
+            android:name=".exercise_hijaiyah.ExerciseHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_penggabungan.LatihanPenggabunganActivity"
+            android:name=".exercise_braillemerge.ExerciseBrailleMergeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".latihan_tandabaca.LatihanTandaBacaActivity"
+            android:name=".exercise_punctuation.ExercisePunctuationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".hijaiyah_detail.HijaiyahDetailActivity"
-            android:parentActivityName=".belajar_hijaiyah.BelajarHijaiyahActivity"
+            android:parentActivityName=".learn_hijaiyah.LearnHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tandabaca_detail.TandaBacaDetailActivity"
-            android:parentActivityName=".belajar_tandabaca.BelajarTandaBacaActivity"
+            android:name=".punctuation_detail.PunctuationDetailActivity"
+            android:parentActivityName=".learn_punctuation.LearnPunctuationActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".penggabungan_detail.PenggabunganDetailActivity"
-            android:parentActivityName=".belajar_penggabungan.BelajarPenggabunganActivity"
+            android:name=".braillemerge_detail.BrailleMergeDetailActivity"
+            android:parentActivityName=".learn_braillemerge.LearnBrailleMergeActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ThemeSwitcherDialog"

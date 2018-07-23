@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@android:color/black"
+    tools:context=".braillemerge_detail.BrailleMergeDetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_braillemerge_detail"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/MyActionBarTheme"/>
+
+    <FrameLayout
+        android:id="@+id/braillemergedetail_framelayout_symbol"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="16dp"
+        android:focusable="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_background"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/braillemergedetail_imageview_braillemerge"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/alif_fathah"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/braillemergedetail_textview_symbol_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:text="@string/learn_braille_merge"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/braillemergedetail_textview_symbol_spell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:text="@string/cara_baca"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="40dp"
+                android:paddingLeft="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:text="@string/braillemerge_detail_guide"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/braillemergedetail_linearlayout_braille_dots"
+        android:layout_width="316dp"
+        android:layout_height="188dp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/braillemergedetail_linearlayout_braille_dots_hijaiyah"
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_hijaiyah_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/braillemergedetail_linearlayout_braille_dots_punctuation"
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:focusable="true">
+
+                    <View
+                        android:id="@+id/braillemergedetail_braille_dot_punctuation_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/nonactive_braille_dot"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:padding="8dp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/braillemergedetail_button_find_reading_law"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:drawableLeft="@drawable/ic_google"
+        android:text="@string/find_symbol_reading_law"
+        android:textColorHint="@android:color/black" />
+</LinearLayout>

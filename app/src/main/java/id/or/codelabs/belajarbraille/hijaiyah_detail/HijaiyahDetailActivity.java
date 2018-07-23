@@ -58,14 +58,14 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
 
     private void initView() {
         imageHijaiyah = findViewById(R.id.hijaiyahdetail_imageview_hijaiyah);
-        nameHijaiyah = findViewById(R.id.hijaiyahdetail_textview_nama_simbol);
-        buttonCariHukumBacaan = findViewById(R.id.hijaiyahdetail_button_tombol_cari_hukum_bacaan);
-        brailleDot1 = findViewById(R.id.hijaiyahdetail_titik_braille_1);
-        brailleDot2 = findViewById(R.id.hijaiyahdetail_titik_braille_2);
-        brailleDot3 = findViewById(R.id.hijaiyahdetail_titik_braille_3);
-        brailleDot4 = findViewById(R.id.hijaiyahdetail_titik_braille_4);
-        brailleDot5 = findViewById(R.id.hijaiyahdetail_titik_braille_5);
-        brailleDot6 = findViewById(R.id.hijaiyahdetail_titik_braille_6);
+        nameHijaiyah = findViewById(R.id.hijaiyahdetail_textview_symbol_name);
+        buttonCariHukumBacaan = findViewById(R.id.hijaiyahdetail_button_find_reading_law);
+        brailleDot1 = findViewById(R.id.hijaiyahdetail_view_braille_dot_1);
+        brailleDot2 = findViewById(R.id.hijaiyahdetail_view_braille_dot_2);
+        brailleDot3 = findViewById(R.id.hijaiyahdetail_view_braille_dot_3);
+        brailleDot4 = findViewById(R.id.hijaiyahdetail_view_braille_dot_4);
+        brailleDot5 = findViewById(R.id.hijaiyahdetail_view_braille_dot_5);
+        brailleDot6 = findViewById(R.id.hijaiyahdetail_view_braille_dot_6);
         Drawable drawable = HijaiyahDetailActivity.this.getResources().getDrawable(R.drawable.ic_google);
         drawable.setBounds(0, 0, 40, 40);
         buttonCariHukumBacaan.setCompoundDrawables(drawable, null, null, null);
