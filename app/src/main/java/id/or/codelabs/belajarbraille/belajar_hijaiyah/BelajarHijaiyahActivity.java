@@ -86,6 +86,8 @@ public class BelajarHijaiyahActivity extends AppCompatActivity implements Belaja
     private void initView() {
         searchView = findViewById(R.id.search_view_hijaiyah);
         recyclerViewHijaiyah = findViewById(R.id.belajarhijaiyah_recyclerview);
+        searchView.findViewById(R.id.action_voice_btn).setContentDescription("Penelusuran Suara");
+        searchView.findViewById(R.id.action_up_btn).setContentDescription("Navigasi Naik");
     }
 
     private void setupRecyclerView() {

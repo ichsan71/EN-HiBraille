@@ -79,6 +79,8 @@ public class BelajarTandaBacaActivity extends AppCompatActivity implements Belaj
     private void initView() {
         searchView = findViewById(R.id.search_view_tanda_baca);
         recyclerViewTandaBaca = findViewById(R.id.belajartandabaca_recyclerview);
+        searchView.findViewById(R.id.action_voice_btn).setContentDescription("Penelusuran Suara");
+        searchView.findViewById(R.id.action_up_btn).setContentDescription("Navigasi Naik");
     }
 
     private void setupToolbar() {

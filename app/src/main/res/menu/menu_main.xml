@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/action_search"
-        android:title="Cari"
+        android:title="Cari Simbol"
         android:icon="@drawable/ic_search"
         app:showAsAction="always" />
     <item android:id="@+id/action_setting"
-        android:title="Atur Tampilan"
+        android:title="Atur Tema"
         android:icon="@drawable/ic_settings"
         app:showAsAction="always" />
 </menu>

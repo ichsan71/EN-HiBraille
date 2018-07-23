@@ -80,6 +80,8 @@ public class BelajarPenggabunganActivity extends AppCompatActivity implements Be
     private void initView() {
         searchView = findViewById(R.id.search_view_penggabungan);
         recyclerViewPenggabungan = findViewById(R.id.belajarpenggabungan_recyclerview);
+        searchView.findViewById(R.id.action_voice_btn).setContentDescription("Penelusuran Suara");
+        searchView.findViewById(R.id.action_up_btn).setContentDescription("Navigasi Naik");
     }
 
     private void setupToolbar() {

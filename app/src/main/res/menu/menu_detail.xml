@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/action_setting"
-        android:title="Atur warna latar"
+        android:title="Atur Tema Aplikasi"
         android:icon="@drawable/ic_settings"
         app:showAsAction="always"
         app:actionViewClass="id.or.codelabs.belajarbraille. ThemeSwitcherActivity" />
