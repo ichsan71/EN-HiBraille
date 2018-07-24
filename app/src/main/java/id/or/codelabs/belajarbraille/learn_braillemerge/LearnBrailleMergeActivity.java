@@ -19,8 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
-import id.or.codelabs.belajarbraille.data.PenggabunganModel;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.braillemerge_detail.BrailleMergeDetailActivity;
+import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 
 public class LearnBrailleMergeActivity extends AppCompatActivity implements LearnBrailleMergeContract.View,
         LearnBrailleMergeAdapter.PenggabunganListener{
@@ -34,6 +35,12 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(LearnBrailleMergeActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_braille_merge);
 
@@ -116,7 +123,7 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
         searchView.setVoiceSearch(true);

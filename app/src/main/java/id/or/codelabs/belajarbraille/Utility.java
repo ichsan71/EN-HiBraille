@@ -7,14 +7,10 @@ import android.preference.PreferenceManager;
 public class Utility {
     public static void setTheme(Context context, String theme) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().putString(context.getString(R.string.prefs_theme_key), theme).apply();
+        prefs.edit().putString("theme", theme).commit();
     }
     public static String getTheme(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        if (prefs.getString(context.getString(R.string.prefs_theme_key), null) == null){
-            return null;
-        }
-        return prefs.getString(context.getString(R.string.prefs_theme_key), null);
+        String prefs = PreferenceManager.getDefaultSharedPreferences(context).getString("theme", "Tema Default");
+        return prefs;
     }
 }

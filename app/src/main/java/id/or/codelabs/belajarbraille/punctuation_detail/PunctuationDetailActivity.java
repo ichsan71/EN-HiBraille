@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import id.or.codelabs.belajarbraille.R;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.data.TandaBacaModel;
 
 public class PunctuationDetailActivity extends AppCompatActivity implements PunctuationDetailContract.View{
@@ -38,6 +38,12 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(PunctuationDetailActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_punctuation_detail);
 
@@ -76,21 +82,38 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
         if(tandaBacaModel.getListBrailleDots().get(0) == 1){
             brailleDot1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot1.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
-        }if(tandaBacaModel.getListBrailleDots().get(1) == 1){
+        } else {
+            brailleDot1.setContentDescription("Bukan Titik ");
+        }
+        if(tandaBacaModel.getListBrailleDots().get(1) == 1){
             brailleDot2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot2.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
-        }if(tandaBacaModel.getListBrailleDots().get(2) == 1){
+        } else {
+            brailleDot2.setContentDescription("Bukan Titik ");
+        }
+        if(tandaBacaModel.getListBrailleDots().get(2) == 1){
             brailleDot3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot3.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
-        }if(tandaBacaModel.getListBrailleDots().get(3) == 1){
+        } else {
+            brailleDot3.setContentDescription("Bukan Titik ");
+        }
+        if(tandaBacaModel.getListBrailleDots().get(3) == 1){
             brailleDot4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot4.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
-        }if(tandaBacaModel.getListBrailleDots().get(4) == 1){
+        } else {
+            brailleDot4.setContentDescription("Bukan Titik ");
+        }
+        if(tandaBacaModel.getListBrailleDots().get(4) == 1){
             brailleDot5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot5.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
-        }if(tandaBacaModel.getListBrailleDots().get(5) == 1){
+        } else {
+            brailleDot5.setContentDescription("Bukan Titik ");
+        }
+        if(tandaBacaModel.getListBrailleDots().get(5) == 1){
             brailleDot6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDot6.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+        } else {
+            brailleDot6.setContentDescription("Bukan Titik ");
         }
         imageTandaBaca.setImageResource(tandaBacaModel.getImageTandaBaca());
         nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
@@ -120,12 +143,6 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
     @Override
     public boolean onSupportNavigateUp() {
         finish();
-        return true;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 }

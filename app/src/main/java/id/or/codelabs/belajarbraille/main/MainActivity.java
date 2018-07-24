@@ -1,6 +1,5 @@
 package id.or.codelabs.belajarbraille.main;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,12 +17,12 @@ import android.view.accessibility.AccessibilityManager;
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.ThemeSwitcherDialog;
 import id.or.codelabs.belajarbraille.Utility;
-import id.or.codelabs.belajarbraille.learn_hijaiyah.LearnHijaiyahActivity;
-import id.or.codelabs.belajarbraille.learn_braillemerge.LearnBrailleMergeActivity;
-import id.or.codelabs.belajarbraille.learn_punctuation.LearnPunctuationActivity;
-import id.or.codelabs.belajarbraille.exercise_hijaiyah.ExerciseHijaiyahActivity;
 import id.or.codelabs.belajarbraille.exercise_braillemerge.ExerciseBrailleMergeActivity;
+import id.or.codelabs.belajarbraille.exercise_hijaiyah.ExerciseHijaiyahActivity;
 import id.or.codelabs.belajarbraille.exercise_punctuation.ExercisePunctuationActivity;
+import id.or.codelabs.belajarbraille.learn_braillemerge.LearnBrailleMergeActivity;
+import id.or.codelabs.belajarbraille.learn_hijaiyah.LearnHijaiyahActivity;
+import id.or.codelabs.belajarbraille.learn_punctuation.LearnPunctuationActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, View.OnClickListener{
 
@@ -34,10 +33,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private CardView cvLatihanHijaiyah;
     private CardView cvLatihanTandaBaca;
     private CardView cvLatihanPenggabungan;
-    private Service service;
 
+    //@SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(MainActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -50,13 +55,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             e.setPackageName(MainActivity.this.getPackageName());
             e.getText().add("Bismillaahirrohmaanirrohiim.");
             manager.sendAccessibilityEvent(e);
-        }
-
-        if(Utility.getTheme(MainActivity.this) == null ||
-                Utility.getTheme(MainActivity.this) == "Tema Default"){
-            setTheme(R.style.AppTheme);
-        } else {
-            setTheme(R.style.GoogleTheme);
         }
 
         initView();
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
 
         return true;
     }

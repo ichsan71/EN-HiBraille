@@ -1,5 +1,6 @@
 package id.or.codelabs.belajarbraille;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -7,8 +8,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
-public class ThemeSwitcherDialog extends DialogFragment{
+public class ThemeSwitcherDialog extends DialogFragment {
     private CharSequence[] mEntries;
     private CharSequence[] mEntryValues;
     private String mValue;
@@ -16,15 +18,17 @@ public class ThemeSwitcherDialog extends DialogFragment{
     SharedPreferences prefs;
     private int mClickedDialogEntryIndex;
 
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mEntries = getResources().getStringArray(R.array.themes);
         mEntryValues = getResources().getStringArray(R.array.themes);
-        mValue = prefs.getString("lang", "id");
+        mValue = prefs.getString("chosenTheme", "Tema Default");
     }
 
-    @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Pilih Warna Tema Aplikasi");
         dialog.setPositiveButton(null, null);
@@ -50,18 +54,25 @@ public class ThemeSwitcherDialog extends DialogFragment{
 
     DialogInterface.OnClickListener selectItemListener = new DialogInterface.OnClickListener() {
 
-        @Override public void onClick(DialogInterface dialog, int which) {
+        @SuppressLint("RestrictedApi")
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
             if (mClickedDialogEntryIndex != which) {
                 mClickedDialogEntryIndex = which;
                 mValue = mEntryValues[mClickedDialogEntryIndex].toString();
-                prefs.edit().putString("lang", mValue).commit();
-                if (mValue == "Tema Default"){
-                    Utility.setTheme(getContext() , "Tema Default");
-                } else if(mValue == "Tema Google"){
-                    Utility.setTheme(getContext() , "Tema Google");
+                prefs.edit().putString("chosenTheme", mValue).commit();
+                if (mValue.trim().equals("Tema Default")) {
+                    Toast.makeText(getContext(), mValue + " Terpilih", Toast.LENGTH_SHORT).show();
+                    Utility.setTheme(getContext(), mValue);
+                    dialog.dismiss();
+                    getActivity().recreate();
+                } else if (mValue.trim().equals("Tema Google")) {
+                    Toast.makeText(getContext(), mValue + " Terpilih", Toast.LENGTH_SHORT).show();
+                    Utility.setTheme(getContext(), mValue);
+                    dialog.dismiss();
+                    getActivity().recreate();
                 }
             }
-            dialog.dismiss();
         }
     };
 }

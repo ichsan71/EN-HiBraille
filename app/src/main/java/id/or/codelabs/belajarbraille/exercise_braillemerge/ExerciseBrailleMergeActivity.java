@@ -10,7 +10,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -22,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 
 public class ExerciseBrailleMergeActivity extends AppCompatActivity implements ExerciseBrailleMergeContract.View {
@@ -40,6 +40,12 @@ public class ExerciseBrailleMergeActivity extends AppCompatActivity implements E
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(ExerciseBrailleMergeActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_braille_merge);
 
@@ -225,12 +231,6 @@ public class ExerciseBrailleMergeActivity extends AppCompatActivity implements E
     @Override
     public boolean onSupportNavigateUp() {
         finish();
-        return true;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 }

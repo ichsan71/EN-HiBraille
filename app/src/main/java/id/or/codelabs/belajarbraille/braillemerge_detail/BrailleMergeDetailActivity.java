@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import id.or.codelabs.belajarbraille.R;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 
 public class BrailleMergeDetailActivity extends AppCompatActivity implements BrailleMergeDetailContract.View{
@@ -48,6 +48,12 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(BrailleMergeDetailActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_braille_merge_detail);
 
@@ -95,40 +101,74 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
         if(penggabunganModel.getListBrailleDotsHijaiyah().get(0) == 1){
             brailleDotHijaiyah1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah1.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
-        }if(penggabunganModel.getListBrailleDotsHijaiyah().get(1) == 1){
+        } else {
+            brailleDotHijaiyah1.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsHijaiyah().get(1) == 1){
             brailleDotHijaiyah2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah2.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
-        }if(penggabunganModel.getListBrailleDotsHijaiyah().get(2) == 1){
+        } else {
+            brailleDotHijaiyah2.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsHijaiyah().get(2) == 1){
             brailleDotHijaiyah3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah3.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
-        }if(penggabunganModel.getListBrailleDotsHijaiyah().get(3) == 1){
+        } else {
+            brailleDotHijaiyah3.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsHijaiyah().get(3) == 1){
             brailleDotHijaiyah4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah4.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
-        }if(penggabunganModel.getListBrailleDotsHijaiyah().get(4) == 1){
+        } else {
+            brailleDotHijaiyah4.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsHijaiyah().get(4) == 1){
             brailleDotHijaiyah5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah5.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
-        }if(penggabunganModel.getListBrailleDotsHijaiyah().get(5) == 1){
+        } else {
+            brailleDotHijaiyah5.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsHijaiyah().get(5) == 1){
             brailleDotHijaiyah6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotHijaiyah6.setContentDescription("Titik Braille " + penggabunganModel.getNameHijaiyah());
+        } else {
+            brailleDotHijaiyah6.setContentDescription("Bukan Titik ");
         }
         if(penggabunganModel.getListBrailleDotsTandaBaca().get(0) == 1){
             brailleDotTandaBaca1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca1.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
-        }if(penggabunganModel.getListBrailleDotsTandaBaca().get(1) == 1){
+        } else {
+            brailleDotTandaBaca1.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsTandaBaca().get(1) == 1){
             brailleDotTandaBaca2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca2.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
-        }if(penggabunganModel.getListBrailleDotsTandaBaca().get(2) == 1){
+        } else {
+            brailleDotTandaBaca2.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsTandaBaca().get(2) == 1){
             brailleDotTandaBaca3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca3.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
-        }if(penggabunganModel.getListBrailleDotsTandaBaca().get(3) == 1){
+        } else {
+            brailleDotTandaBaca3.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsTandaBaca().get(3) == 1){
             brailleDotTandaBaca4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca4.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
-        }if(penggabunganModel.getListBrailleDotsTandaBaca().get(4) == 1){
+        } else {
+            brailleDotTandaBaca4.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsTandaBaca().get(4) == 1){
             brailleDotTandaBaca5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca5.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
-        }if(penggabunganModel.getListBrailleDotsTandaBaca().get(5) == 1){
+        } else {
+            brailleDotTandaBaca5.setContentDescription("Bukan Titik ");
+        }
+        if(penggabunganModel.getListBrailleDotsTandaBaca().get(5) == 1){
             brailleDotTandaBaca6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
             brailleDotTandaBaca6.setContentDescription("Titik Braille " + penggabunganModel.getNameTandaBaca());
+        } else {
+            brailleDotTandaBaca6.setContentDescription("Bukan Titik ");
         }
         imagePenggabungan.setImageResource(penggabunganModel.getImagePenggabungan());
         namePenggabungan.setText(penggabunganModel.getNamePenggabungan());
@@ -161,12 +201,6 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
     @Override
     public boolean onSupportNavigateUp() {
         finish();
-        return true;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 }

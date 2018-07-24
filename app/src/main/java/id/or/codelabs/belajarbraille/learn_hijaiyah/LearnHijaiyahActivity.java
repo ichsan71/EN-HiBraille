@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
+import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.data.HijaiyahModel;
 import id.or.codelabs.belajarbraille.hijaiyah_detail.HijaiyahDetailActivity;
 
@@ -34,6 +35,12 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Utility.getTheme(LearnHijaiyahActivity.this).trim().equals("Tema Default")){
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.GoogleTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_hijaiyah);
         initView();
@@ -115,7 +122,7 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
         searchView.setVoiceSearch(true);
