@@ -15,7 +15,7 @@
             android:id="@+id/toolbar_learn_hijaiyah"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="?attr/colorPrimary"
             android:theme="@style/MyActionBarTheme"/>
 
         <com.miguelcatalan.materialsearchview.MaterialSearchView
@@ -35,7 +35,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/learn_hijaiyah_guide"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/backgroundCustom"
         android:textColor="@android:color/white"/>
 
     <android.support.v7.widget.RecyclerView

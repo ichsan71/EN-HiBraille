@@ -38,7 +38,7 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
         if(Utility.getTheme(LearnBrailleMergeActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

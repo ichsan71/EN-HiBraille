@@ -38,7 +38,7 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
         if(Utility.getTheme(LearnHijaiyahActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

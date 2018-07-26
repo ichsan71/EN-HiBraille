@@ -41,7 +41,7 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
         if(Utility.getTheme(PunctuationDetailActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

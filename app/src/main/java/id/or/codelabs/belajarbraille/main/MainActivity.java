@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         if(Utility.getTheme(MainActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

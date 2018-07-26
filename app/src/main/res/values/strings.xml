@@ -42,7 +42,7 @@
 
     <string-array name="themes">
         <item>Tema Default</item>
-        <item>Tema Google</item>
+        <item>Tema Hijau</item>
     </string-array>
 
     <string name="prefs_theme_key">theme</string>

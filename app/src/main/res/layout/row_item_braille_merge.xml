@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView android:id="@+id/main_cardview_learn_hijaiyah"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardBackgroundColor="?attr/colorPrimaryDark"
     app:cardCornerRadius="0dp"
     app:cardElevation="1dp"
     app:cardPreventCornerOverlap="false"

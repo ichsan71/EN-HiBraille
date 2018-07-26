@@ -43,7 +43,7 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
         if(Utility.getTheme(ExerciseHijaiyahActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

@@ -6,15 +6,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackground">@color/colorBackground</item>
+        <item name="backgroundCustom">@color/colorPrimaryDark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="GoogleTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="GreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#00B89F</item>
-        <item name="colorPrimaryDark">#006371</item>
-        <item name="colorAccent">#00DD71</item>
+        <item name="colorPrimary">@color/colorPrimary2</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark2</item>
+        <item name="colorAccent">@color/colorAccent2</item>
+        <item name="backgroundCustom">@drawable/transparent_background</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

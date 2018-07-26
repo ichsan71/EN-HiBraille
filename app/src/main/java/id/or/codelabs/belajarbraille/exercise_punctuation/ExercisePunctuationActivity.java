@@ -42,7 +42,7 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
         if(Utility.getTheme(ExercisePunctuationActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

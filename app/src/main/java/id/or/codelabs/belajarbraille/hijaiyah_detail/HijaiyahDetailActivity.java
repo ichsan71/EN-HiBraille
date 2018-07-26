@@ -41,7 +41,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         if(Utility.getTheme(HijaiyahDetailActivity.this).trim().equals("Tema Default")){
             setTheme(R.style.AppTheme);
         } else {
-            setTheme(R.style.GoogleTheme);
+            setTheme(R.style.GreenTheme);
         }
 
         super.onCreate(savedInstanceState);

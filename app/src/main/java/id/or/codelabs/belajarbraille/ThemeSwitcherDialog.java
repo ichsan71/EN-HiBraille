@@ -66,7 +66,7 @@ public class ThemeSwitcherDialog extends DialogFragment {
                     Utility.setTheme(getContext(), mValue);
                     dialog.dismiss();
                     getActivity().recreate();
-                } else if (mValue.trim().equals("Tema Google")) {
+                } else if (mValue.trim().equals("Tema Hijau")) {
                     Toast.makeText(getContext(), mValue + " Terpilih", Toast.LENGTH_SHORT).show();
                     Utility.setTheme(getContext(), mValue);
                     dialog.dismiss();
