@@ -60,7 +60,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
-                android:text="@string/soal_latihan"/>
+                android:text="@string/exercise_question"/>
         </LinearLayout>
     </FrameLayout>
 
@@ -79,6 +79,6 @@
         android:layout_height="48dp"
         android:layout_marginTop="64dp"
         android:background="@color/colorAccent"
-        android:text="@string/latihan_simbol_tanda_baca_lain"
+        android:text="@string/next_puctuation_symbol"
         android:textColorHint="@color/colorPrimaryDark" />
 </LinearLayout>

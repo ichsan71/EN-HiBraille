@@ -60,7 +60,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="italic"
-                android:text="@string/cara_baca"
+                android:text="@string/spell"
                 android:textColor="@android:color/white"/>
 
             <TextView

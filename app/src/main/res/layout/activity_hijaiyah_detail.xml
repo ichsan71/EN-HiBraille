@@ -62,7 +62,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
-                android:text="@string/petunjuk_detail_hijaiyah"/>
+                android:text="@string/hijaiyah_detail_guide"/>
         </LinearLayout>
     </FrameLayout>
 

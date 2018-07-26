@@ -34,7 +34,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/petunjuk_belajar_penggabungan"
+        android:text="@string/learn_braille_merge_guide"
         android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/white"/>
 

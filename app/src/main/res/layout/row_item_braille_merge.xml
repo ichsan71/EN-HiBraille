@@ -45,7 +45,7 @@
             android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="italic"
-            android:text="@string/cara_baca"
+            android:text="@string/spell"
             android:textColor="@android:color/white"/>
 
 
