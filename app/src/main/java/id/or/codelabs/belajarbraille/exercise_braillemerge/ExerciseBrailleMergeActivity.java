@@ -92,8 +92,8 @@ public class ExerciseBrailleMergeActivity extends AppCompatActivity implements E
 
     private void initView() {
         imagePenggabungan = findViewById(R.id.latihanpenggabungan_imageview_penggabungan);
-        namePenggabungan = findViewById(R.id.latihanpenggabungan_textview_nama_simbol);
-        spellPenggabungan = findViewById(R.id.latihanpenggabungan_textview_cara_baca_simbol);
+//        namePenggabungan = findViewById(R.id.latihanpenggabungan_textview_nama_simbol);
+//        spellPenggabungan = findViewById(R.id.latihanpenggabungan_textview_cara_baca_simbol);
         buttonSpeechRecognizer = findViewById(R.id.latihanpenggabungan_button_pesan_suara);
         buttonNextSymbol = findViewById(R.id.latihanpenggabungan_button_simbol_lain);
     }
@@ -208,8 +208,10 @@ public class ExerciseBrailleMergeActivity extends AppCompatActivity implements E
         }
 
         imagePenggabungan.setImageResource(listPenggabungan.get(countActivity).getImagePenggabungan());
-        namePenggabungan.setText(listPenggabungan.get(countActivity).getNamePenggabungan());
-        spellPenggabungan.setText(listPenggabungan.get(countActivity).getSpellPenggabungan());
+        imagePenggabungan.setContentDescription(listPenggabungan.get(countActivity).getNamePenggabungan()
+        + "." + listPenggabungan.get(countActivity).getSpellPenggabungan() + "." + getString(R.string.exercise_question));
+//        namePenggabungan.setText(listPenggabungan.get(countActivity).getNamePenggabungan());
+//        spellPenggabungan.setText(listPenggabungan.get(countActivity).getSpellPenggabungan());
     }
 
     private void showToastMessage(String message) {

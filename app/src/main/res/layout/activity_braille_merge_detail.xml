@@ -40,40 +40,6 @@
                 android:layout_height="64dp"
                 android:src="@drawable/alif_fathah"
                 android:layout_gravity="center_horizontal"/>
-
-            <TextView
-                android:id="@+id/braillemergedetail_textview_symbol_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:text="@string/learn_braille_merge"
-                android:textColor="@android:color/white"/>
-
-            <TextView
-                android:id="@+id/braillemergedetail_textview_symbol_spell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:text="@string/spell"
-                android:textColor="@android:color/white"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="40dp"
-                android:paddingLeft="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:text="@string/braillemerge_detail_guide"/>
         </LinearLayout>
     </FrameLayout>
 
@@ -90,7 +56,7 @@
             android:layout_width="136dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:background="@color/colorPrimaryDark"
+            android:background="?attr/colorPrimaryDark"
             android:orientation="vertical"
             android:focusable="true">
 
@@ -271,7 +237,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_marginLeft="16dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="?attr/colorPrimaryDark"
             android:orientation="vertical"
             android:focusable="true">
 

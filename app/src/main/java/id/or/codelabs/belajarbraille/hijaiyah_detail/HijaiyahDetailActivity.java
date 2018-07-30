@@ -64,7 +64,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
 
     private void initView() {
         imageHijaiyah = findViewById(R.id.hijaiyahdetail_imageview_hijaiyah);
-        nameHijaiyah = findViewById(R.id.hijaiyahdetail_textview_symbol_name);
+//        nameHijaiyah = findViewById(R.id.hijaiyahdetail_textview_symbol_name);
         buttonCariHukumBacaan = findViewById(R.id.hijaiyahdetail_button_find_reading_law);
         brailleDot1 = findViewById(R.id.hijaiyahdetail_view_braille_dot_1);
         brailleDot2 = findViewById(R.id.hijaiyahdetail_view_braille_dot_2);
@@ -116,7 +116,8 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
             brailleDot6.setContentDescription("Bukan Titik ");
         }
         imageHijaiyah.setImageResource(hijaiyahModel.getImageHijaiyah());
-        nameHijaiyah.setText(hijaiyahModel.getNameHijaiyah());
+        imageHijaiyah.setContentDescription(hijaiyahModel.getNameHijaiyah() + "." + getString(R.string.hijaiyah_detail_guide) + ".");
+        //nameHijaiyah.setText(hijaiyahModel.getNameHijaiyah());
         getSupportActionBar().setTitle("Detail Braille " + hijaiyahModel.getNameHijaiyah());
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override

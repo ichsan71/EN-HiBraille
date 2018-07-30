@@ -47,8 +47,9 @@ public class LearnHijaiyahAdapter extends RecyclerView.Adapter<RecyclerView.View
         HijaiyahModel model = hijaiyahDataSet2.get(position);
         ((ViewHolderItem) holder).imageHijaiyah.setImageDrawable(context.getResources()
                 .getDrawable(model.getImageHijaiyah()));
-        ((ViewHolderItem) holder).nameHijaiyah.setText(model.getNameHijaiyah());
-        ((ViewHolderItem) holder).brailleDotsHijaiyah.setText(model.getBrailleDotsHijaiyah());
+        ((ViewHolderItem) holder).imageHijaiyah.setContentDescription(model.getNameHijaiyah() + "." + model.getBrailleDotsHijaiyah() + ".");
+//        ((ViewHolderItem) holder).nameHijaiyah.setText(model.getNameHijaiyah());
+//        ((ViewHolderItem) holder).brailleDotsHijaiyah.setText(model.getBrailleDotsHijaiyah());
     }
 
     @Override
@@ -101,8 +102,8 @@ public class LearnHijaiyahAdapter extends RecyclerView.Adapter<RecyclerView.View
         public ViewHolderItem(View itemView) {
             super(itemView);
             imageHijaiyah = itemView.findViewById(R.id.learnhijaiyah_imageview_hijaiyah);
-            nameHijaiyah = itemView.findViewById(R.id.learnhijaiyah_textview_symbol_name);
-            brailleDotsHijaiyah = itemView.findViewById(R.id.learnhijaiyah_textview_braille_dots);
+//            nameHijaiyah = itemView.findViewById(R.id.learnhijaiyah_textview_symbol_name);
+//            brailleDotsHijaiyah = itemView.findViewById(R.id.learnhijaiyah_textview_braille_dots);
             itemView.setOnClickListener(this);
 
         }

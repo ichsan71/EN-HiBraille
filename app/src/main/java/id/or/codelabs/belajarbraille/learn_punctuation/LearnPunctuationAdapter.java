@@ -47,8 +47,10 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
         TandaBacaModel model = tandaBacaDataSet2.get(position);
         ((ViewHolderItem) holder).imageTandaBaca.setImageDrawable(context.getResources()
                 .getDrawable(model.getImageTandaBaca()));
-        ((ViewHolderItem) holder).nameTandaBaca.setText(model.getNameTandaBaca());
-        ((ViewHolderItem) holder).brailleDotsTandaBaca.setText(model.getBrailleDotsTandaBaca());
+        ((ViewHolderItem) holder).imageTandaBaca.setContentDescription(model.getNameTandaBaca() + "."
+        + model.getBrailleDotsTandaBaca() + ".");
+//        ((ViewHolderItem) holder).nameTandaBaca.setText(model.getNameTandaBaca());
+//        ((ViewHolderItem) holder).brailleDotsTandaBaca.setText(model.getBrailleDotsTandaBaca());
     }
 
     @Override
@@ -100,8 +102,8 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
         public ViewHolderItem(View itemView) {
             super(itemView);
             imageTandaBaca = itemView.findViewById(R.id.learnpunctuation_imageview_punctuation);
-            nameTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_symbol_name);
-            brailleDotsTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_braille_dots);
+//            nameTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_symbol_name);
+//            brailleDotsTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_braille_dots);
             itemView.setOnClickListener(this);
 
         }

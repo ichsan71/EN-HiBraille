@@ -64,7 +64,7 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
 
     private void setupAppbar() {
         imageTandaBaca = findViewById(R.id.punctuationdetail_imageview_punctuation);
-        nameTandaBaca = findViewById(R.id.punctuationdetail_textview_symbol_name);
+//        nameTandaBaca = findViewById(R.id.punctuationdetail_textview_symbol_name);
         buttonCariHukumBacaan = findViewById(R.id.punctuationdetail_button_find_reading_law);
         brailleDot1 = findViewById(R.id.punctuationdetail_braille_dot_1);
         brailleDot2 = findViewById(R.id.punctuationdetail_braille_dot_2);
@@ -116,7 +116,8 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
             brailleDot6.setContentDescription("Bukan Titik ");
         }
         imageTandaBaca.setImageResource(tandaBacaModel.getImageTandaBaca());
-        nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
+        imageTandaBaca.setContentDescription(tandaBacaModel.getNameTandaBaca() + "." + getString(R.string.punctuation_detail_guide) + ".");
+        //nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
         getSupportActionBar().setTitle("Detail Braille " + tandaBacaModel.getNameTandaBaca());
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -74,8 +74,8 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
 
     private void initView() {
         imagePenggabungan = findViewById(R.id.braillemergedetail_imageview_braillemerge);
-        namePenggabungan = findViewById(R.id.braillemergedetail_textview_symbol_name);
-        spellPenggabungan = findViewById(R.id.braillemergedetail_textview_symbol_spell);
+//        namePenggabungan = findViewById(R.id.braillemergedetail_textview_symbol_name);
+//        spellPenggabungan = findViewById(R.id.braillemergedetail_textview_symbol_spell);
         layoutBrailleDotHijaiyah = findViewById(R.id.braillemergedetail_linearlayout_braille_dots_hijaiyah);
         layoutBrailleDotTandaBaca = findViewById(R.id.braillemergedetail_linearlayout_braille_dots_punctuation);
         buttonCariHukumBacaan = findViewById(R.id.braillemergedetail_button_find_reading_law);
@@ -171,8 +171,10 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
             brailleDotTandaBaca6.setContentDescription("Bukan Titik ");
         }
         imagePenggabungan.setImageResource(penggabunganModel.getImagePenggabungan());
-        namePenggabungan.setText(penggabunganModel.getNamePenggabungan());
-        spellPenggabungan.setText(penggabunganModel.getSpellPenggabungan());
+        imagePenggabungan.setContentDescription(penggabunganModel.getNamePenggabungan() + "." +
+        penggabunganModel.getSpellPenggabungan() + "." + getString(R.string.braillemerge_detail_guide) + ".");
+//        namePenggabungan.setText(penggabunganModel.getNamePenggabungan());
+//        spellPenggabungan.setText(penggabunganModel.getSpellPenggabungan());
         layoutBrailleDotHijaiyah.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameHijaiyah());
         layoutBrailleDotTandaBaca.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameTandaBaca());
         getSupportActionBar().setTitle("Detail Braille " + penggabunganModel.getNamePenggabungan());

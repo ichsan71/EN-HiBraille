@@ -47,9 +47,11 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
         PenggabunganModel model = penggabunganDataSet2.get(position);
         ((ViewHolderItem) holder).imagePenggabungan.setImageDrawable(context.getResources()
                 .getDrawable(model.getImagePenggabungan()));
-        ((ViewHolderItem) holder).namePenggabungan.setText(model.getNamePenggabungan());
-        ((ViewHolderItem) holder).spellPenggabungan.setText(model.getSpellPenggabungan());
-        ((ViewHolderItem) holder).brailleDotsPenggabungan.setText(model.getBrailleDotsPenggabungan());
+        ((ViewHolderItem) holder).imagePenggabungan.setContentDescription(model.getNameTandaBaca() + "."
+        + model.getSpellPenggabungan() + "." + model.getBrailleDotsPenggabungan() + ".");
+//        ((ViewHolderItem) holder).namePenggabungan.setText(model.getNamePenggabungan());
+//        ((ViewHolderItem) holder).spellPenggabungan.setText(model.getSpellPenggabungan());
+//        ((ViewHolderItem) holder).brailleDotsPenggabungan.setText(model.getBrailleDotsPenggabungan());
     }
 
     @Override
@@ -102,9 +104,9 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
         public ViewHolderItem(View itemView) {
             super(itemView);
             imagePenggabungan = itemView.findViewById(R.id.learnbraillemerge_imageview_braille_merge);
-            namePenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_name);
-            spellPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_spell);
-            brailleDotsPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_braille_dots);
+//            namePenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_name);
+//            spellPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_spell);
+//            brailleDotsPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_braille_dots);
             itemView.setOnClickListener(this);
 
         }

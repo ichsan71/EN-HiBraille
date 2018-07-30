@@ -78,7 +78,7 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
 
     private void initView() {
         imageTandaBaca = findViewById(R.id.latihantandabaca_imageview_tanda_baca);
-        nameTandaBaca = findViewById(R.id.latihantandabaca_textview_nama_simbol);
+//        nameTandaBaca = findViewById(R.id.latihantandabaca_textview_nama_simbol);
         buttonSpeechRecognizer = findViewById(R.id.latihantandabaca_button_pesan_suara);
         buttonNextSymbol = findViewById(R.id.latihantandabaca_button_simbol_lain);
     }
@@ -188,7 +188,9 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
         }
 
         imageTandaBaca.setImageResource(listTandaBaca.get(countActivity).getImageTandaBaca());
-        nameTandaBaca.setText(listTandaBaca.get(countActivity).getNameTandaBaca());
+        imageTandaBaca.setContentDescription(listTandaBaca.get(countActivity).getNameTandaBaca() + "." +
+        getString(R.string.exercise_question));
+        //nameTandaBaca.setText(listTandaBaca.get(countActivity).getNameTandaBaca());
     }
 
     private void changeSymbol() {

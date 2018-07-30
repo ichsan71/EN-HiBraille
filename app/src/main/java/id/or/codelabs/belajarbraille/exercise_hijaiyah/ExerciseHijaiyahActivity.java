@@ -79,7 +79,7 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
 
     private void initView() {
         imageHijaiyah = findViewById(R.id.latihanhijaiyah_imageview_hijaiyah);
-        nameHijaiyah = findViewById(R.id.latihanhijaiyah_textview_nama_simbol);
+//        nameHijaiyah = findViewById(R.id.latihanhijaiyah_textview_nama_simbol);
         buttonSpeechRecognizer = findViewById(R.id.latihanhijaiyah_button_pesan_suara);
         buttonNextSymbol = findViewById(R.id.latihanhijaiyah_button_simbol_lain);
     }
@@ -205,7 +205,9 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
             listRightAnswer.add("enam");
         }
         imageHijaiyah.setImageResource(listHijaiyah.get(countActivity).getImageHijaiyah());
-        nameHijaiyah.setText(listHijaiyah.get(countActivity).getNameHijaiyah());
+        imageHijaiyah.setContentDescription(listHijaiyah.get(countActivity).getNameHijaiyah() + "."
+        + getString(R.string.exercise_question));
+        //nameHijaiyah.setText(listHijaiyah.get(countActivity).getNameHijaiyah());
     }
 
     @Override

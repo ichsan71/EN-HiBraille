@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".main.MainActivity"
+            android:label="Halaman Utama. 6 Menu."
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,15 +25,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:label="Belajar Braille Hijaiyah"
+            android:label="Belajar Braille Hijaiyah. 7 Simbol."
             android:name=".learn_hijaiyah.LearnHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca"
+            android:label="Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca. 9 Simbol."
             android:name=".learn_braillemerge.LearnBrailleMergeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Belajar Braille Tanda Baca"
+            android:label="Belajar Braille Tanda Baca. 6 Simbol."
             android:name=".learn_punctuation.LearnPunctuationActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -48,17 +49,17 @@
             android:name=".exercise_punctuation.ExercisePunctuationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Detail Braille"
+            android:label="Detail Braille. 8 Elemen Layar."
             android:name=".hijaiyah_detail.HijaiyahDetailActivity"
             android:parentActivityName=".learn_hijaiyah.LearnHijaiyahActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Detail Braille"
+            android:label="Detail Braille. 8 Elemen Layar."
             android:name=".punctuation_detail.PunctuationDetailActivity"
             android:parentActivityName=".learn_punctuation.LearnPunctuationActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:label="Detail Penggabungan Braille"
+            android:label="Detail Penggabungan Braille. 16 Elemen Layar."
             android:name=".braillemerge_detail.BrailleMergeDetailActivity"
             android:parentActivityName=".learn_braillemerge.LearnBrailleMergeActivity"
             android:screenOrientation="portrait"/>
