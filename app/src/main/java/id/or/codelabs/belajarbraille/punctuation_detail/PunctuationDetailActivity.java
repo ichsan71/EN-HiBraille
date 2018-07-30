@@ -60,6 +60,7 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
         toolbar = findViewById(R.id.toolbar_punctuation_detail);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void setupAppbar() {
@@ -119,6 +120,7 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
         imageTandaBaca.setContentDescription(tandaBacaModel.getNameTandaBaca() + "." + getString(R.string.punctuation_detail_guide) + ".");
         //nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
         getSupportActionBar().setTitle("Detail Braille " + tandaBacaModel.getNameTandaBaca());
+        toolbar.setContentDescription("Detail Braille " + tandaBacaModel.getNameTandaBaca() + ". 8 Elemen Layar.");
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

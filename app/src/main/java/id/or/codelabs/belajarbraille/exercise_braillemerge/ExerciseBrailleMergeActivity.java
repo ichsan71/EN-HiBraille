@@ -85,9 +85,11 @@ public class ExerciseBrailleMergeActivity extends AppCompatActivity implements E
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_latihan_penggabungan);
+        toolbar.setContentDescription("Latihan Penggabungan Braille Hijaiyah dengan Tanda Baca");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Gabungan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {

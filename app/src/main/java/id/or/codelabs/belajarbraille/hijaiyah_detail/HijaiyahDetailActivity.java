@@ -60,6 +60,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         toolbar = findViewById(R.id.toolbar_hijaiyah_detail);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {
@@ -119,6 +120,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         imageHijaiyah.setContentDescription(hijaiyahModel.getNameHijaiyah() + "." + getString(R.string.hijaiyah_detail_guide) + ".");
         //nameHijaiyah.setText(hijaiyahModel.getNameHijaiyah());
         getSupportActionBar().setTitle("Detail Braille " + hijaiyahModel.getNameHijaiyah());
+        toolbar.setContentDescription("Detail Braille " + hijaiyahModel.getNameHijaiyah() + ". 8 Elemen Layar.");
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -92,9 +92,11 @@ public class LearnPunctuationActivity extends AppCompatActivity implements Learn
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_punctuation);
+        toolbar.setContentDescription("Belajar Braille Tanda Baca. 6 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Tanda Baca");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void setupRecyclerView() {

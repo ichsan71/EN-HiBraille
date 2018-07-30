@@ -70,6 +70,7 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
         toolbar = findViewById(R.id.toolbar_braillemerge_detail);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {
@@ -178,6 +179,7 @@ public class BrailleMergeDetailActivity extends AppCompatActivity implements Bra
         layoutBrailleDotHijaiyah.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameHijaiyah());
         layoutBrailleDotTandaBaca.setContentDescription("Titik-titik Braille " + penggabunganModel.getNameTandaBaca());
         getSupportActionBar().setTitle("Detail Braille " + penggabunganModel.getNamePenggabungan());
+        toolbar.setContentDescription("Detail Braille " + penggabunganModel.getNamePenggabungan() + ". 16 Elemen Layar.");
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

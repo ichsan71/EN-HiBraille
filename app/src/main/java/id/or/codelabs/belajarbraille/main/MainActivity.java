@@ -76,8 +76,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_main);
+        toolbar.setContentDescription("Halaman Utama. 6 Menu.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Halaman Utama");
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     @Override

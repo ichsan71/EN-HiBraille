@@ -72,9 +72,11 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_latihan_hijaiyah);
+        toolbar.setContentDescription("Latihan Braille Hijaiyah");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Hijaiyah");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {

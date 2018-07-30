@@ -93,9 +93,11 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_braille_merge);
+        toolbar.setContentDescription("Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca. 9 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Gabungan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void setupRecyclerView() {

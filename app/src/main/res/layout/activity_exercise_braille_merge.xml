@@ -12,6 +12,7 @@
         android:id="@+id/toolbar_latihan_penggabungan"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
+        android:focusable="true"
         android:background="?attr/colorPrimary"
         android:theme="@style/MyActionBarTheme"/>
 

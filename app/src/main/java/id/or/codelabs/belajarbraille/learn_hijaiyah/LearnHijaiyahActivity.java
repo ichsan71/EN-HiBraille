@@ -85,9 +85,11 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_hijaiyah);
+        toolbar.setContentDescription("Belajar Braille Hijaiyah. 7 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Hijaiyah");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {

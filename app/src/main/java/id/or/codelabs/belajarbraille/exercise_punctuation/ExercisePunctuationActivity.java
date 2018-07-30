@@ -71,9 +71,11 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_latihan_tanda_baca);
+        toolbar.setContentDescription("Latihan Braille Tanda Baca");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Tanda Baca");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription("Navigasi Kembali");
     }
 
     private void initView() {
