@@ -101,9 +101,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_1"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_2"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_linearlayout_braille_dots_hijaiyah">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_1"
@@ -122,10 +125,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_4"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_5"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_3">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_4"
@@ -152,9 +158,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_2"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_3"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_1">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_2"
@@ -173,10 +182,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_5"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_6"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_4">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_5"
@@ -203,9 +215,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_3"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_4"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_2">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_3"
@@ -224,10 +239,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_hijaiyah_6"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_linearlayout_braille_dots_punctuation"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dots_hijaiyah_5">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_hijaiyah_6"
@@ -264,9 +282,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_1"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_punctuation_2"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_linearlayout_braille_dots_punctuation">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_1"
@@ -285,10 +306,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_4"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_punctuation_5"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_punctuation_3">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_4"
@@ -315,9 +339,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_2"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_punctuation_3"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_punctuation_1">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_2"
@@ -336,10 +363,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_5"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_punctuation_6"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_punctuation_4">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_5"
@@ -366,9 +396,12 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_3"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_framelayout_braille_dot_punctuation_4"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_punctuation_2">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_3"
@@ -387,10 +420,13 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/braillemergedetail_framelayout_braille_dot_punctuation_6"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="16dp"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:accessibilityTraversalBefore="@+id/braillemergedetail_button_find_reading_law"
+                    android:accessibilityTraversalAfter="@+id/braillemergedetail_framelayout_braille_dot_punctuation_5">
 
                     <View
                         android:id="@+id/braillemergedetail_braille_dot_punctuation_6"
@@ -414,7 +450,7 @@
     <Button
         android:id="@+id/braillemergedetail_button_find_reading_law"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:drawableLeft="@drawable/ic_google"

@@ -81,9 +81,12 @@
             android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/punctuationdetail_framelayout_braille_dot_1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_framelayout_braille_dot_2"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_symbol">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_1"
@@ -102,10 +105,13 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/punctuationdetail_framelayout_braille_dot_4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_framelayout_braille_dot_5"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_braille_dot_3">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_4"
@@ -132,9 +138,12 @@
             android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/punctuationdetail_framelayout_braille_dot_2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_framelayout_braille_dot_3"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_braille_dot_1">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_2"
@@ -153,10 +162,13 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/punctuationdetail_framelayout_braille_dot_5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_framelayout_braille_dot_6"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_braille_dot_4">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_5"
@@ -183,9 +195,12 @@
             android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/punctuationdetail_framelayout_braille_dot_3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_framelayout_braille_dot_4"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_braille_dot_2">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_3"
@@ -204,10 +219,13 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@id/punctuationdetail_framelayout_braille_dot_6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/punctuationdetail_button_find_reading_law"
+                android:accessibilityTraversalAfter="@+id/punctuationdetail_framelayout_braille_dot_5">
 
                 <View
                     android:id="@+id/punctuationdetail_braille_dot_6"
@@ -230,7 +248,7 @@
     <Button
         android:id="@+id/punctuationdetail_button_find_reading_law"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_google"
         android:background="@android:color/white"

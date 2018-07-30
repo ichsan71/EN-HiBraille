@@ -21,26 +21,14 @@
             android:theme="@style/MyActionBarTheme"/>
     </FrameLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/main_guide"
-        android:background="?attr/backgroundCustom"
-        android:textColor="@android:color/white"/>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@color/colorBackground"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:padding="16dp"
         tools:context="id.or.codelabs.belajarbraille.MainActivity">
-
 
         <View
             android:layout_width="match_parent"
@@ -51,21 +39,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="3">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="166dp"
+                android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/main_cardview_learn_hijaiyah"
-                    android:layout_width="0dp"
+                    android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
@@ -103,9 +88,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/main_cardview_exercise_hijaiyah"
-                    android:layout_width="0dp"
+                    android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
@@ -145,16 +130,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="166dp"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_marginTop="16dp">
 
                 <android.support.v7.widget.CardView
                 android:id="@+id/main_cardview_learn_punctuation"
-                android:layout_width="0dp"
+                android:layout_width="158dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 app:cardBackgroundColor="?attr/colorPrimaryDark"
                 app:cardCornerRadius="0dp"
                 app:cardElevation="1dp"
@@ -187,14 +170,14 @@
                         android:text="@string/learn_punctuation_braille"
                         android:textColor="@android:color/white"
                         android:textSize="14sp" />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/main_cardview_exercise_punctuation"
-                    android:layout_width="0dp"
+                    android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
@@ -233,17 +216,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="166dp"
                 android:orientation="horizontal"
-                android:weightSum="2">
-
+                android:layout_marginTop="16dp">
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/main_cardview_learn_braille_merge"
-                    android:layout_width="0dp"
+                    android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
@@ -281,9 +261,9 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/main_cardview_exercise_braille_merge"
-                    android:layout_width="0dp"
+                    android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
@@ -317,7 +297,6 @@
                             android:textColor="@android:color/white"
                             android:textSize="14sp" />
                     </RelativeLayout>
-
                 </android.support.v7.widget.CardView>
             </LinearLayout>
         </LinearLayout>

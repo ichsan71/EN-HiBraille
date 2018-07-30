@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.TextView;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.ThemeSwitcherDialog;
@@ -33,8 +34,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private CardView cvLatihanHijaiyah;
     private CardView cvLatihanTandaBaca;
     private CardView cvLatihanPenggabungan;
+    private TextView txtMenu1;
+    private TextView txtMenu2;
+    private TextView txtMenu3;
+    private TextView txtMenu4;
+    private TextView txtMenu5;
+    private TextView txtMenu6;
 
-    //@SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(Utility.getTheme(MainActivity.this).trim().equals("Tema Default")){
@@ -102,6 +108,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         cvLatihanHijaiyah = findViewById(R.id.main_cardview_exercise_hijaiyah);
         cvLatihanTandaBaca = findViewById(R.id.main_cardview_exercise_punctuation);
         cvLatihanPenggabungan = findViewById(R.id.main_cardview_exercise_braille_merge);
+        txtMenu1 = findViewById(R.id.main_textview_level_learn_hijaiyah);
+        txtMenu2 = findViewById(R.id.main_textview_level_exercise_hijaiyah);
+        txtMenu3 = findViewById(R.id.main_textview_level_learn_punctuation);
+        txtMenu4 = findViewById(R.id.main_textview_level_exercise_punctuation);
+        txtMenu5 = findViewById(R.id.main_textview_level_learn_braille_merge);
+        txtMenu6 = findViewById(R.id.main_textview_level_exercise_braille_merge);
     }
 
     @Override

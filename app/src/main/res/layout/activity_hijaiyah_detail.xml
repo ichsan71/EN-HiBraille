@@ -85,7 +85,9 @@
                 android:id="@+id/hijaiyahdetail_framelayout_braille_dot_1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_framelayout_braille_dot_2"
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_symbol">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_1"
@@ -109,7 +111,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
                 android:focusable="true"
-                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_3">
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_3"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_framelayout_braille_dot_5">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_4"
@@ -140,7 +143,8 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:focusable="true"
-                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_1">
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_1"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_framelayout_braille_dot_3">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_2"
@@ -164,7 +168,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
                 android:focusable="true"
-                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_4">
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_4"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_framelayout_braille_dot_6">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_5"
@@ -195,7 +200,8 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:focusable="true"
-                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_2">
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_2"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_framelayout_braille_dot_4">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_3"
@@ -219,7 +225,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
                 android:focusable="true"
-                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_5">
+                android:accessibilityTraversalAfter="@+id/hijaiyahdetail_framelayout_braille_dot_5"
+                android:accessibilityTraversalBefore="@+id/hijaiyahdetail_button_find_reading_law">
 
                 <View
                     android:id="@+id/hijaiyahdetail_view_braille_dot_6"
@@ -242,7 +249,7 @@
     <Button
         android:id="@+id/hijaiyahdetail_button_find_reading_law"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/ic_google"
         android:background="@android:color/white"
