@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
-import id.or.codelabs.belajarbraille.data.PenggabunganModel;
+import id.or.codelabs.belajarbraille.data.BrailleMergeModel;
 
 public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContract.Presenter{
 
-    List<PenggabunganModel> penggabunganDataSet = new ArrayList<>();
-    private final ExerciseBrailleMergeContract.View latihanPenggabunganView;
+    List<BrailleMergeModel> brailleMergeDataSet = new ArrayList<>();
+    private final ExerciseBrailleMergeContract.View latihanBrailleMergeView;
 
-    public ExerciseBrailleMergePresenter(ExerciseBrailleMergeContract.View latihanPenggabunganView) {
-        this.latihanPenggabunganView = latihanPenggabunganView;
+    public ExerciseBrailleMergePresenter(ExerciseBrailleMergeContract.View latihanBrailleMergeView) {
+        this.latihanBrailleMergeView = latihanBrailleMergeView;
     }
 
     @Override
-    public void loadPenggabunganData() {
+    public void loadBrailleMergeData() {
         List<Integer> listBrailleDotsHijaiyah = new ArrayList<>();
         listBrailleDotsHijaiyah.add(1);
         listBrailleDotsHijaiyah.add(0);
@@ -24,17 +24,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah.add(0);
         listBrailleDotsHijaiyah.add(0);
         listBrailleDotsHijaiyah.add(0);
-        List<Integer> listBrailleDotsTandaBaca = new ArrayList<>();
-        listBrailleDotsTandaBaca.add(0);
-        listBrailleDotsTandaBaca.add(1);
-        listBrailleDotsTandaBaca.add(0);
-        listBrailleDotsTandaBaca.add(0);
-        listBrailleDotsTandaBaca.add(0);
-        listBrailleDotsTandaBaca.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_fathah,"Alif Fathah",
+        List<Integer> listBrailleDotsPunctuation = new ArrayList<>();
+        listBrailleDotsPunctuation.add(0);
+        listBrailleDotsPunctuation.add(1);
+        listBrailleDotsPunctuation.add(0);
+        listBrailleDotsPunctuation.add(0);
+        listBrailleDotsPunctuation.add(0);
+        listBrailleDotsPunctuation.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.alif_fathah,"Alif Fathah",
                 "Alif", "Fathah","a",
-                "Titik braille nomor 1 diikuti dengan titik braille nomor 2",
-                listBrailleDotsHijaiyah, listBrailleDotsTandaBaca));
+                "titik braille nomor 1 diikuti dengan titik braille nomor 2",
+                listBrailleDotsHijaiyah, listBrailleDotsPunctuation));
         List<Integer> listBrailleDotsHijaiyah2 = new ArrayList<>();
         listBrailleDotsHijaiyah2.add(1);
         listBrailleDotsHijaiyah2.add(1);
@@ -42,17 +42,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah2.add(0);
         listBrailleDotsHijaiyah2.add(0);
         listBrailleDotsHijaiyah2.add(0);
-        List<Integer> listBrailleDotsTandaBaca2 = new ArrayList<>();
-        listBrailleDotsTandaBaca2.add(0);
-        listBrailleDotsTandaBaca2.add(1);
-        listBrailleDotsTandaBaca2.add(0);
-        listBrailleDotsTandaBaca2.add(0);
-        listBrailleDotsTandaBaca2.add(0);
-        listBrailleDotsTandaBaca2.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_fathah,"Ba Fathah",
+        List<Integer> listBrailleDotsPunctuation2 = new ArrayList<>();
+        listBrailleDotsPunctuation2.add(0);
+        listBrailleDotsPunctuation2.add(1);
+        listBrailleDotsPunctuation2.add(0);
+        listBrailleDotsPunctuation2.add(0);
+        listBrailleDotsPunctuation2.add(0);
+        listBrailleDotsPunctuation2.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ba_fathah,"Ba Fathah",
                 "Ba", "Fathah", "ba",
-                "Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 2",
-                listBrailleDotsHijaiyah2, listBrailleDotsTandaBaca2));
+                "titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 2",
+                listBrailleDotsHijaiyah2, listBrailleDotsPunctuation2));
         List<Integer> listBrailleDotsHijaiyah3 = new ArrayList<>();
         listBrailleDotsHijaiyah3.add(0);
         listBrailleDotsHijaiyah3.add(1);
@@ -60,17 +60,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah3.add(1);
         listBrailleDotsHijaiyah3.add(1);
         listBrailleDotsHijaiyah3.add(0);
-        List<Integer> listBrailleDotsTandaBaca3 = new ArrayList<>();
-        listBrailleDotsTandaBaca3.add(0);
-        listBrailleDotsTandaBaca3.add(1);
-        listBrailleDotsTandaBaca3.add(0);
-        listBrailleDotsTandaBaca3.add(0);
-        listBrailleDotsTandaBaca3.add(0);
-        listBrailleDotsTandaBaca3.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_fathah,"Ta Fathah",
+        List<Integer> listBrailleDotsPunctuation3 = new ArrayList<>();
+        listBrailleDotsPunctuation3.add(0);
+        listBrailleDotsPunctuation3.add(1);
+        listBrailleDotsPunctuation3.add(0);
+        listBrailleDotsPunctuation3.add(0);
+        listBrailleDotsPunctuation3.add(0);
+        listBrailleDotsPunctuation3.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ta_fathah,"Ta Fathah",
                 "Ta", "Fathah", "ta",
-                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 2",
-                listBrailleDotsHijaiyah3, listBrailleDotsTandaBaca3));
+                "titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 2",
+                listBrailleDotsHijaiyah3, listBrailleDotsPunctuation3));
         List<Integer> listBrailleDotsHijaiyah4 = new ArrayList<>();
         listBrailleDotsHijaiyah4.add(1);
         listBrailleDotsHijaiyah4.add(0);
@@ -78,17 +78,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah4.add(0);
         listBrailleDotsHijaiyah4.add(0);
         listBrailleDotsHijaiyah4.add(0);
-        List<Integer> listBrailleDotsTandaBaca4 = new ArrayList<>();
-        listBrailleDotsTandaBaca4.add(1);
-        listBrailleDotsTandaBaca4.add(0);
-        listBrailleDotsTandaBaca4.add(0);
-        listBrailleDotsTandaBaca4.add(0);
-        listBrailleDotsTandaBaca4.add(1);
-        listBrailleDotsTandaBaca4.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_kasroh,"Alif Kasroh",
+        List<Integer> listBrailleDotsPunctuation4 = new ArrayList<>();
+        listBrailleDotsPunctuation4.add(1);
+        listBrailleDotsPunctuation4.add(0);
+        listBrailleDotsPunctuation4.add(0);
+        listBrailleDotsPunctuation4.add(0);
+        listBrailleDotsPunctuation4.add(1);
+        listBrailleDotsPunctuation4.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.alif_kasroh,"Alif Kasroh",
                 "Alif", "Kasroh", "i",
-                "Titik braille nomor 1 diikuti dengan titik braille nomor 1, dan 5",
-                listBrailleDotsHijaiyah4, listBrailleDotsTandaBaca4));
+                "titik braille nomor 1 diikuti dengan titik braille nomor 1, dan 5",
+                listBrailleDotsHijaiyah4, listBrailleDotsPunctuation4));
         List<Integer> listBrailleDotsHijaiyah5 = new ArrayList<>();
         listBrailleDotsHijaiyah5.add(1);
         listBrailleDotsHijaiyah5.add(1);
@@ -96,17 +96,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah5.add(0);
         listBrailleDotsHijaiyah5.add(0);
         listBrailleDotsHijaiyah5.add(0);
-        List<Integer> listBrailleDotsTandaBaca5 = new ArrayList<>();
-        listBrailleDotsTandaBaca5.add(1);
-        listBrailleDotsTandaBaca5.add(0);
-        listBrailleDotsTandaBaca5.add(0);
-        listBrailleDotsTandaBaca5.add(0);
-        listBrailleDotsTandaBaca5.add(1);
-        listBrailleDotsTandaBaca5.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_kasroh,"Ba Kasroh",
+        List<Integer> listBrailleDotsPunctuation5 = new ArrayList<>();
+        listBrailleDotsPunctuation5.add(1);
+        listBrailleDotsPunctuation5.add(0);
+        listBrailleDotsPunctuation5.add(0);
+        listBrailleDotsPunctuation5.add(0);
+        listBrailleDotsPunctuation5.add(1);
+        listBrailleDotsPunctuation5.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ba_kasroh,"Ba Kasroh",
                 "Ba", "Kasroh", "bi",
-                "Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, dan 5",
-                listBrailleDotsHijaiyah5, listBrailleDotsTandaBaca5));
+                "titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, dan 5",
+                listBrailleDotsHijaiyah5, listBrailleDotsPunctuation5));
         List<Integer> listBrailleDotsHijaiyah6 = new ArrayList<>();
         listBrailleDotsHijaiyah6.add(0);
         listBrailleDotsHijaiyah6.add(1);
@@ -114,17 +114,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah6.add(1);
         listBrailleDotsHijaiyah6.add(1);
         listBrailleDotsHijaiyah6.add(0);
-        List<Integer> listBrailleDotsTandaBaca6 = new ArrayList<>();
-        listBrailleDotsTandaBaca6.add(1);
-        listBrailleDotsTandaBaca6.add(0);
-        listBrailleDotsTandaBaca6.add(0);
-        listBrailleDotsTandaBaca6.add(0);
-        listBrailleDotsTandaBaca6.add(1);
-        listBrailleDotsTandaBaca6.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_kasroh,"Ta Kasroh",
+        List<Integer> listBrailleDotsPunctuation6 = new ArrayList<>();
+        listBrailleDotsPunctuation6.add(1);
+        listBrailleDotsPunctuation6.add(0);
+        listBrailleDotsPunctuation6.add(0);
+        listBrailleDotsPunctuation6.add(0);
+        listBrailleDotsPunctuation6.add(1);
+        listBrailleDotsPunctuation6.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ta_kasroh,"Ta Kasroh",
                 "Ta", "Kasroh", "ti",
-                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, dan 5",
-                listBrailleDotsHijaiyah6, listBrailleDotsTandaBaca6));
+                "titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, dan 5",
+                listBrailleDotsHijaiyah6, listBrailleDotsPunctuation6));
         List<Integer> listBrailleDotsHijaiyah7 = new ArrayList<>();
         listBrailleDotsHijaiyah7.add(1);
         listBrailleDotsHijaiyah7.add(0);
@@ -132,16 +132,16 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah7.add(0);
         listBrailleDotsHijaiyah7.add(0);
         listBrailleDotsHijaiyah7.add(0);
-        List<Integer> listBrailleDotsTandaBaca7 = new ArrayList<>();
-        listBrailleDotsTandaBaca7.add(1);
-        listBrailleDotsTandaBaca7.add(0);
-        listBrailleDotsTandaBaca7.add(1);
-        listBrailleDotsTandaBaca7.add(0);
-        listBrailleDotsTandaBaca7.add(0);
-        listBrailleDotsTandaBaca7.add(1);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.alif_dhomah,"Alif Dhomah",
+        List<Integer> listBrailleDotsPunctuation7 = new ArrayList<>();
+        listBrailleDotsPunctuation7.add(1);
+        listBrailleDotsPunctuation7.add(0);
+        listBrailleDotsPunctuation7.add(1);
+        listBrailleDotsPunctuation7.add(0);
+        listBrailleDotsPunctuation7.add(0);
+        listBrailleDotsPunctuation7.add(1);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.alif_dhomah,"Alif Dhomah",
                 "Alif", "Dhomah", "u",
-                "Titik braille nomor 1 diikuti dengan titik braille nomor 1, 3, dan 6",
+                "titik braille nomor 1 diikuti dengan titik braille nomor 1, 3, dan 6",
                 listBrailleDotsHijaiyah7, listBrailleDotsHijaiyah7));
         List<Integer> listBrailleDotsHijaiyah8 = new ArrayList<>();
         listBrailleDotsHijaiyah8.add(1);
@@ -150,16 +150,17 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah8.add(0);
         listBrailleDotsHijaiyah8.add(0);
         listBrailleDotsHijaiyah8.add(0);
-        List<Integer> listBrailleDotsTandaBaca8 = new ArrayList<>();
-        listBrailleDotsTandaBaca8.add(1);
-        listBrailleDotsTandaBaca8.add(0);
-        listBrailleDotsTandaBaca8.add(1);
-        listBrailleDotsTandaBaca8.add(0);
-        listBrailleDotsTandaBaca8.add(0);
-        listBrailleDotsTandaBaca8.add(1);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ba_dhomah,"Ba Dhomah",
-                "Ba", "Dhomah", "bu","Titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, 3, dan 6",
-                listBrailleDotsHijaiyah8, listBrailleDotsTandaBaca8));
+        List<Integer> listBrailleDotsPunctuation8 = new ArrayList<>();
+        listBrailleDotsPunctuation8.add(1);
+        listBrailleDotsPunctuation8.add(0);
+        listBrailleDotsPunctuation8.add(1);
+        listBrailleDotsPunctuation8.add(0);
+        listBrailleDotsPunctuation8.add(0);
+        listBrailleDotsPunctuation8.add(1);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ba_dhomah,"Ba Dhomah",
+                "Ba", "Dhomah", "bu",
+                "titik braille nomor 1, dan 2 diikuti dengan titik braille nomor 1, 3, dan 6",
+                listBrailleDotsHijaiyah8, listBrailleDotsPunctuation8));
         List<Integer> listBrailleDotsHijaiyah9 = new ArrayList<>();
         listBrailleDotsHijaiyah9.add(1);
         listBrailleDotsHijaiyah9.add(0);
@@ -167,22 +168,22 @@ public class ExerciseBrailleMergePresenter implements ExerciseBrailleMergeContra
         listBrailleDotsHijaiyah9.add(0);
         listBrailleDotsHijaiyah9.add(0);
         listBrailleDotsHijaiyah9.add(0);
-        List<Integer> listBrailleDotsTandaBaca9 = new ArrayList<>();
-        listBrailleDotsTandaBaca9.add(0);
-        listBrailleDotsTandaBaca9.add(2);
-        listBrailleDotsTandaBaca9.add(0);
-        listBrailleDotsTandaBaca9.add(0);
-        listBrailleDotsTandaBaca9.add(0);
-        listBrailleDotsTandaBaca9.add(0);
-        penggabunganDataSet.add(new PenggabunganModel(R.drawable.ta_dhomah,"Ta Dhomah",
+        List<Integer> listBrailleDotsPunctuation9 = new ArrayList<>();
+        listBrailleDotsPunctuation9.add(0);
+        listBrailleDotsPunctuation9.add(2);
+        listBrailleDotsPunctuation9.add(0);
+        listBrailleDotsPunctuation9.add(0);
+        listBrailleDotsPunctuation9.add(0);
+        listBrailleDotsPunctuation9.add(0);
+        brailleMergeDataSet.add(new BrailleMergeModel(R.drawable.ta_dhomah,"Ta Dhomah",
                 "Ta", "Dhomah", "tu",
-                "Titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, 3, dan 6",
-                listBrailleDotsHijaiyah9, listBrailleDotsTandaBaca9));
-        latihanPenggabunganView.showPenggabunganData(penggabunganDataSet);
+                "titik braille nomor 2, 3, 4, dan 5 diikuti dengan titik braille nomor 1, 3, dan 6",
+                listBrailleDotsHijaiyah9, listBrailleDotsPunctuation9));
+        latihanBrailleMergeView.showBrailleMergeData(brailleMergeDataSet);
     }
 
     @Override
     public void start() {
-        loadPenggabunganData();
+        loadBrailleMergeData();
     }
 }

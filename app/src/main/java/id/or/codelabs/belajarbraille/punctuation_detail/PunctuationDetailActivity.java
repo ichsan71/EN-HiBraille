@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -20,13 +19,12 @@ import java.net.URLEncoder;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.Utility;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 
 public class PunctuationDetailActivity extends AppCompatActivity implements PunctuationDetailContract.View{
 
     private PunctuationDetailContract.Presenter presenter;
-    private ImageView imageTandaBaca;
-    private TextView nameTandaBaca;
+    private ImageView imagePunctuation;
     private Button buttonCariHukumBacaan;
     private View brailleDot1;
     private View brailleDot2;
@@ -51,8 +49,8 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
         setupAppbar();
 
         presenter = new PunctuationDetailPresenter(this);
-        if (getIntent() != null && getIntent().getStringExtra("tanda-baca") != null) {
-            presenter.loadTandaBacaDetail(new Gson().fromJson(getIntent().getStringExtra("tanda-baca"), TandaBacaModel.class));
+        if (getIntent() != null && getIntent().getStringExtra("punctuation") != null) {
+            presenter.loadPunctuationDetail(new Gson().fromJson(getIntent().getStringExtra("punctuation"), PunctuationModel.class));
         }
     }
 
@@ -64,8 +62,7 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
     }
 
     private void setupAppbar() {
-        imageTandaBaca = findViewById(R.id.punctuationdetail_imageview_punctuation);
-//        nameTandaBaca = findViewById(R.id.punctuationdetail_textview_symbol_name);
+        imagePunctuation = findViewById(R.id.punctuationdetail_imageview_punctuation);
         buttonCariHukumBacaan = findViewById(R.id.punctuationdetail_button_find_reading_law);
         brailleDot1 = findViewById(R.id.punctuationdetail_braille_dot_1);
         brailleDot2 = findViewById(R.id.punctuationdetail_braille_dot_2);
@@ -79,52 +76,51 @@ public class PunctuationDetailActivity extends AppCompatActivity implements Punc
     }
 
     @Override
-    public void showTandaBacaDetail(final TandaBacaModel tandaBacaModel) {
-        if(tandaBacaModel.getListBrailleDots().get(0) == 1){
+    public void showPunctuationDetail(final PunctuationModel punctuationModel) {
+        if(punctuationModel.getListBrailleDots().get(0) == 1){
             brailleDot1.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot1.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot1.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot1.setContentDescription("Bukan Titik ");
         }
-        if(tandaBacaModel.getListBrailleDots().get(1) == 1){
+        if(punctuationModel.getListBrailleDots().get(1) == 1){
             brailleDot2.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot2.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot2.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot2.setContentDescription("Bukan Titik ");
         }
-        if(tandaBacaModel.getListBrailleDots().get(2) == 1){
+        if(punctuationModel.getListBrailleDots().get(2) == 1){
             brailleDot3.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot3.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot3.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot3.setContentDescription("Bukan Titik ");
         }
-        if(tandaBacaModel.getListBrailleDots().get(3) == 1){
+        if(punctuationModel.getListBrailleDots().get(3) == 1){
             brailleDot4.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot4.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot4.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot4.setContentDescription("Bukan Titik ");
         }
-        if(tandaBacaModel.getListBrailleDots().get(4) == 1){
+        if(punctuationModel.getListBrailleDots().get(4) == 1){
             brailleDot5.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot5.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot5.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot5.setContentDescription("Bukan Titik ");
         }
-        if(tandaBacaModel.getListBrailleDots().get(5) == 1){
+        if(punctuationModel.getListBrailleDots().get(5) == 1){
             brailleDot6.setBackground(ContextCompat.getDrawable(this, R.drawable.active_braille_dot));
-            brailleDot6.setContentDescription("Titik Braille " + tandaBacaModel.getNameTandaBaca());
+            brailleDot6.setContentDescription("Titik Braille " + punctuationModel.getNamePunctuation());
         } else {
             brailleDot6.setContentDescription("Bukan Titik ");
         }
-        imageTandaBaca.setImageResource(tandaBacaModel.getImageTandaBaca());
-        imageTandaBaca.setContentDescription(tandaBacaModel.getNameTandaBaca() + "." + getString(R.string.punctuation_detail_guide) + ".");
-        //nameTandaBaca.setText(tandaBacaModel.getNameTandaBaca());
-        getSupportActionBar().setTitle("Detail Braille " + tandaBacaModel.getNameTandaBaca());
-        toolbar.setContentDescription("Detail Braille " + tandaBacaModel.getNameTandaBaca() + ". 8 Elemen Layar.");
+        imagePunctuation.setImageResource(punctuationModel.getImagePunctuation());
+        imagePunctuation.setContentDescription(punctuationModel.getNamePunctuation() + "." + getString(R.string.punctuation_detail_guide) + ".");
+        getSupportActionBar().setTitle("Detail Braille " + punctuationModel.getNamePunctuation());
+        toolbar.setContentDescription("Detail Braille " + punctuationModel.getNamePunctuation() + ". 8 Elemen Layar.");
         buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String query = "hukum bacaan " + tandaBacaModel.getNameTandaBaca();
+                String query = "hukum bacaan " + punctuationModel.getNamePunctuation();
                 String escapedQuery = null;
                 try {
                     escapedQuery = URLEncoder.encode(query, "UTF-8");

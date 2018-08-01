@@ -4,7 +4,7 @@ import java.util.List;
 
 import id.or.codelabs.belajarbraille.BasePresenter;
 import id.or.codelabs.belajarbraille.BaseView;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 
 /**
  * Created by FitriFebriana on 5/23/2018.
@@ -12,9 +12,9 @@ import id.or.codelabs.belajarbraille.data.TandaBacaModel;
 
 public interface ExercisePunctuationContract {
     interface View extends BaseView{
-        void showTandaBacaData(List<TandaBacaModel> tandaBacaDataSet);
+        void showPunctuationData(List<PunctuationModel> tandaBacaDataSet);
     }
     interface Presenter extends BasePresenter{
-        void loadTandaBacaData();
+        void loadPunctuationData();
     }
 }

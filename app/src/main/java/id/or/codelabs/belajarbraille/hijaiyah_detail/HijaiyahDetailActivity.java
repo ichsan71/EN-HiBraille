@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -26,8 +25,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
 
     private HijaiyahDetailContract.Presenter presenter;
     private ImageView imageHijaiyah;
-    private TextView nameHijaiyah;
-    private Button buttonCariHukumBacaan;
+    private Button buttonFindReadingLaw;
     private View brailleDot1;
     private View brailleDot2;
     private View brailleDot3;
@@ -65,8 +63,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
 
     private void initView() {
         imageHijaiyah = findViewById(R.id.hijaiyahdetail_imageview_hijaiyah);
-//        nameHijaiyah = findViewById(R.id.hijaiyahdetail_textview_symbol_name);
-        buttonCariHukumBacaan = findViewById(R.id.hijaiyahdetail_button_find_reading_law);
+        buttonFindReadingLaw = findViewById(R.id.hijaiyahdetail_button_find_reading_law);
         brailleDot1 = findViewById(R.id.hijaiyahdetail_view_braille_dot_1);
         brailleDot2 = findViewById(R.id.hijaiyahdetail_view_braille_dot_2);
         brailleDot3 = findViewById(R.id.hijaiyahdetail_view_braille_dot_3);
@@ -75,7 +72,7 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         brailleDot6 = findViewById(R.id.hijaiyahdetail_view_braille_dot_6);
         Drawable drawable = HijaiyahDetailActivity.this.getResources().getDrawable(R.drawable.ic_google);
         drawable.setBounds(0, 0, 40, 40);
-        buttonCariHukumBacaan.setCompoundDrawables(drawable, null, null, null);
+        buttonFindReadingLaw.setCompoundDrawables(drawable, null, null, null);
     }
 
     @Override
@@ -118,10 +115,9 @@ public class HijaiyahDetailActivity extends AppCompatActivity implements Hijaiya
         }
         imageHijaiyah.setImageResource(hijaiyahModel.getImageHijaiyah());
         imageHijaiyah.setContentDescription(hijaiyahModel.getNameHijaiyah() + "." + getString(R.string.hijaiyah_detail_guide) + ".");
-        //nameHijaiyah.setText(hijaiyahModel.getNameHijaiyah());
         getSupportActionBar().setTitle("Detail Braille " + hijaiyahModel.getNameHijaiyah());
         toolbar.setContentDescription("Detail Braille " + hijaiyahModel.getNameHijaiyah() + ". 8 Elemen Layar.");
-        buttonCariHukumBacaan.setOnClickListener(new View.OnClickListener() {
+        buttonFindReadingLaw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  String query = "hukum bacaan " + hijaiyahModel.getNameHijaiyah();

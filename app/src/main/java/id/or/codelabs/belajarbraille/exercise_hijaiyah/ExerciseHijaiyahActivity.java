@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,9 +29,9 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private List<String> listRightAnswer = new ArrayList<>();
     private int countActivity = 0;
+    private int countWrong = 0;
     private ExerciseHijaiyahContract.Presenter presenter;
     private ImageView imageHijaiyah;
-    private TextView nameHijaiyah;
     private ImageButton buttonSpeechRecognizer;
     private List<HijaiyahModel> listHijaiyah;
     private Button buttonNextSymbol;
@@ -71,8 +70,8 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
     }
 
     private void setupToolbar() {
-        toolbar = findViewById(R.id.toolbar_latihan_hijaiyah);
-        toolbar.setContentDescription("Latihan Braille Hijaiyah");
+        toolbar = findViewById(R.id.toolbar_exercise_hijaiyah);
+        toolbar.setContentDescription("Menu Latihan Braille Hijaiyah. 3 Elemen Layar.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Hijaiyah");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -80,10 +79,9 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
     }
 
     private void initView() {
-        imageHijaiyah = findViewById(R.id.latihanhijaiyah_imageview_hijaiyah);
-//        nameHijaiyah = findViewById(R.id.latihanhijaiyah_textview_nama_simbol);
-        buttonSpeechRecognizer = findViewById(R.id.latihanhijaiyah_button_pesan_suara);
-        buttonNextSymbol = findViewById(R.id.latihanhijaiyah_button_simbol_lain);
+        imageHijaiyah = findViewById(R.id.exercisehijaiyah_imageview_hijaiyah);
+        buttonSpeechRecognizer = findViewById(R.id.exercisehijaiyah_button_voice_message);
+        buttonNextSymbol = findViewById(R.id.exercisehijaiyah_button_next_symbol);
     }
 
     private void showInputVoiceDialog() {
@@ -126,7 +124,10 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
                             //Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
                             builder.setTitle("Selamat!");
-                            builder.setMessage("Jawabanmu benar. Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                            builder.setMessage("Jawabanmu benar. Titik-titik pembentuk braille "
+                                    + listHijaiyah.get(countActivity).getNameHijaiyah() + " adalah "
+                                    + listHijaiyah.get(countActivity).getBrailleDotsHijaiyah() +
+                                    ". Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
                             builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -137,25 +138,43 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         } else {
-                            //Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
-                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                            builder.setTitle("Sayang Sekali,");
-                            builder.setMessage("Jawabanmu belum benar. Silahkan coba lagi.");
-                            builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    changeSymbol();
-                                }
-                            });
-                            builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                }
-                            });
-                            // create and show the alert dialog
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
+                            countWrong++;
+                            if(countWrong < 2) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                builder.setTitle("Sayang Sekali,");
+                                builder.setMessage("Jawabanmu belum benar. Silahkan coba lagi.");
+                                builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        changeSymbol();
+                                    }
+                                });
+                                builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                // create and show the alert dialog
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                builder.setTitle("Sayang Sekali,");
+                                builder.setMessage("Jawabanmu belum benar. Titik-titik pembentuk braille "
+                                        + listHijaiyah.get(countActivity).getNameHijaiyah() + " adalah "
+                                        + listHijaiyah.get(countActivity).getBrailleDotsHijaiyah() +
+                                        ". Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                                builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        changeSymbol();
+                                    }
+                                });
+                                // create and show the alert dialog
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            }
                         }
                     }
                 } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR) {
@@ -179,6 +198,7 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
         countActivity++;
         listRightAnswer.clear();
         addRightAnswer();
+        countWrong = 0;
     }
 
     private void showToastMessage(String message) {
@@ -209,7 +229,6 @@ public class ExerciseHijaiyahActivity extends AppCompatActivity implements Exerc
         imageHijaiyah.setImageResource(listHijaiyah.get(countActivity).getImageHijaiyah());
         imageHijaiyah.setContentDescription(listHijaiyah.get(countActivity).getNameHijaiyah() + "."
         + getString(R.string.exercise_question));
-        //nameHijaiyah.setText(listHijaiyah.get(countActivity).getNameHijaiyah());
     }
 
     @Override

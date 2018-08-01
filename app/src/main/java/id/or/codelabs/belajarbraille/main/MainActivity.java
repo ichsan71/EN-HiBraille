@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
-import android.widget.TextView;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.ThemeSwitcherDialog;
@@ -28,18 +27,12 @@ import id.or.codelabs.belajarbraille.learn_punctuation.LearnPunctuationActivity;
 public class MainActivity extends AppCompatActivity implements MainContract.View, View.OnClickListener{
 
     Toolbar toolbar;
-    private CardView cvBelajarHijaiyah;
-    private CardView cvBelajarTandaBaca;
-    private CardView cvBelajarPenggabungan;
-    private CardView cvLatihanHijaiyah;
-    private CardView cvLatihanTandaBaca;
-    private CardView cvLatihanPenggabungan;
-    private TextView txtMenu1;
-    private TextView txtMenu2;
-    private TextView txtMenu3;
-    private TextView txtMenu4;
-    private TextView txtMenu5;
-    private TextView txtMenu6;
+    private CardView cvLearnHijaiyah;
+    private CardView cvLearnPunctuation;
+    private CardView cvLearnBrailleMerge;
+    private CardView cvExerciseHijaiyah;
+    private CardView cvExercisePunctuation;
+    private CardView cvExerciseBrailleMerge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,12 +59,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         initView();
         setupToolbar();
 
-        cvBelajarHijaiyah.setOnClickListener(this);
-        cvBelajarTandaBaca.setOnClickListener(this);
-        cvBelajarPenggabungan.setOnClickListener(this);
-        cvLatihanHijaiyah.setOnClickListener(this);
-        cvLatihanTandaBaca.setOnClickListener(this);
-        cvLatihanPenggabungan.setOnClickListener(this);
+        cvLearnHijaiyah.setOnClickListener(this);
+        cvLearnPunctuation.setOnClickListener(this);
+        cvLearnBrailleMerge.setOnClickListener(this);
+        cvExerciseHijaiyah.setOnClickListener(this);
+        cvExercisePunctuation.setOnClickListener(this);
+        cvExerciseBrailleMerge.setOnClickListener(this);
     }
 
     private void setupToolbar() {
@@ -104,40 +97,34 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void initView() {
-        cvBelajarHijaiyah = findViewById(R.id.main_cardview_learn_hijaiyah);
-        cvBelajarTandaBaca = findViewById(R.id.main_cardview_learn_punctuation);
-        cvBelajarPenggabungan = findViewById(R.id.main_cardview_learn_braille_merge);
-        cvLatihanHijaiyah = findViewById(R.id.main_cardview_exercise_hijaiyah);
-        cvLatihanTandaBaca = findViewById(R.id.main_cardview_exercise_punctuation);
-        cvLatihanPenggabungan = findViewById(R.id.main_cardview_exercise_braille_merge);
-        txtMenu1 = findViewById(R.id.main_textview_level_learn_hijaiyah);
-        txtMenu2 = findViewById(R.id.main_textview_level_exercise_hijaiyah);
-        txtMenu3 = findViewById(R.id.main_textview_level_learn_punctuation);
-        txtMenu4 = findViewById(R.id.main_textview_level_exercise_punctuation);
-        txtMenu5 = findViewById(R.id.main_textview_level_learn_braille_merge);
-        txtMenu6 = findViewById(R.id.main_textview_level_exercise_braille_merge);
+        cvLearnHijaiyah = findViewById(R.id.main_cardview_learn_hijaiyah);
+        cvLearnPunctuation = findViewById(R.id.main_cardview_learn_punctuation);
+        cvLearnBrailleMerge = findViewById(R.id.main_cardview_learn_braille_merge);
+        cvExerciseHijaiyah = findViewById(R.id.main_cardview_exercise_hijaiyah);
+        cvExercisePunctuation = findViewById(R.id.main_cardview_exercise_punctuation);
+        cvExerciseBrailleMerge = findViewById(R.id.main_cardview_exercise_braille_merge);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.main_cardview_learn_hijaiyah:
-                showBelajarHijaiyahView();
+                showLearnHijaiyahView();
                 break;
             case R.id.main_cardview_learn_punctuation:
-                showBelajarTandaBacaView();
+                showLearnPunctuationView();
                 break;
             case R.id.main_cardview_learn_braille_merge:
-                showBelajarPenggabunganView();
+                showLearnBrailleMergeView();
                 break;
             case R.id.main_cardview_exercise_hijaiyah:
-                showLatihanHijaiyahView();
+                showExerciseHijaiyahView();
                 break;
             case R.id.main_cardview_exercise_punctuation:
-                showLatihanTandaBacaView();
+                showExercisePunctuationView();
                 break;
             case R.id.main_cardview_exercise_braille_merge:
-                showLatihanPenggabunganView();
+                showExerciseBrailleMergeView();
                 break;
         }
     }
@@ -148,37 +135,37 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void showBelajarHijaiyahView() {
+    public void showLearnHijaiyahView() {
         Intent intent = new Intent(MainActivity.this, LearnHijaiyahActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public void showBelajarTandaBacaView() {
+    public void showLearnPunctuationView() {
         Intent intent = new Intent(MainActivity.this, LearnPunctuationActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public void showBelajarPenggabunganView() {
+    public void showLearnBrailleMergeView() {
         Intent intent = new Intent(MainActivity.this, LearnBrailleMergeActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public void showLatihanHijaiyahView() {
+    public void showExerciseHijaiyahView() {
         Intent intent = new Intent(MainActivity.this, ExerciseHijaiyahActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public void showLatihanTandaBacaView() {
+    public void showExercisePunctuationView() {
         Intent intent = new Intent(MainActivity.this, ExercisePunctuationActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public void showLatihanPenggabunganView() {
+    public void showExerciseBrailleMergeView() {
         Intent intent = new Intent(MainActivity.this, ExerciseBrailleMergeActivity.class);
         startActivity(intent);
     }

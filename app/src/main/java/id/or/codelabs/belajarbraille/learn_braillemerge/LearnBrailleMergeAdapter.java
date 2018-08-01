@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
-import id.or.codelabs.belajarbraille.data.PenggabunganModel;
+import id.or.codelabs.belajarbraille.data.BrailleMergeModel;
 
 /**
  * Created by FitriFebriana on 5/23/2018.
@@ -24,16 +24,16 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
         implements Filterable{
 
     private Context context;
-    private List<PenggabunganModel> penggabunganDataSet;
-    private List<PenggabunganModel> penggabunganDataSet2;
-    private PenggabunganListener penggabunganListener;
+    private List<BrailleMergeModel> brailleMergeDataSet;
+    private List<BrailleMergeModel> brailleMergeDataSet2;
+    private BrailleMergeListener brailleMergeListener;
 
-    public LearnBrailleMergeAdapter(Context context, List<PenggabunganModel> penggabunganDataSet,
-                                    PenggabunganListener penggabunganListener) {
+    public LearnBrailleMergeAdapter(Context context, List<BrailleMergeModel> brailleMergeDataSet,
+                                    BrailleMergeListener brailleMergeListener) {
         this.context = context;
-        this.penggabunganDataSet = penggabunganDataSet;
-        this.penggabunganDataSet2 = penggabunganDataSet;
-        this.penggabunganListener = penggabunganListener;
+        this.brailleMergeDataSet = brailleMergeDataSet;
+        this.brailleMergeDataSet2 = brailleMergeDataSet;
+        this.brailleMergeListener = brailleMergeListener;
     }
 
     @Override
@@ -44,19 +44,16 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        PenggabunganModel model = penggabunganDataSet2.get(position);
-        ((ViewHolderItem) holder).imagePenggabungan.setImageDrawable(context.getResources()
-                .getDrawable(model.getImagePenggabungan()));
-        ((ViewHolderItem) holder).imagePenggabungan.setContentDescription(model.getNameTandaBaca() + "."
-        + model.getSpellPenggabungan() + "." + model.getBrailleDotsPenggabungan() + ".");
-//        ((ViewHolderItem) holder).namePenggabungan.setText(model.getNamePenggabungan());
-//        ((ViewHolderItem) holder).spellPenggabungan.setText(model.getSpellPenggabungan());
-//        ((ViewHolderItem) holder).brailleDotsPenggabungan.setText(model.getBrailleDotsPenggabungan());
+        BrailleMergeModel model = brailleMergeDataSet2.get(position);
+        ((ViewHolderItem) holder).imageBrailleMerge.setImageDrawable(context.getResources()
+                .getDrawable(model.getImageBrailleMerge()));
+        ((ViewHolderItem) holder).imageBrailleMerge.setContentDescription(model.getNamePunctuation() + "."
+        + model.getSpellBrailleMerge() + "." + model.getBrailleDotsBrailleMerge() + ".");
     }
 
     @Override
     public int getItemCount() {
-        return penggabunganDataSet2.size();
+        return brailleMergeDataSet2.size();
     }
 
     @Override
@@ -66,29 +63,29 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
                 if (charString.isEmpty()) {
-                    penggabunganDataSet2 = penggabunganDataSet;
+                    brailleMergeDataSet2 = brailleMergeDataSet;
                 } else {
-                    List<PenggabunganModel> filterList = new ArrayList<>();
-                    for (PenggabunganModel penggabunganModel : penggabunganDataSet) {
+                    List<BrailleMergeModel> filterList = new ArrayList<>();
+                    for (BrailleMergeModel brailleMergeModel : brailleMergeDataSet) {
                         {
-                            if (penggabunganModel.getNamePenggabungan().toLowerCase().contains(charString) ||
-                                    penggabunganModel.getNamePenggabungan().contains(charString) ||
-                                    penggabunganModel.getNamePenggabungan().toUpperCase().contains(charString)) {
-                                filterList.add(penggabunganModel);
+                            if (brailleMergeModel.getNameBrailleMerge().toLowerCase().contains(charString) ||
+                                    brailleMergeModel.getNameBrailleMerge().contains(charString) ||
+                                    brailleMergeModel.getNameBrailleMerge().toUpperCase().contains(charString)) {
+                                filterList.add(brailleMergeModel);
                             }
 
                         }
                     }
-                    penggabunganDataSet = filterList;
+                    brailleMergeDataSet = filterList;
                 }
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = penggabunganDataSet;
+                filterResults.values = brailleMergeDataSet;
                 return filterResults;
             }
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                penggabunganDataSet2 = (List<PenggabunganModel>) filterResults.values;
+                brailleMergeDataSet2 = (List<BrailleMergeModel>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
@@ -96,34 +93,34 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
 
     public class ViewHolderItem extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView imagePenggabungan;
-        TextView namePenggabungan;
-        TextView spellPenggabungan;
-        TextView brailleDotsPenggabungan;
+        ImageView imageBrailleMerge;
+        TextView nameBrailleMerge;
+        TextView spellBrailleMerge;
+        TextView brailleDotsBrailleMerge;
 
         public ViewHolderItem(View itemView) {
             super(itemView);
-            imagePenggabungan = itemView.findViewById(R.id.learnbraillemerge_imageview_braille_merge);
-//            namePenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_name);
-//            spellPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_spell);
-//            brailleDotsPenggabungan = itemView.findViewById(R.id.learnbraillemerge_textview_braille_dots);
+            imageBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_imageview_braille_merge);
+//            nameBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_name);
+//            spellBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_spell);
+//            brailleDotsBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_braille_dots);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View view) {
-            penggabunganListener.onPenggabunganClick((penggabunganDataSet2.get(getAdapterPosition())));
+            brailleMergeListener.onBrailleMergeClick((brailleMergeDataSet2.get(getAdapterPosition())));
         }
 
     }
 
-    public void replaceData(List<PenggabunganModel> penggabunganDataSet) {
-        this.penggabunganDataSet = penggabunganDataSet;
-        this.penggabunganDataSet2 = penggabunganDataSet;
+    public void replaceData(List<BrailleMergeModel> brailleMergeDataSet) {
+        this.brailleMergeDataSet = brailleMergeDataSet;
+        this.brailleMergeDataSet2 = brailleMergeDataSet;
         notifyDataSetChanged();
     }
-    public interface PenggabunganListener{
-        void onPenggabunganClick(PenggabunganModel penggabunganModel);
+    public interface BrailleMergeListener{
+        void onBrailleMergeClick(BrailleMergeModel penggabunganModel);
     }
 }

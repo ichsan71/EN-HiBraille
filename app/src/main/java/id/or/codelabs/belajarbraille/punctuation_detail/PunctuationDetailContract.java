@@ -2,14 +2,14 @@ package id.or.codelabs.belajarbraille.punctuation_detail;
 
 import id.or.codelabs.belajarbraille.BasePresenter;
 import id.or.codelabs.belajarbraille.BaseView;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 
 public interface PunctuationDetailContract {
     interface View extends BaseView {
-        void showTandaBacaDetail(TandaBacaModel tandaBacaModel);
+        void showPunctuationDetail(PunctuationModel tandaBacaModel);
     }
 
     interface Presenter extends BasePresenter {
-        void loadTandaBacaDetail(TandaBacaModel tandaBacaModel);
+        void loadPunctuationDetail(PunctuationModel tandaBacaModel);
     }
 }

@@ -18,6 +18,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.or.codelabs.belajarbraille.GridRecyclerViewItemSpaces;
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.data.HijaiyahModel;
@@ -85,7 +86,6 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_hijaiyah);
-        toolbar.setContentDescription("Belajar Braille Hijaiyah. 7 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Hijaiyah");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -102,6 +102,8 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
     private void setupRecyclerView() {
         belajarHijaiyahAdapter = new LearnHijaiyahAdapter(getContext(), new ArrayList<HijaiyahModel>(), this);
         recyclerViewHijaiyah.setLayoutManager(new GridLayoutManager(LearnHijaiyahActivity.this, 2));
+        int spacing = getResources().getDimensionPixelSize(R.dimen.item_spaces);
+        recyclerViewHijaiyah.addItemDecoration(new GridRecyclerViewItemSpaces(spacing));
         recyclerViewHijaiyah.setHasFixedSize(true);
         recyclerViewHijaiyah.setAdapter(belajarHijaiyahAdapter);
     }
@@ -114,6 +116,7 @@ public class LearnHijaiyahActivity extends AppCompatActivity implements LearnHij
     @Override
     public void showHijaiyahData(List<HijaiyahModel> hijaiyahDataSet) {
         belajarHijaiyahAdapter.replaceData(hijaiyahDataSet);
+        toolbar.setContentDescription("Menu Belajar Braille Hijaiyah. " + String.valueOf(hijaiyahDataSet.size()) +" Simbol.");
     }
 
     @Override

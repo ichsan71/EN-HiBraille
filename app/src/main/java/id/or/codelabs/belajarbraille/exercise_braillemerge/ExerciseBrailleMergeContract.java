@@ -4,7 +4,7 @@ import java.util.List;
 
 import id.or.codelabs.belajarbraille.BasePresenter;
 import id.or.codelabs.belajarbraille.BaseView;
-import id.or.codelabs.belajarbraille.data.PenggabunganModel;
+import id.or.codelabs.belajarbraille.data.BrailleMergeModel;
 
 /**
  * Created by FitriFebriana on 5/23/2018.
@@ -12,10 +12,10 @@ import id.or.codelabs.belajarbraille.data.PenggabunganModel;
 
 public interface ExerciseBrailleMergeContract {
     interface View extends BaseView{
-        void showPenggabunganData(List<PenggabunganModel> penggabunganDataSet);
+        void showBrailleMergeData(List<BrailleMergeModel> penggabunganDataSet);
     }
     interface Presenter extends BasePresenter{
-        void loadPenggabunganData();
+        void loadBrailleMergeData();
     }
 }
 

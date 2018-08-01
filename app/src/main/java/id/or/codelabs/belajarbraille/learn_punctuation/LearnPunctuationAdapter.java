@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 
 /**
  * Created by FitriFebriana on 5/23/2018.
@@ -24,16 +24,16 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
         implements Filterable{
 
     private Context context;
-    private List<TandaBacaModel> tandaBacaDataSet;
-    private List<TandaBacaModel> tandaBacaDataSet2;
-    private TandaBacaListener tandaBacaListener;
+    private List<PunctuationModel> punctuationDataSet;
+    private List<PunctuationModel> punctuationDataSet2;
+    private PunctuationListener punctuationListener;
 
-    public LearnPunctuationAdapter(Context context, List<TandaBacaModel> tandaBacaDataSet,
-                                   TandaBacaListener tandaBacaListener) {
+    public LearnPunctuationAdapter(Context context, List<PunctuationModel> punctuationDataSet,
+                                   PunctuationListener punctuationListener) {
         this.context = context;
-        this.tandaBacaDataSet = tandaBacaDataSet;
-        this.tandaBacaDataSet2 = tandaBacaDataSet;
-        this.tandaBacaListener = tandaBacaListener;
+        this.punctuationDataSet = punctuationDataSet;
+        this.punctuationDataSet2 = punctuationDataSet;
+        this.punctuationListener = punctuationListener;
     }
 
     @Override
@@ -44,18 +44,18 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        TandaBacaModel model = tandaBacaDataSet2.get(position);
-        ((ViewHolderItem) holder).imageTandaBaca.setImageDrawable(context.getResources()
-                .getDrawable(model.getImageTandaBaca()));
-        ((ViewHolderItem) holder).imageTandaBaca.setContentDescription(model.getNameTandaBaca() + "."
-        + model.getBrailleDotsTandaBaca() + ".");
-//        ((ViewHolderItem) holder).nameTandaBaca.setText(model.getNameTandaBaca());
-//        ((ViewHolderItem) holder).brailleDotsTandaBaca.setText(model.getBrailleDotsTandaBaca());
+        PunctuationModel model = punctuationDataSet2.get(position);
+        ((ViewHolderItem) holder).imagePunctuation.setImageDrawable(context.getResources()
+                .getDrawable(model.getImagePunctuation()));
+        ((ViewHolderItem) holder).imagePunctuation.setContentDescription(model.getNamePunctuation() + "."
+        + model.getBrailleDotsPunctuation() + ".");
+//        ((ViewHolderItem) holder).namePunctuation.setText(model.getNamePunctuation());
+//        ((ViewHolderItem) holder).brailleDotsPunctuation.setText(model.getBrailleDotsPunctuation());
     }
 
     @Override
     public int getItemCount() {
-        return tandaBacaDataSet2.size();
+        return punctuationDataSet2.size();
     }
 
     @Override
@@ -65,29 +65,29 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
                 if (charString.isEmpty()) {
-                    tandaBacaDataSet2 = tandaBacaDataSet;
+                    punctuationDataSet2 = punctuationDataSet;
                 } else {
-                    List<TandaBacaModel> filterList = new ArrayList<>();
-                    for (TandaBacaModel tandaBacaModel : tandaBacaDataSet) {
+                    List<PunctuationModel> filterList = new ArrayList<>();
+                    for (PunctuationModel punctuationModel : punctuationDataSet) {
                         {
-                            if (tandaBacaModel.getNameTandaBaca().toLowerCase().contains(charString) ||
-                                    tandaBacaModel.getNameTandaBaca().contains(charString) ||
-                                    tandaBacaModel.getNameTandaBaca().toUpperCase().contains(charString)) {
-                                filterList.add(tandaBacaModel);
+                            if (punctuationModel.getNamePunctuation().toLowerCase().contains(charString) ||
+                                    punctuationModel.getNamePunctuation().contains(charString) ||
+                                    punctuationModel.getNamePunctuation().toUpperCase().contains(charString)) {
+                                filterList.add(punctuationModel);
                             }
 
                         }
                     }
-                    tandaBacaDataSet = filterList;
+                    punctuationDataSet = filterList;
                 }
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = tandaBacaDataSet;
+                filterResults.values = punctuationDataSet;
                 return filterResults;
             }
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                tandaBacaDataSet2 = (List<TandaBacaModel>) filterResults.values;
+                punctuationDataSet2 = (List<PunctuationModel>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
@@ -95,32 +95,32 @@ public class LearnPunctuationAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     public class ViewHolderItem extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView imageTandaBaca;
-        TextView nameTandaBaca;
-        TextView brailleDotsTandaBaca;
+        ImageView imagePunctuation;
+        TextView namePunctuation;
+        TextView brailleDotsPunctuation;
 
         public ViewHolderItem(View itemView) {
             super(itemView);
-            imageTandaBaca = itemView.findViewById(R.id.learnpunctuation_imageview_punctuation);
-//            nameTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_symbol_name);
-//            brailleDotsTandaBaca = itemView.findViewById(R.id.learnpunctuation_textview_braille_dots);
+            imagePunctuation = itemView.findViewById(R.id.learnpunctuation_imageview_punctuation);
+//            namePunctuation = itemView.findViewById(R.id.learnpunctuation_textview_symbol_name);
+//            brailleDotsPunctuation = itemView.findViewById(R.id.learnpunctuation_textview_braille_dots);
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View view) {
-            tandaBacaListener.onTandaBacaClick((tandaBacaDataSet2.get(getAdapterPosition())));
+            punctuationListener.onPunctuationClick((punctuationDataSet2.get(getAdapterPosition())));
         }
 
     }
 
-    public void replaceData(List<TandaBacaModel> tandaBacaDataSet) {
-        this.tandaBacaDataSet = tandaBacaDataSet;
-        this.tandaBacaDataSet2 = tandaBacaDataSet;
+    public void replaceData(List<PunctuationModel> punctuationDataSet) {
+        this.punctuationDataSet = punctuationDataSet;
+        this.punctuationDataSet2 = punctuationDataSet;
         notifyDataSetChanged();
     }
-    public interface TandaBacaListener{
-        void onTandaBacaClick(TandaBacaModel tandaBacaModel);
+    public interface PunctuationListener{
+        void onPunctuationClick(PunctuationModel punctuationModel);
     }
 }

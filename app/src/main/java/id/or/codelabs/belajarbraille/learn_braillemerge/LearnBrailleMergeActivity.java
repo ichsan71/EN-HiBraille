@@ -18,18 +18,19 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.or.codelabs.belajarbraille.GridRecyclerViewItemSpaces;
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.Utility;
 import id.or.codelabs.belajarbraille.braillemerge_detail.BrailleMergeDetailActivity;
-import id.or.codelabs.belajarbraille.data.PenggabunganModel;
+import id.or.codelabs.belajarbraille.data.BrailleMergeModel;
 
 public class LearnBrailleMergeActivity extends AppCompatActivity implements LearnBrailleMergeContract.View,
-        LearnBrailleMergeAdapter.PenggabunganListener{
+        LearnBrailleMergeAdapter.BrailleMergeListener{
 
     private LearnBrailleMergeContract.Presenter presenter;
-    private List<Object> penggabunganDataSet = new ArrayList<>();
-    private RecyclerView recyclerViewPenggabungan;
-    private LearnBrailleMergeAdapter belajarPenggabunganAdapter;
+    private List<Object> brailleMergeDataSet = new ArrayList<>();
+    private RecyclerView recyclerViewBrailleMerge;
+    private LearnBrailleMergeAdapter belajarBrailleMergeAdapter;
     private Toolbar toolbar;
     private MaterialSearchView searchView;
 
@@ -81,19 +82,18 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
     }
 
     private void callSearch(String newText) {
-        belajarPenggabunganAdapter.getFilter().filter(newText);
+        belajarBrailleMergeAdapter.getFilter().filter(newText);
     }
 
     private void initView() {
         searchView = findViewById(R.id.search_view_braille_merge);
-        recyclerViewPenggabungan = findViewById(R.id.learnbraillemerge_recyclerview);
+        recyclerViewBrailleMerge = findViewById(R.id.learnbraillemerge_recyclerview);
         searchView.findViewById(R.id.action_voice_btn).setContentDescription("Penelusuran Suara");
         searchView.findViewById(R.id.action_up_btn).setContentDescription("Navigasi Naik");
     }
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_braille_merge);
-        toolbar.setContentDescription("Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca. 9 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Gabungan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -101,15 +101,19 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
     }
 
     private void setupRecyclerView() {
-        belajarPenggabunganAdapter = new LearnBrailleMergeAdapter(getContext(), new ArrayList<PenggabunganModel>(), this);
-        recyclerViewPenggabungan.setLayoutManager(new GridLayoutManager(LearnBrailleMergeActivity.this, 2));
-        recyclerViewPenggabungan.setHasFixedSize(true);
-        recyclerViewPenggabungan.setAdapter(belajarPenggabunganAdapter);
+        belajarBrailleMergeAdapter = new LearnBrailleMergeAdapter(getContext(), new ArrayList<BrailleMergeModel>(), this);
+        recyclerViewBrailleMerge.setLayoutManager(new GridLayoutManager(LearnBrailleMergeActivity.this, 2));
+        int spacing = getResources().getDimensionPixelSize(R.dimen.item_spaces);
+        recyclerViewBrailleMerge.addItemDecoration(new GridRecyclerViewItemSpaces(spacing));
+        recyclerViewBrailleMerge.setHasFixedSize(true);
+        recyclerViewBrailleMerge.setAdapter(belajarBrailleMergeAdapter);
     }
 
     @Override
-    public void showPenggabunganData(List<PenggabunganModel> penggabunganDataSet) {
-        belajarPenggabunganAdapter.replaceData(penggabunganDataSet);
+    public void showBrailleMergeData(List<BrailleMergeModel> brailleMergeDataSet) {
+        belajarBrailleMergeAdapter.replaceData(brailleMergeDataSet);
+        toolbar.setContentDescription("Menu Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca. "
+                + String.valueOf(brailleMergeDataSet.size()) + " Simbol.");
     }
 
     @Override
@@ -135,10 +139,10 @@ public class LearnBrailleMergeActivity extends AppCompatActivity implements Lear
     }
 
     @Override
-    public void onPenggabunganClick(PenggabunganModel penggabunganModel) {
-        String data = new Gson().toJson(penggabunganModel);
+    public void onBrailleMergeClick(BrailleMergeModel brailleMergeModel) {
+        String data = new Gson().toJson(brailleMergeModel);
         Intent intent = new Intent(LearnBrailleMergeActivity.this, BrailleMergeDetailActivity.class);
-        intent.putExtra("penggabungan", data);
+        intent.putExtra("braille-merge", data);
         startActivity(intent);
     }
 

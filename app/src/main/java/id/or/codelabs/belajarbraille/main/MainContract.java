@@ -9,12 +9,12 @@ import id.or.codelabs.belajarbraille.BaseView;
 
 public interface MainContract {
     interface View extends BaseView{
-        void showBelajarHijaiyahView();
-        void showBelajarTandaBacaView();
-        void showBelajarPenggabunganView();
-        void showLatihanHijaiyahView();
-        void showLatihanTandaBacaView();
-        void showLatihanPenggabunganView();
+        void showLearnHijaiyahView();
+        void showLearnPunctuationView();
+        void showLearnBrailleMergeView();
+        void showExerciseHijaiyahView();
+        void showExercisePunctuationView();
+        void showExerciseBrailleMergeView();
     }
     interface Presenter extends BasePresenter{
 

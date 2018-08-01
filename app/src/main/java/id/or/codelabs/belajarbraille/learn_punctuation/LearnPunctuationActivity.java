@@ -18,17 +18,18 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.or.codelabs.belajarbraille.GridRecyclerViewItemSpaces;
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.Utility;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 import id.or.codelabs.belajarbraille.punctuation_detail.PunctuationDetailActivity;
 
-public class LearnPunctuationActivity extends AppCompatActivity implements LearnPunctuationContract.View, LearnPunctuationAdapter.TandaBacaListener {
+public class LearnPunctuationActivity extends AppCompatActivity implements LearnPunctuationContract.View, LearnPunctuationAdapter.PunctuationListener {
 
     private LearnPunctuationContract.Presenter presenter;
-    private List<Object> tandaBacaDataSet = new ArrayList<>();
-    private RecyclerView recyclerViewTandaBaca;
-    private LearnPunctuationAdapter belajarTandaBacaAdapter;
+    private List<Object> punctuationDataSet = new ArrayList<>();
+    private RecyclerView recyclerViewPunctuation;
+    private LearnPunctuationAdapter belajarPunctuationAdapter;
     private Toolbar toolbar;
     private MaterialSearchView searchView;
 
@@ -80,19 +81,18 @@ public class LearnPunctuationActivity extends AppCompatActivity implements Learn
     }
 
     private void callSearch(String newText) {
-        belajarTandaBacaAdapter.getFilter().filter(newText);
+        belajarPunctuationAdapter.getFilter().filter(newText);
     }
 
     private void initView() {
         searchView = findViewById(R.id.search_view_punctuation);
-        recyclerViewTandaBaca = findViewById(R.id.learnpunctuation_recyclerview);
+        recyclerViewPunctuation = findViewById(R.id.learnpunctuation_recyclerview);
         searchView.findViewById(R.id.action_voice_btn).setContentDescription("Penelusuran Suara");
         searchView.findViewById(R.id.action_up_btn).setContentDescription("Navigasi Naik");
     }
 
     private void setupToolbar() {
         toolbar = findViewById(R.id.toolbar_learn_punctuation);
-        toolbar.setContentDescription("Belajar Braille Tanda Baca. 6 Simbol.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Braille Tanda Baca");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -100,15 +100,18 @@ public class LearnPunctuationActivity extends AppCompatActivity implements Learn
     }
 
     private void setupRecyclerView() {
-        belajarTandaBacaAdapter = new LearnPunctuationAdapter(getContext(), new ArrayList<TandaBacaModel>(), this);
-        recyclerViewTandaBaca.setLayoutManager(new GridLayoutManager(LearnPunctuationActivity.this, 2));
-        recyclerViewTandaBaca.setHasFixedSize(true);
-        recyclerViewTandaBaca.setAdapter(belajarTandaBacaAdapter);
+        belajarPunctuationAdapter = new LearnPunctuationAdapter(getContext(), new ArrayList<PunctuationModel>(), this);
+        recyclerViewPunctuation.setLayoutManager(new GridLayoutManager(LearnPunctuationActivity.this, 2));
+        int spacing = getResources().getDimensionPixelSize(R.dimen.item_spaces);
+        recyclerViewPunctuation.addItemDecoration(new GridRecyclerViewItemSpaces(spacing));
+        recyclerViewPunctuation.setHasFixedSize(true);
+        recyclerViewPunctuation.setAdapter(belajarPunctuationAdapter);
     }
 
     @Override
-    public void showTandaBacaData(List<TandaBacaModel> tandaBacaDataSet) {
-        belajarTandaBacaAdapter.replaceData(tandaBacaDataSet);
+    public void showPunctuationData(List<PunctuationModel> punctuationDataSet) {
+        belajarPunctuationAdapter.replaceData(punctuationDataSet);
+        toolbar.setContentDescription("Menu Belajar Braille Tanda Baca. " + String.valueOf(punctuationDataSet.size()) + " Simbol.");
     }
 
     @Override
@@ -134,10 +137,10 @@ public class LearnPunctuationActivity extends AppCompatActivity implements Learn
     }
 
     @Override
-    public void onTandaBacaClick(TandaBacaModel tandaBacaModel) {
-        String data = new Gson().toJson(tandaBacaModel);
+    public void onPunctuationClick(PunctuationModel punctuationModel) {
+        String data = new Gson().toJson(punctuationModel);
         Intent intent = new Intent(LearnPunctuationActivity.this, PunctuationDetailActivity.class);
-        intent.putExtra("tanda-baca", data);
+        intent.putExtra("punctuation", data);
         startActivity(intent);
     }
 

@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,18 +21,18 @@ import java.util.List;
 
 import id.or.codelabs.belajarbraille.R;
 import id.or.codelabs.belajarbraille.Utility;
-import id.or.codelabs.belajarbraille.data.TandaBacaModel;
+import id.or.codelabs.belajarbraille.data.PunctuationModel;
 
 public class ExercisePunctuationActivity extends AppCompatActivity implements ExercisePunctuationContract.View {
 
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private List<String> listRightAnswer = new ArrayList<>();
     private int countActivity = 0;
+    private int countWrong = 0;
     private ExercisePunctuationContract.Presenter presenter;
-    private ImageView imageTandaBaca;
-    private TextView nameTandaBaca;
+    private ImageView imagePunctuation;
     private ImageButton buttonSpeechRecognizer;
-    private List<TandaBacaModel> listTandaBaca;
+    private List<PunctuationModel> listPunctuation;
     private Button buttonNextSymbol;
     private Toolbar toolbar;
 
@@ -70,8 +69,8 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
     }
 
     private void setupToolbar() {
-        toolbar = findViewById(R.id.toolbar_latihan_tanda_baca);
-        toolbar.setContentDescription("Latihan Braille Tanda Baca");
+        toolbar = findViewById(R.id.toolbar_exercise_punctuation);
+        toolbar.setContentDescription("Menu Latihan Braille Tanda Baca. 3 Elemen Layar.");
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Latihan Braille Tanda Baca");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,10 +78,9 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
     }
 
     private void initView() {
-        imageTandaBaca = findViewById(R.id.latihantandabaca_imageview_tanda_baca);
-//        nameTandaBaca = findViewById(R.id.latihantandabaca_textview_nama_simbol);
-        buttonSpeechRecognizer = findViewById(R.id.latihantandabaca_button_pesan_suara);
-        buttonNextSymbol = findViewById(R.id.latihantandabaca_button_simbol_lain);
+        imagePunctuation = findViewById(R.id.exercisepunctuation_imageview_punctuation);
+        buttonSpeechRecognizer = findViewById(R.id.exercisepunctuation_button_voice_message);
+        buttonNextSymbol = findViewById(R.id.exercisepunctuation_button_next_symbol);
     }
 
     private void showInputVoiceDialog() {
@@ -125,7 +123,10 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
                             //Toast.makeText(getApplicationContext(), "Jawaban Benar", Toast.LENGTH_LONG).show();
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
                             builder.setTitle("Selamat!");
-                            builder.setMessage("Jawabanmu benar. Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                            builder.setMessage("Jawabanmu benar. Titik-titik pembentuk braille "
+                                    + listPunctuation.get(countActivity).getNamePunctuation() + " adalah "
+                                    + listPunctuation.get(countActivity).getBrailleDotsPunctuation() +
+                                    ". Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
                             builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -136,25 +137,43 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         } else {
-                            //Toast.makeText(getApplicationContext(), "Jawaban Salah", Toast.LENGTH_LONG).show();
-                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                            builder.setTitle("Sayang Sekali,");
-                            builder.setMessage("Jawabanmu belum benar. Silahkan coba lagi.");
-                            builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    changeSymbol();
-                                }
-                            });
-                            builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                }
-                            });
-                            // create and show the alert dialog
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
+                            countWrong++;
+                            if(countWrong < 2) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                builder.setTitle("Sayang Sekali,");
+                                builder.setMessage("Jawabanmu belum benar. Silahkan coba lagi.");
+                                builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        changeSymbol();
+                                    }
+                                });
+                                builder.setNegativeButton("Coba Lagi", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                // create and show the alert dialog
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                builder.setTitle("Sayang Sekali,");
+                                builder.setMessage("Jawabanmu belum benar. Titik-titik pembentuk braille "
+                                        + listPunctuation.get(countActivity).getNamePunctuation() + " adalah "
+                                        + listPunctuation.get(countActivity).getBrailleDotsPunctuation() +
+                                        ". Ketuk dua kali pada tombol Lanjutkan untuk melanjutkan latihan.");
+                                builder.setPositiveButton("Lanjutkan", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        changeSymbol();
+                                    }
+                                });
+                                // create and show the alert dialog
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            }
                         }
                     }
                 } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR) {
@@ -175,30 +194,30 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
     }
 
     private void addRightAnswer() {
-        if(listTandaBaca.get(countActivity).getListBrailleDots().get(0) == 1){
+        if(listPunctuation.get(countActivity).getListBrailleDots().get(0) == 1){
             listRightAnswer.add("satu");
-        }if(listTandaBaca.get(countActivity).getListBrailleDots().get(1) == 1){
+        }if(listPunctuation.get(countActivity).getListBrailleDots().get(1) == 1){
             listRightAnswer.add("dua");
-        }if(listTandaBaca.get(countActivity).getListBrailleDots().get(2) == 1){
+        }if(listPunctuation.get(countActivity).getListBrailleDots().get(2) == 1){
             listRightAnswer.add("tiga");
-        }if(listTandaBaca.get(countActivity).getListBrailleDots().get(3) == 1){
+        }if(listPunctuation.get(countActivity).getListBrailleDots().get(3) == 1){
             listRightAnswer.add("empat");
-        }if(listTandaBaca.get(countActivity).getListBrailleDots().get(4) == 1){
+        }if(listPunctuation.get(countActivity).getListBrailleDots().get(4) == 1){
             listRightAnswer.add("lima");
-        }if(listTandaBaca.get(countActivity).getListBrailleDots().get(5) == 1){
+        }if(listPunctuation.get(countActivity).getListBrailleDots().get(5) == 1){
             listRightAnswer.add("enam");
         }
 
-        imageTandaBaca.setImageResource(listTandaBaca.get(countActivity).getImageTandaBaca());
-        imageTandaBaca.setContentDescription(listTandaBaca.get(countActivity).getNameTandaBaca() + "." +
+        imagePunctuation.setImageResource(listPunctuation.get(countActivity).getImagePunctuation());
+        imagePunctuation.setContentDescription(listPunctuation.get(countActivity).getNamePunctuation() + "." +
         getString(R.string.exercise_question));
-        //nameTandaBaca.setText(listTandaBaca.get(countActivity).getNameTandaBaca());
     }
 
     private void changeSymbol() {
         countActivity++;
         listRightAnswer.clear();
         addRightAnswer();
+        countWrong = 0;
     }
 
     private void showToastMessage(String message) {
@@ -206,9 +225,9 @@ public class ExercisePunctuationActivity extends AppCompatActivity implements Ex
     }
 
     @Override
-    public void showTandaBacaData(List<TandaBacaModel> tandaBacaDataSet) {
+    public void showPunctuationData(List<PunctuationModel> punctuationDataSet) {
         //Get right answer
-        listTandaBaca = tandaBacaDataSet;
+        listPunctuation = punctuationDataSet;
         addRightAnswer();
     }
 
