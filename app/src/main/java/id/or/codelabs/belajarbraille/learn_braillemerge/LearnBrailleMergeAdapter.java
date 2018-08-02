@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +46,9 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
         BrailleMergeModel model = brailleMergeDataSet2.get(position);
         ((ViewHolderItem) holder).imageBrailleMerge.setImageDrawable(context.getResources()
                 .getDrawable(model.getImageBrailleMerge()));
-        ((ViewHolderItem) holder).imageBrailleMerge.setContentDescription(model.getNamePunctuation() + "."
-        + model.getSpellBrailleMerge() + "." + model.getBrailleDotsBrailleMerge() + ".");
+        ((ViewHolderItem) holder).imageBrailleMerge.setContentDescription(model.getNameBrailleMerge() + "."
+                + model.getSpellBrailleMerge() + "."
+                + model.getBrailleDotsBrailleMerge() + ".");
     }
 
     @Override
@@ -94,18 +94,11 @@ public class LearnBrailleMergeAdapter extends RecyclerView.Adapter<RecyclerView.
     public class ViewHolderItem extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imageBrailleMerge;
-        TextView nameBrailleMerge;
-        TextView spellBrailleMerge;
-        TextView brailleDotsBrailleMerge;
 
         public ViewHolderItem(View itemView) {
             super(itemView);
             imageBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_imageview_braille_merge);
-//            nameBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_name);
-//            spellBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_symbol_spell);
-//            brailleDotsBrailleMerge = itemView.findViewById(R.id.learnbraillemerge_textview_braille_dots);
             itemView.setOnClickListener(this);
-
         }
 
         @Override

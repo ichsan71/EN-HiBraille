@@ -178,7 +178,7 @@ public class LearnBrailleMergePresenter implements LearnBrailleMergeContract.Pre
         listBrailleDotsHijaiyah9.add(0);
         List<Integer> listBrailleDotsPunctuation9 = new ArrayList<>();
         listBrailleDotsPunctuation9.add(0);
-        listBrailleDotsPunctuation9.add(2);
+        listBrailleDotsPunctuation9.add(1);
         listBrailleDotsPunctuation9.add(0);
         listBrailleDotsPunctuation9.add(0);
         listBrailleDotsPunctuation9.add(0);
