@@ -11,13 +11,13 @@
 
     <string name="braille_dots">Keterangan nomor titik pembentuk simbol</string>
 
-    <string name="exercise_braille_merge">Menu Latihan Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
-    <string name="exercise_braille_punctuation">Menu Latihan Braille \n Tanda Baca</string>
-    <string name="exercise_braille_hijaiyah">Menu Latihan Braille \n Hijaiyah</string>
+    <string name="exercise_braille_merge_desc">Level 6. Menu Latihan Penggabungan Braille Hijaiyah dengan Tanda Baca.</string>
+    <string name="exercise_braille_punctuation_desc">Level 4. Menu Latihan Braille Tanda Baca.</string>
+    <string name="exercise_braille_hijaiyah_desc">Level 2. Menu Latihan Braille Hijaiyah.</string>
 
-    <string name="learn_punctuation_braille">Menu Belajar Braille \n Tanda Baca</string>
-    <string name="learn_braille_merge">Menu Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca</string>
-    <string name="learn_hijaiyah_braille">Menu Belajar Braille \n Hijaiyah</string>
+    <string name="learn_punctuation_braille_desc">Level 3. Menu Belajar Braille Tanda Baca.</string>
+    <string name="learn_braille_merge_desc">Level 5. Menu Belajar Penggabungan Braille Hijaiyah dengan Tanda Baca.</string>
+    <string name="learn_hijaiyah_braille_desc">Level 1. Menu Belajar Braille Hijaiyah.</string>
 
     <string name="main_guide">Geser untuk memilih menu.</string>
     <string name="learn_hijaiyah_guide">Geser untuk memilih simbol hijaiyah.</string>

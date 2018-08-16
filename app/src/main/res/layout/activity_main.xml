@@ -51,13 +51,12 @@
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true"
-                    android:contentDescription="@string/learn_hijaiyah_braille">
+                    android:contentDescription="@string/learn_hijaiyah_braille_desc">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="16dp">
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/main_textview_level_learn_hijaiyah"
@@ -65,7 +64,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/menu_1"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="48sp"
                             android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -74,18 +73,17 @@
                     android:id="@+id/main_cardview_exercise_hijaiyah"
                     android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true"
-                    android:contentDescription="@string/exercise_braille_hijaiyah">
+                    android:contentDescription="@string/exercise_braille_hijaiyah_desc">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="16dp"
                         android:layout_gravity="center">
 
                         <TextView
@@ -94,7 +92,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/menu_2"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="48sp"
                             android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -115,13 +113,12 @@
                 app:cardElevation="1dp"
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="true"
-                android:contentDescription="@string/learn_punctuation_braille">
+                android:contentDescription="@string/learn_punctuation_braille_desc">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="16dp">
+                    android:layout_gravity="center">
 
                     <TextView
                         android:id="@+id/main_textview_level_learn_punctuation"
@@ -129,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/menu_3"
                         android:textColor="@android:color/white"
-                        android:textSize="24sp"
+                        android:textSize="48sp"
                         android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -138,19 +135,18 @@
                     android:id="@+id/main_cardview_exercise_punctuation"
                     android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true"
-                    android:contentDescription="@string/exercise_braille_punctuation">
+                    android:contentDescription="@string/exercise_braille_punctuation_desc">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="16dp">
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/main_textview_level_exercise_punctuation"
@@ -158,7 +154,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/menu_4"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="48sp"
                             android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -179,13 +175,12 @@
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true"
-                    android:contentDescription="@string/learn_braille_merge">
+                    android:contentDescription="@string/learn_braille_merge_desc">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="16dp">
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/main_textview_level_learn_braille_merge"
@@ -193,7 +188,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/menu_5"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="48sp"
                             android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -202,19 +197,18 @@
                     android:id="@+id/main_cardview_exercise_braille_merge"
                     android:layout_width="158dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     app:cardBackgroundColor="?attr/colorPrimaryDark"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="1dp"
                     app:cardPreventCornerOverlap="false"
                     app:cardUseCompatPadding="true"
-                    android:contentDescription="@string/exercise_braille_merge">
+                    android:contentDescription="@string/exercise_braille_merge_desc">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="16dp">
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/main_textview_level_exercise_braille_merge"
@@ -222,7 +216,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/menu_6"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="48sp"
                             android:layout_centerHorizontal="true"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
